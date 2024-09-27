@@ -41,4 +41,3 @@ if (pregunta1===respuesta1 && pregunta2===respuesta2) {
 } else alert("Dan Farrik!");
 
 
-
