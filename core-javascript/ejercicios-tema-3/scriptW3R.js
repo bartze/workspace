@@ -95,3 +95,126 @@ const students = [
   }
   
   calculateAverageAndGrades();
+
+//   7. Write a JavaScript program that iterates integers from 1 to 100. 
+//But for multiples of three print "Fizz" instead of the number and for multiples of five print "Buzz". 
+//For numbers multiples of both three and five print "FizzBuzz".
+
+for(let i=1; i<101; i++){
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 === 0){
+        console.log("Fizz");
+    } else if(i % 5 === 0) {
+        console.log("Buzz")
+    } else console.log(i);
+};
+
+// 8. According to Wikipedia a happy number is defined by the following process :
+// "Starting with any positive integer, replace the number by the sum of the squares of its digits, 
+//and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. 
+//Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)".
+// Write a JavaScript program to find and print the first 5 happy numbers.
+
+const esNumeroFeliz = (num)=> {
+    while (num !== 1) {
+      let sumaCuadrados = 0;
+      while (num > 0) {
+        const digito = num % 10;
+        sumaCuadrados += digito ** 2;
+        num = Math.floor(num / 10);
+      }
+      num = sumaCuadrados;
+      if (num === 4) { // Si llega a 4, entra en un ciclo infinito
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  function encontrarPrimerosNumerosFelices(cantidad) {
+    let contador = 0;
+    let num = 1;
+  
+    while (contador < cantidad) {
+      if (esNumeroFeliz(num)) {
+        console.log("Happy " + num);
+        contador++;
+      }
+      num++;
+    }
+  }
+  
+  encontrarPrimerosNumerosFelices(5);
+
+//9. Write a JavaScript program to find the Armstrong numbers of 3 digits.
+//An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself.
+//For example, 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.
+
+const esNumeroArmstrong =(num) => {
+    // Convertimos el número a una cadena para manipular los dígitos
+    const numStr = num.toString();
+    
+    // Inicializamos la suma de los cubos
+    let sumaCubos = 0;
+  
+    // Iteramos sobre cada dígito del número
+    for (let i = 0; i < numStr.length; i++) {
+      const digito = parseInt(numStr[i]);
+      sumaCubos += digito ** 3;
+    }
+  
+    // Comparamos la suma de los cubos con el número original
+    return sumaCubos === num;
+  }
+  
+  // Encontramos y mostramos los números de Armstrong de 3 dígitos
+  for (let i = 100; i <= 999; i++) {
+    if (esNumeroArmstrong(i)) {
+      console.log("Amstrong " + i);
+    }
+  }
+
+//10. Write a JavaScript program to construct the following pattern, using a nested for loop.
+
+for (let i = 1; i<=5; i++) {
+    for (let j = 1; j<=i; j++){
+        console.log("*");
+    }
+    console.log("\n");//Salto de línea
+}
+
+// 11. Write a JavaScript program to compute the greatest common divisor (GCD) of two positive integers.
+
+const calcularMCD = (num1, num2)=>{
+    // Algoritmo de Euclides
+    while (num2 !== 0) {
+      const temp = num2;
+      num2 = num1 % num2;
+      num1 = temp;
+    }
+    return num1;
+  }
+  
+  // Ejemplo de uso:
+  const numero1 = 24;
+  const numero2 = 36;
+  
+  const mcd = calcularMCD(numero1, numero2);
+  console.log(`El MCD de ${numero1} y ${numero2} es: ${mcd}`);
+
+  //12. Write a JavaScript program to sum 3 and 5 multiples under 1000.
+  const sumarMultiplos = (limite) => {
+    let suma = 0;
+  
+    for (let i = 0; i < limite; i++) {
+      if (i % 3 === 0 || i % 5 === 0) {
+        suma += i;
+      }
+    }
+  
+    return suma;
+  }
+  
+  const resultado = sumarMultiplos(1000);
+  console.log("La suma de los múltiplos de 3 y 5 menores de 1000 es:", resultado);
