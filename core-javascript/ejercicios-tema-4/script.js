@@ -73,11 +73,27 @@ for (let i = 0; i < 10; i++) {
     console.log("Tabla de multiplicar del " + i);
     for (let j = 0; j <= 10; j++) {
         console.log(i + " x " + j + " = " + (j * i));
+        document.getElementById("resultado").textContent = i + " x " + j + " = " + (j * i);
     }
 };
 // 1.7. Página web ejecutada en bucle infinito que pregunta por una
 // multiplicación y te responde con la solución mientras te vuelve a
 // preguntar de nuevo. 
+function multiplicarInfinitamente() {
+    while (true) {
+      let num1 = parseFloat(prompt("Ingresa el primer número a multiplicar:"));
+      let num2 = parseFloat(prompt("Ingresa el segundo número a multiplicar:"));
+  
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Por favor, introduce solo números.");
+        continue; // Vuelve al inicio del bucle
+      }
+  
+      const resultado = num1 * num2;
+      alert(`El resultado de ${num1} * ${num2} es: ${resultado}`);
+    }
+  }
+  multiplicarInfinitamente();
 
 
 

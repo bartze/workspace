@@ -1,0 +1,28 @@
+body {
+    font-family: 'Noto Sans', cursive;
+    font-size: 24px; 
+    color: #4d1b0a; 
+    background-image: url('./src/fondo-dibujos-animados-3d-ninos_23-2150473169.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #f5f5f5; 
+    text-align: center; 
+  }
+  
+  input, button {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+  }
+  
+  button {
+    background-color: #e6e6e6;
+    cursor: pointer;
+  }
+  
+  #resultado {
+    font-size: 30px;
+    color: #4d1b0a; 
+    margin-top: 20px;
+  }
