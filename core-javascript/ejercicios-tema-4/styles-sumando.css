@@ -1,0 +1,51 @@
+body {
+    background-color: #2C3E50; 
+    font-family: "Courier New", Courier, monospace; 
+    color: #ECF0F1; 
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ECF0F1; 
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #ECF0F1;
+}
+
+input {
+    font-size: 1.25rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #ECF0F1;
+    background-color: #34495E; 
+    color: #ECF0F1;
+    outline: none;
+}
+
+button {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #27AE60; 
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2ECC71;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #F1C40F; 
+}

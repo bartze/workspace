@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-sumando.css">
+    <title>Sumando Números</title>
+</head>
+<body>
+    <h1>Calculadora de Suma</h1>
+    <label for="cantidad">¿Cuántos números quieres introducir?</label>
+    <input type="number" id="cantidad" min="1" />
+    <button id="botonCantidad">Aceptar</button>
+    
+    <div id="inputContainer" style="display: none;">
+        <h2>Introduce los números:</h2>
+        <div id="numerosInputs"></div>
+        <button id="botonSumar">Calcular Suma</button>
+    </div>
+
+    <p id="resultado"></p>
+    <script src="script-sumando.js"></script>
+</body>
+</html>
