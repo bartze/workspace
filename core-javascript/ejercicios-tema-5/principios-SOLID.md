@@ -30,13 +30,17 @@ Ejemplo: En lugar de tener una interfaz IMachine con métodos para imprimir, esc
 
 Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.  
 Las abstracciones no deben depender de detalles. Los detalles deben depender de abstracciones.  
-Ejemplo: En lugar de que una clase Motor dependa directamente de una clase Batería, ambas deberían depender de una interfaz IFuenteDeEnergia.  
-¿Por qué son importantes los principios SOLID?
-Código más mantenible: Al seguir estos principios, tu código será más fácil de entender y modificar en el futuro.
-Menos errores: Un diseño bien estructurado reduce la probabilidad de introducir errores al realizar cambios.
-Mayor reusabilidad: Las clases bien diseñadas pueden ser reutilizadas en diferentes partes de tu aplicación.
-Facilita la colaboración: Un código limpio y bien estructurado es más fácil de entender para otros desarrolladores.
-Aplicando SOLID en JavaScript
+Ejemplo: En lugar de que una clase Motor dependa directamente de una clase Batería, ambas deberían depender de una interfaz IFuenteDeEnergia.
+
+## ¿Por qué son importantes los principios SOLID?
+
+- Código más mantenible: Al seguir estos principios, tu código será más fácil de entender y modificar en el futuro.
+- Menos errores: Un diseño bien estructurado reduce la probabilidad de introducir errores al realizar cambios.
+- Mayor reusabilidad: Las clases bien diseñadas pueden ser reutilizadas en diferentes partes de tu aplicación.
+- Facilita la colaboración: Un código limpio y bien estructurado es más fácil de entender para otros desarrolladores.
+
+## Aplicando SOLID en JavaScript
+
 En JavaScript, puedes aplicar los principios SOLID utilizando clases, interfaces (aunque no son nativas, existen simulaciones), herencia y composición.
 
 ### Ejemplo práctico (SRP):
