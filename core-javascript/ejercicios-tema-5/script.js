@@ -1,16 +1,19 @@
 //1. Define con una función recursiva cómo calcularías la serie de Fibonacci. Fn = Fn-1 + Fn-2
 
-const fibonacci = (n)=> {
-    if (n <= 1) return n;
-    let a = 0, b = 1;
-    for (let i = 2; i <= n; i++) {
-      const temp = a + b;
-      a = b;
-      b = temp;
-      console.log(b+", ");
-    }
-    return b
+function fibonacciRecursivo(n) {
+  if (n <= 1) {
+    return n;
   }
- fibonacci(20);
+  return fibonacciRecursivo(n - 1) + fibonacciRecursivo(n - 2);
+}
+
+// Función para imprimir los primeros n números de Fibonacci
+function imprimirFibonacci(n) {
+  for (let i = 0; i <= n; i++) {
+    console.log(fibonacciRecursivo(i));
+  }
+}
+
+imprimirFibonacci(20);
 
  
