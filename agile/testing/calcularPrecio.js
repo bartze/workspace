@@ -4,7 +4,7 @@ function calcularPrecioFinal(precio, peso, tarjetaCredito) {
         descuento = precioFinal * 0.10;
         precioFinal -= descuento;
     }
-    if (peso > 5) {
+    if (peso > 5 && precioFinal < 100) {
         precioFinal += peso;
     }
     return precioFinal;

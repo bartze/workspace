@@ -12,4 +12,8 @@ describe('calcularPrecioFinal', () => {
         precioFinal = calcularPrecioFinal(100, 6, false);
         expect(precioFinal).toBe(106);
       });
+    it('debería aplicar envío gratuito si el precio es mayor de 100€', () => {
+        const precioFinal = calcularPrecioFinal(110, 6, false);
+        expect(precioFinal).toBe(110);
+      });
   });
