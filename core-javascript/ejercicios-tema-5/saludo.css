@@ -1,0 +1,27 @@
+body {
+    background-image: url('./src/galaxia.avif'); /* Reemplaza con tu propia imagen de galaxia */
+    background-size: cover;
+    color: white;
+    font-family: 'Courier New', Courier, monospace; /* Fuente de aspecto retro-futurista */
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para un efecto más destacado */
+  }
+  
+  button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
