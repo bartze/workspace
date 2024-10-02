@@ -1,0 +1,51 @@
+body {
+    background-image: url('./flame-border-background-black-realistic-fire-image_53876-153392.avif');
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: glow 1s infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 2px 2px 4px rgba(255, 165, 0, 0.8);
+    }
+    to {
+      text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.8);
+    }
+  }
+  
+  input, button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  button {
+    background: #f44336;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #d32f2f;
+  }
+  
+  #resultado {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
