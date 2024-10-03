@@ -1,0 +1,43 @@
+body {
+    background-color: #f0f0f0; /* Color de fondo suave */
+    font-family: Arial, sans-serif; /* Tipografía limpia */
+    color: #333; /* Color de texto */
+    text-align: center; /* Centramos el texto */
+    padding: 20px; /* Espaciado interno */
+}
+
+h1 {
+    color: #003366; /* Azul oscuro para el título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+input[type="text"] {
+    padding: 10px; /* Espaciado interno */
+    width: 300px; /* Ancho del campo de entrada */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+button {
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #003366; /* Azul oscuro */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #005599; /* Color más claro al pasar el ratón */
+}
+
+#resultado {
+    margin-top: 20px; /* Espacio encima del resultado */
+    font-size: 18px; /* Tamaño de fuente del resultado */
+    font-weight: bold; /* Negrita */
+    color: #003366; /* Color del texto del resultado */
+}
