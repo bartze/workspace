@@ -3,9 +3,15 @@
 // minúscula, dejando inalterados los demás caracteres. Precondición: el
 // separador de palabras es el espacio: " "
 
-const titulo = (frase) => {
-    frase = frase.trim();
-    return frase;
-}
+const titulo = (palabras) => {
+    palabras = palabras.trim();
+    if (palabras === "") {
+        return "";
+    };
+    palabras = palabras.split(' ').map(palabra => {
+        return palabra[0].toUpperCase() + palabra.slice(1);
+    });
+    return palabras.join(' ');
+};
 
 module.exports = titulo;
