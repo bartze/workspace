@@ -11,3 +11,32 @@ const convertirCelsiusAFarenheit = (temperaturaCelsius) => {
     temperaturaFarenheit = (temperaturaCelsius * 9/5) + 32;
     document.getElementById('resultado2').textContent = `${temperaturaCelsius}ºC son ${temperaturaFarenheit}ºF`;
 };
+// Función para convertir según la unidad ingresada (F o C)
+const convertirTemperatura = () => {
+    // Obtener el valor del input
+    let input = document.getElementById('temp').value;
+
+    // Regex para detectar número seguido de 'C' o 'F'
+    let regex = /^([-+]?\d*\.?\d+)([CF])$/i;
+
+    let match = input.match(regex);
+
+    if (match) {
+        let temperatura = parseFloat(match[1]);  // Extraer la parte numérica
+        let unidad = match[2].toUpperCase();     // Extraer la unidad (C o F)
+
+        if (unidad === "F") {
+            // Convertir de Fahrenheit a Celsius
+            let celsius = (temperatura - 32) * 5/9;
+            document.getElementById('resultado').textContent = `${temperatura}ºF son ${celsius.toFixed(2)}ºC`;
+        } else if (unidad === "C") {
+            // Convertir de Celsius a Fahrenheit
+            let fahrenheit = (temperatura * 9/5) + 32;
+            document.getElementById('resultado').textContent = `${temperatura}ºC son ${fahrenheit.toFixed(2)}ºF`;
+        }
+    } else {
+        // Si no coincide con el patrón, borrar el resultado
+        document.getElementById('resultado').textContent = "Introduce un valor válido (ej. 30C o 86F)";
+    }
+};
+
