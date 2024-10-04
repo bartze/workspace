@@ -5,18 +5,18 @@
 
 // Lógica de negocio: función pura que calcula la longitud de la última palabra
 const calcularLongitudUltimaPalabra = (frase) => {
-    frase = frase.trim();
-    const palabras = frase.split(/\s+/);
-    return palabras.length > 0 ? palabras[palabras.length - 1].length : 0;
+  frase = frase.trim();
+  const palabras = frase.split(/\s+/);
+  return palabras.length > 0 ? palabras[palabras.length - 1].length : 0;
 };
 
 // Función que interactúa con el DOM
 const mostrarResultado = () => {
-    const frase = document.getElementById('frase').value; // Obtener la frase del input
-    const resultado = calcularLongitudUltimaPalabra(frase); // Llamar a la función de cálculo
-    
-    // Mostrar resultado en el HTML
-    document.getElementById('resultado').textContent = resultado;
+  const frase = document.getElementById('frase').value; // Obtener la frase del input
+  const resultado = calcularLongitudUltimaPalabra(frase); // Llamar a la función de cálculo
+
+  // Mostrar resultado en el HTML
+  document.getElementById('resultado').textContent = resultado;
 };
 
 // Hacer que la función sea accesible globalmente

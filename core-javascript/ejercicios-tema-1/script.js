@@ -1,20 +1,20 @@
 // 1. Declara una variable normal y una constante
-let mensaje = "Hola, mundo!";
+const mensaje = 'Hola, mundo!';
 const PI = 3.14159;
-//2. Declara una variable normal. Asígnala después a un número
+// 2. Declara una variable normal. Asígnala después a un número
 let numero;
 numero = 6;
-//3. Declara dos variables numéricas y declara una tercera con su suma
-let numeroUno = 5;
-let numeroDos = 8;
-let suma = numeroUno + numeroDos;
+// 3. Declara dos variables numéricas y declara una tercera con su suma
+const numeroUno = 5;
+const numeroDos = 8;
+const suma = numeroUno + numeroDos;
 console.log(suma);
-//4. Declara dos variables de string y declara una tercera con su suma
-let palabraUno = "Hola";
-let palabraDos = " Mundo!";
-let concatena = palabraUno + palabraDos;
+// 4. Declara dos variables de string y declara una tercera con su suma
+const palabraUno = 'Hola';
+const palabraDos = ' Mundo!';
+const concatena = palabraUno + palabraDos;
 console.log(concatena);
-//5. Informate, ¿cómo se declara una clase?
+// 5. Informate, ¿cómo se declara una clase?
 // En JavaScript, una clase se declara utilizando la palabra clave class. La estructura básica es la siguiente:
 
 // javascript
@@ -56,4 +56,3 @@ console.log(concatena);
 // this.propiedad: Hace referencia a las propiedades de la instancia.
 // Métodos: Se declaran dentro de la clase para definir comportamientos (funciones) que las instancias de la clase pueden usar.
 // Este es el método estándar de declarar clases en JavaScript, introducido en ES6.
-

@@ -1,4 +1,4 @@
-//1. Define con una función recursiva cómo calcularías la serie de Fibonacci. Fn = Fn-1 + Fn-2
+// 1. Define con una función recursiva cómo calcularías la serie de Fibonacci. Fn = Fn-1 + Fn-2
 
 function fibonacciRecursivo(n) {
   if (n <= 1) {
@@ -15,5 +15,3 @@ function imprimirFibonacci(n) {
 }
 
 imprimirFibonacci(20);
-
- 
