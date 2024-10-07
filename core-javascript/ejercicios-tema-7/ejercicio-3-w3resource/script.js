@@ -12,4 +12,15 @@ const is_array = (check) => {
 // console.log(is_array('w3resource'));
 // console.log(is_array([1, 2, 4, 0]));
 
-module.exports = { is_array };
+// 2. Write a JavaScript function to clone an array.
+// Test Data :
+// console.log(array_Clone([1, 2, 4, 0]));
+// console.log(array_Clone([1, 2, [4, 0]]));
+// [1, 2, 4, 0]
+// [1, 2, [4, 0]]
+
+const cloneArray = (array) => {
+	return [...array];
+};
+
+module.exports = { is_array, cloneArray };
