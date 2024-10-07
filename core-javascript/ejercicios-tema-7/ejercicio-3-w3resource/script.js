@@ -43,4 +43,24 @@ const getFirstElement = (array, n = 1) => {
 	return n === 1 ? array[0] : array.slice(0, n);
 };
 
-module.exports = { is_array, cloneArray, getFirstElement };
+// 4. Write a JavaScript function to get the last element of an array. Passing the parameter 'n' will return the last 'n' elements of the array.
+// Test Data :
+// console.log(last([7, 9, 0, -2]));
+// console.log(last([7, 9, 0, -2],3));
+// console.log(last([7, 9, 0, -2],6));
+// Expected Output :
+// -2
+// [9, 0, -2]
+// [7, 9, 0, -2]
+
+const getLastElement = (array, n = 1) => {
+	if (n <= 0) {
+		return [];
+	}
+	return n === 1 ? array[array.length - 1] : array.slice(-n);
+};
+// console.log(getLastElement([7, 9, 0, -2]));
+// console.log(getLastElement([7, 9, 0, -2], 3));
+// console.log(getLastElement([7, 9, 0, -2], 6));
+
+module.exports = { is_array, cloneArray, getFirstElement, getLastElement };
