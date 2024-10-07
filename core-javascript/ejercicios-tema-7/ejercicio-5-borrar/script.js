@@ -5,6 +5,11 @@
 // let list_test_2 = ["", false, undefined];
 // let list_test_3 = [5, 4, 1, undefined];
 
-const borrarNoDeseados = (array) => {};
+const borrarNoDeseados = (array) => {
+	let arraySinNoDeseados = array.filter(
+		(item) => item !== undefined && item !== false && item !== '' && item !== null,
+	);
+	return arraySinNoDeseados;
+};
 
 module.exports = { borrarNoDeseados };
