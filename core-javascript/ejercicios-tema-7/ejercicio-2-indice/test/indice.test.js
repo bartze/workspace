@@ -1,4 +1,4 @@
-const { ejercicios, modificarEjercicios } = require('../script');
+const { ejercicios, modificarEjercicios } = require('../indice');
 
 test('assigning a value to an out-of-bounds index', () => {
 	// Verificamos el valor inicial en el índice 1 y 26

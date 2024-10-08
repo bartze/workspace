@@ -1,4 +1,4 @@
-const { array, newArray } = require('../script');
+const { array, newArray } = require('../spread');
 test('modifying the copied array does not affect the original array', () => {
 	newArray.push(6, 7);
 	expect(array).toEqual([1, 2, 3, 4, 5]);

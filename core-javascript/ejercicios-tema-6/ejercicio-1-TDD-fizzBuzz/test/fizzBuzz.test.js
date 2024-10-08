@@ -1,4 +1,4 @@
-const { fizzBuzz } = require('../script');
+const { fizzBuzz } = require('../fizzBuzz');
 
 describe('fizzBuzz', () => {
 	it('debería devolver 1 cuando se pasa 1', () => {

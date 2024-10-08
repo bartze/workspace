@@ -4,12 +4,12 @@
 // separador de palabras es el espacio: " "
 
 const titulo = (palabras) => {
-  palabras = palabras.trim();
-  if (palabras === '') {
-    return '';
-  }
-  palabras = palabras.split(' ').map((palabra) => palabra[0].toUpperCase() + palabra.slice(1));
-  return palabras.join(' ');
+	palabras = palabras.trim();
+	if (palabras === '') {
+		return '';
+	}
+	palabras = palabras.split(' ').map((palabra) => palabra[0].toUpperCase() + palabra.slice(1));
+	return palabras.join(' ');
 };
 
 module.exports = titulo;

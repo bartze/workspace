@@ -1,4 +1,4 @@
-const { mapWithCb } = require('../script');
+const { mapWithCb } = require('../mock');
 
 describe('mapWithCb', () => {
 	it('debería llamar a la función de callback el número correcto de veces', () => {
