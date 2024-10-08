@@ -63,4 +63,9 @@ const getLastElement = (array, n = 1) => {
 // console.log(getLastElement([7, 9, 0, -2], 3));
 // console.log(getLastElement([7, 9, 0, -2], 6));
 
-module.exports = { is_array, cloneArray, getFirstElement, getLastElement };
+module.exports = {
+	is_array,
+	cloneArray,
+	getFirstElement,
+	getLastElement,
+};

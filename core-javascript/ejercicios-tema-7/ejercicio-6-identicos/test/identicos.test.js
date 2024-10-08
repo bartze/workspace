@@ -1,4 +1,4 @@
-const { comprobarArraysIdenticos } = require('../script');
+const { comprobarArraysIdenticos } = require('../identicos');
 
 test('comprueba si dos arrays son identicos', () => {
 	expect(comprobarArraysIdenticos([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])).toBe(true);
