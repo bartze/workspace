@@ -110,3 +110,5 @@ crew2.showCrewInfo();
 crew2.showCrewFunctionsInfo();
 crew2.healCrew();
 crew2.cookMeal();
+
+module.exports = { SpaceShip, CrewMember, CrewFunctions };
