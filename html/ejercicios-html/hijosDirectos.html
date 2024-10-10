@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hijos directos</title>
+		<style type="text/css">
+			span {
+				background-color: blue;
+			}
+
+			div > span > span {
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<span>span #1, en el div.<span>span #1.1, dentro span #1.</span> </span>
+		</div>
+		<span>span #2, no está en el div.</span>
+	</body>
+</html>
