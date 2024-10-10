@@ -3,10 +3,11 @@ const { fizzBuzz } = require('../fizzBuzz');
 describe('fizzBuzz', () => {
 	it('debería devolver 1 cuando se pasa 1', () => {
 		const result = fizzBuzz(1);
-		expect(result).toBe(1);
+		expect(result).toBe('1');
 	});
-	it('debería devolver un error cuando se le pasa 0 o menor que 0', () => {
-		expect(() => fizzBuzz(0)).toThrow('El número debe ser mayor que 0');
+	it('debería devolver 0 cuando se pasa 0', () => {
+		const result = fizzBuzz(0);
+		expect(result).toBe('0');
 	});
 	it('debería devolver un error cuando se le pasa un string', () => {
 		expect(() => fizzBuzz('a')).toThrow('El valor debe ser un número');

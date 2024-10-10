@@ -15,8 +15,8 @@ const fizzBuzz = (num) => {
 	if (typeof num !== 'number') {
 		throw new Error('El valor debe ser un número');
 	}
-	if (num < 1) {
-		throw new Error('El número debe ser mayor que 0');
+	if (num === 0) {
+		return '0';
 	}
 	if (num % 3 === 0 && num % 5 === 0) {
 		return 'FizzBuzz';
@@ -25,7 +25,7 @@ const fizzBuzz = (num) => {
 	} else if (num % 5 === 0) {
 		return 'Buzz';
 	}
-	return num;
+	return num.toString();
 };
 
 for (let i = 1; i <= 100; i++) {
