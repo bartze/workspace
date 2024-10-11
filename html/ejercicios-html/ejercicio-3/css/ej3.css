@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Pizzaria';
+    src: url('../src/Pizzaria.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Pizzaria', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed-header, .fixed-footer {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.fixed-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.fixed-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.logoPizza {
+    width: 30px;
+    vertical-align: middle;
+}
+
+section {
+    margin: 100px 20px 50px 20px; /* Ajustar márgenes para header y footer fijos */
+}
+
+
+nav {
+    background-color: #388e3c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+details {
+    background-color: white;
+    border: 2px solid #d32f2f; 
+    padding: 10px;
+    border-radius: 5px;
+}
+
+details[open] {
+    border-color: #388e3c; 
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+summary:hover {
+    color: #d32f2f;
+}
+
+p {
+    margin: 10px 0;
+}
+
+nav a {
+    color: #d32f2f;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin: 0;
+}
