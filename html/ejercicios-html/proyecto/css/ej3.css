@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Nasalization';
+    src: url('../src/nasalization-rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../src/fondoMarte.jpg');
+    background-size: cover;
+    font-family: 'Nasalization', sans-serif;
+    color: whitesmoke;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#main-header, #main-footer {
+    width: 100%;
+    text-align: center;
+}
+
+#main-footer {
+    margin-top: auto;
+    background-color: #333;
+    color: whitesmoke;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+}
+
+.description {
+    border: 2px solid whitesmoke;
+    padding: 10px;
+    text-align: center;
+}
+
+.logoWeyland {
+    width: 100px; 
+    height: auto; 
+}

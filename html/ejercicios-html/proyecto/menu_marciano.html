@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Las recetas de Tajonar</title>
-
-		<!-- hoja de estilo -->
+		<title>Menú</title>
 		<link rel="stylesheet" href="css/ej3.css" />
-		<!-- icono -->
+		<link rel="stylesheet" href="css/ej3Nav.css" />
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/cohete.png" />
 	</head>
 
 	<body>
-		<header>
+		<header id="main-header">
 			<nav>
 				<ul>
-					<li><a href="www.google.com">Conoce la nostromo</a></li>
-					<li><a href="www.nba.com">Menú especial</a></li>
-					<li><a href="xataka.com">Seguridad en Marte</a></li>
-					<li><a href="genbeta.dev.com">Inicio</a></li>
-					<li><a href="github.com">Nosotros</a></li>
+					<li><a href="./index.html">Inicio</a></li>
+					<li><a href="./menu_marciano.html">Menú especial</a></li>
+					<li><a href="./seguridad.html">Seguridad en Marte</a></li>
+					<li>
+						<a href="./nostromo.html">Conoce la Nostromo</a>
+					</li>
+					<li><a href="./nosotros.html">Nosotros</a></li>
 				</ul>
 			</nav>
-			<h1>Menú Nostromo viaje a Marte <img src="favicon/cohete.png" /></h1>
 		</header>
+		<h1 id="main-title">Menú Nostromo viaje a Marte</h1>
 		<section>
-			<nav>recetas</nav>
 			<article>
 				<!-- Mi artículo-->
 				<details name="faq" open>
 					<summary>Verduras Terraformadas</summary>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br />
-						Quae in quaerat, consequuntur repellendus ipsam quos dolor animi itaque
-						pariatur fuga, voluptates quod odio. Veritatis esse perspiciatis error
-						officiis, laboriosam odio.
+					<p class="description">
+						La terraformación es un hipotético proceso orientado a modificar
+						deliberadamente la atmósfera, la temperatura, la topografía o la ecología de
+						un planeta o satélite natural para asemejarlo al entorno de la Tierra y
+						hacerlo adecuado para la vida terrestre.
 					</p>
 				</details>
 				<details name="faq" open>
 					<summary>Solomillo a la atmósfera marciana</summary>
-					<p>
+					<p class="description">
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br />
 						Quae in quaerat, consequuntur repellendus ipsam quos dolor animi itaque
 						pariatur fuga, voluptates quod odio. Veritatis esse perspiciatis error
@@ -48,7 +46,7 @@
 				</details>
 				<details name="faq" open>
 					<summary>Crema de algás profundas</summary>
-					<p>
+					<p class="description">
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br />
 						Quae in quaerat, consequuntur repellendus ipsam quos dolor animi itaque
 						pariatur fuga, voluptates quod odio. Veritatis esse perspiciatis error
@@ -57,8 +55,7 @@
 				</details>
 			</article>
 		</section>
-		<footer>
-			<!-- Mi pie de pagina-->
+		<footer id="main-footer">
 			<p class="copyright">Copyright Albañiles Digitales</p>
 		</footer>
 	</body>
