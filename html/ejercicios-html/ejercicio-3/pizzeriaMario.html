@@ -3,54 +3,85 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Pizzeria Mario</title>
-		<link rel="stylesheet" href="css/ej3.css" />
+		<link rel="stylesheet" href="css/ej3Base.css" />
+		<link rel="stylesheet" href="css/ej3Layout.css" />
 		<link rel="icon" type="image/png" sizes="16x16" href="./favicon/pizza.png" />
 	</head>
 	<body>
-		<header id="main-header" class="fixed-header">
-			<h1>Pizzeria Mario<img class="logoPizza" src="./favicon/pizza.png" /></h1>
+		<header id="main-header">
+			<h1>
+				Pizzeria Mario <img class="logoPizza" src="./favicon/pizza.png" alt="Pizza Logo" />
+			</h1>
 		</header>
-		<section>
-			<nav>Pizzas</nav>
-			<article>
-				<details id="bloque_titulo_receta">
-					<summary>Pizza Pepperoni</summary>
-					<p>
-						La pizza pepperoni tiene su origen en América del Norte. Se trata de una
-						pizza con base de salsa de tomate, mozzarella y pepperoni, un tipo de salami
-						curado hecho a base de carne de cerdo y de vaca mezclados y sazonados con
-						pimentón.
-					</p>
-					<nav><a href="#">ver mas..</a></nav>
-				</details>
-			</article>
-			<article>
-				<details id="bloque_titulo_receta">
-					<summary>Pizza Margarita</summary>
-					<p>
-						La pizza margarita (en italiano pizza Margherita) es una típica pizza
-						napolitana elaborada con tomate, mozzarella (tradicionalmente se usa el Fior
-						di latte), albahaca fresca, sal y aceite. Se trata de la pizza napolitana
-						más popular, junto con la marinera.
-					</p>
-					<nav><a href="#">ver mas..</a></nav>
-				</details>
-			</article>
-			<article>
-				<details id="bloque_titulo_receta">
-					<summary>Pizza Napolitana</summary>
-					<p>
-						La pizza napolitana, nacida en Nápoles, tiene como peculiaridad su corteza
-						esponjosa, producida gracias al aire incorporado durante el amasamiento.
-						Esta particular anatomía evita que los ingredientes se salgan por los bordes
-						durante su horneado
-					</p>
-					<nav><a href="#">ver mas..</a></nav>
-				</details>
-			</article>
-		</section>
-		<footer id="main-footer" class="fixed-footer">
-			<p class="copyright">Copyright Albañiles Digitales</p>
+		<main class="container">
+			<section>
+				<nav>Pizzas</nav>
+				<article>
+					<details>
+						<summary>Pizza Pepperoni</summary>
+						<img class="pizza-img" src="./src/pepperoni.jpg" alt="Pizza Pepperoni" />
+						<p>
+							La <span>pizza pepperoni</span> tiene su origen en
+							<em>América del Norte</em>. Se trata de una pizza con base de
+							<strong>salsa de tomate, mozzarella y pepperoni</strong>, un tipo de
+							salami curado hecho a base de carne de cerdo y de vaca mezclados y
+							sazonados con pimentón.
+						</p>
+						<h3>Ingredientes:</h3>
+						<ul>
+							<li>Salsa de tomate</li>
+							<li>Mozzarella</li>
+							<li>Pepperoni</li>
+							<li>Masa de pizza</li>
+							<li>Pimentón</li>
+						</ul>
+					</details>
+				</article>
+				<article>
+					<details>
+						<summary>Pizza Margarita</summary>
+						<img class="pizza-img" src="./src/margarita.jpg" alt="Pizza Margarita" />
+						<p>
+							La <span>pizza margarita</span> (en italiano <em>pizza Margherita</em>)
+							es una típica pizza napolitana elaborada con
+							<strong>tomate, mozzarella</strong> (tradicionalmente se usa el Fior di
+							latte), albahaca fresca, sal y aceite. Se trata de la pizza napolitana
+							más popular, junto con la marinera.
+						</p>
+						<h3>Ingredientes:</h3>
+						<ul>
+							<li>Salsa de tomate</li>
+							<li>Mozzarella</li>
+							<li>Albahaca fresca</li>
+							<li>Masa de pizza</li>
+							<li>Sal y aceite</li>
+						</ul>
+					</details>
+				</article>
+				<article>
+					<details>
+						<summary>Pizza Napolitana</summary>
+						<img class="pizza-img" src="./src/napolitana.jpg" alt="Pizza Napolitana" />
+						<p>
+							La <span>pizza napolitana</span>, nacida en <em>Nápoles</em>, tiene como
+							peculiaridad su corteza <strong>esponjosa</strong>, producida gracias al
+							aire incorporado durante el amasamiento. Esta particular anatomía evita
+							que los ingredientes se salgan por los bordes durante su horneado.
+						</p>
+						<h3>Ingredientes:</h3>
+						<ul>
+							<li>Salsa de tomate</li>
+							<li>Mozzarella</li>
+							<li>tomate Natural</li>
+							<li>Masa de pizza</li>
+							<li>Jamón</li>
+						</ul>
+					</details>
+				</article>
+			</section>
+		</main>
+		<footer id="main-footer">
+			<p class="copyright">Copyright Iñaki</p>
 		</footer>
 	</body>
 </html>

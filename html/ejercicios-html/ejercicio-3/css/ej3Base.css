@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Pizzaria';
+    src: url('../src/Pizzaria.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Pizzaria', sans-serif;
+    background-image: url(../src/fondo-madera-natural.avif);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+#main-header {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+#main-footer {
+    background-color: #d32f2f;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.logoPizza {
+    width: 3vw;
+    vertical-align: middle;
+}
+
+
+
