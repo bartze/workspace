@@ -72,3 +72,59 @@ const cylinder = {
 	},
 };
 console.log(cylinder.volume());
+
+// 6. Write a bubble sort algorithm in JavaScript.
+// Note : Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted,
+// Sample Data: [6,4,0, 3,-2,1]
+// Expected Output : [-2, 0, 1, 3, 4, 6]
+
+const data = [6, 4, 0, 3, -2, 1];
+for (let i = 0; i < data.length; i++) {
+	for (let j = 0; j < data.length - 1; j++) {
+		if (data[j] > data[j + 1]) {
+			let temp = data[j];
+			data[j] = data[j + 1];
+			data[j + 1] = temp;
+		}
+	}
+}
+console.log(data);
+
+// 7. Write a JavaScript program that returns a subset of a string.
+// Sample Data: dog
+// Expected Output: ["d", "do", "dog", "o", "og", "g"]
+
+const dogData = 'iñaki';
+const subsetDog = [];
+for (let i = 0; i < dogData.length; i++) {
+	for (let j = i; j < dogData.length; j++) {
+		subsetDog.push(dogData.substring(i, j + 1));
+	}
+}
+console.log(subsetDog);
+
+// 8. Write a JavaScript program to create a clock.
+// Note: The output will come every second.
+// Expected Console Output :
+// "14:37:42"
+// "14:37:43"
+// "14:37:44"
+// "14:37:45"
+// "14:37:46"
+// "14:37:47"
+
+const reloj = () => {
+	let now = new Date(); // Crea una nueva instancia de Date
+	let hours = now.getHours(); // Obtiene las horas
+	let minutes = now.getMinutes(); // Obtiene los minutos
+	let seconds = now.getSeconds(); // Obtiene los segundos
+
+	// Formatea la hora en formato hh:mm:ss
+	let time = `${hours.toString().padStart(2, '0')}:${minutes
+		.toString()
+		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+	console.log(time);
+};
+
+setInterval(reloj, 1000);
