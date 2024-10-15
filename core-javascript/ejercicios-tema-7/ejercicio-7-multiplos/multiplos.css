@@ -1,0 +1,72 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Cambiado a columna para alinear verticalmente */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Párrafos */
+p {
+    font-size: 1.2rem;
+    color: #4682b4;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Campos de entrada */
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #4682b4;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px; /* Ajustado a un ancho máximo más grande */
+    margin-bottom: 20px;
+}
+
+/* Botón */
+button {
+    padding: 10px 20px;
+    background-color: #32cd32;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Añadido margen superior */
+}
+
+button:hover {
+    background-color: #228b22;
+}
+
+/* Resultado */
+#resultado {
+    font-size: 1.5rem;
+    color: #4682b4;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px; /* Añadido margen superior */
+    word-wrap: break-word; /* Permitir que las palabras se ajusten */
+    overflow-wrap: break-word; /* Ajustar texto largo */
+}

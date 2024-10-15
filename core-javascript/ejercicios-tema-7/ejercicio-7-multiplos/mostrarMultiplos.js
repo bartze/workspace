@@ -1,5 +1,3 @@
-const { obtenerMultiplos } = require('./multiplos');
-
 const mostrarMultiplos = () => {
 	const cantidad = parseInt(document.getElementById('cantidad').value);
 	const numero = parseInt(document.getElementById('numero').value);

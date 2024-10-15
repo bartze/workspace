@@ -2,19 +2,11 @@
  * @jest-environment jsdom
  */
 
-const { obtenerMultiplos } = require('../mostrarMultiplos');
+require('../core-javascript/ejercicios-tema-7/ejercicio-7-multiplos/multiplos'); // Importar la función obtenerMultiplos
+require('../core-javascript/ejercicios-tema-7/ejercicio-7-multiplos/mostrarMultiplos'); // Asegúrate de importar mostrarMultiplos
 const { fireEvent, getByLabelText, getByText } = require('@testing-library/dom');
-require('@testing-library/jest-dom');
+require('@testing-library/jest-dom'); // Ajuste en la importación
 
-// Definición de la función mostrarMultiplos
-const mostrarMultiplos = () => {
-	const cantidad = parseInt(document.getElementById('cantidad').value);
-	const numero = parseInt(document.getElementById('numero').value);
-	const multiplos = obtenerMultiplos(cantidad, numero);
-	document.getElementById('resultado').textContent = JSON.stringify(multiplos);
-};
-
-// Definir contenido del body del documento HTML para las pruebas
 document.body.innerHTML = `
   <label for="cantidad">Tamaño del array:</label>
   <input type="number" id="cantidad" name="cantidad" />
