@@ -9,37 +9,37 @@
 // - Inversión del orden de las palabras del string
 
 class TransformadorString {
-	constructor(string) {
-		this.string = string;
-	}
+  constructor(string) {
+    this.string = string;
+  }
 
-	transformarAArray() {
-		return Array.from(this.string);
-	}
+  transformarAArray() {
+    return Array.from(this.string);
+  }
 
-	ordenarAleatoriamente() {
-		return this.transformarAArray().sort(() => Math.random() - 0.5);
-	}
+  ordenarAleatoriamente() {
+    return this.transformarAArray().sort(() => Math.random() - 0.5);
+  }
 
-	invertirOrden() {
-		return this.string.split('').reverse().join('');
-	}
+  invertirOrden() {
+    return this.string.split('').reverse().join('');
+  }
 
-	quitarVocales() {
-		return this.string.replace(/[aeiouAEIOU]/g, '');
-	}
+  quitarVocales() {
+    return this.string.replace(/[aeiouAEIOU]/g, '');
+  }
 
-	quitarConsonantes() {
-		return this.string.replace(/[^aeiouAEIOU\s]/g, '');
-	}
+  quitarConsonantes() {
+    return this.string.replace(/[^aeiouAEIOU\s]/g, '');
+  }
 
-	transformarAArrayDePalabras() {
-		return this.string.split(' ');
-	}
+  transformarAArrayDePalabras() {
+    return this.string.split(' ');
+  }
 
-	invertirOrdenDePalabras() {
-		return this.transformarAArrayDePalabras().reverse().join(' ');
-	}
+  invertirOrdenDePalabras() {
+    return this.transformarAArrayDePalabras().reverse().join(' ');
+  }
 }
 
 const transformador = new TransformadorString('Mandalorian tiene aventuras epicas en la galaxia');

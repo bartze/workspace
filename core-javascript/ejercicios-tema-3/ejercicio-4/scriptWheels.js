@@ -9,34 +9,34 @@
 // solución puedes consultar en los foros aprenderaprogramar.com.
 
 window.onload = () => {
-	let diametro = prompt('¿Qué diámetro tiene la rueda?');
-	let grosor = prompt('¿Qué grosor tiene la rueda?');
+  let diametro = prompt('¿Qué diámetro tiene la rueda?');
+  let grosor = prompt('¿Qué grosor tiene la rueda?');
 
-	const calcularTipoVehiculo = () => {
-		// Convertir a número
-		diametro = parseFloat(diametro);
-		grosor = parseFloat(grosor);
+  const calcularTipoVehiculo = () => {
+    // Convertir a número
+    diametro = parseFloat(diametro);
+    grosor = parseFloat(grosor);
 
-		// Validaciones
-		if (isNaN(diametro) || isNaN(grosor)) {
-			alert('Por favor, introduce solo números.');
-			return;
-		}
-		if (diametro <= 0 || grosor <= 0) {
-			alert('Por favor, introduce solo números positivos.');
-			return;
-		}
+    // Validaciones
+    if (isNaN(diametro) || isNaN(grosor)) {
+      alert('Por favor, introduce solo números.');
+      return;
+    }
+    if (diametro <= 0 || grosor <= 0) {
+      alert('Por favor, introduce solo números positivos.');
+      return;
+    }
 
-		if (
-			(diametro > 1.4 && grosor < 0.4) ||
-			(diametro <= 1.4 && diametro > 0.8 && grosor < 0.25)
-		) {
-			alert('El grosor para esta rueda es inferior al recomendado');
-		} else if (diametro > 1.4) {
-			alert('La rueda es para un vehículo grande');
-		} else if (diametro < 1.4 && diametro > 0.8) {
-			alert('La rueda es para un vehículo mediano');
-		} else alert('La rueda es para un vehículo pequeño');
-	};
-	calcularTipoVehiculo();
+    if (
+      (diametro > 1.4 && grosor < 0.4)
+			|| (diametro <= 1.4 && diametro > 0.8 && grosor < 0.25)
+    ) {
+      alert('El grosor para esta rueda es inferior al recomendado');
+    } else if (diametro > 1.4) {
+      alert('La rueda es para un vehículo grande');
+    } else if (diametro < 1.4 && diametro > 0.8) {
+      alert('La rueda es para un vehículo mediano');
+    } else alert('La rueda es para un vehículo pequeño');
+  };
+  calcularTipoVehiculo();
 };

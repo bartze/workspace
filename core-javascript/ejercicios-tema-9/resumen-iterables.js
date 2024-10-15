@@ -1,9 +1,9 @@
-//Esquema/resumen iterables
+// Esquema/resumen iterables
 //--------------------------
 // Strings
 // for...of: Ideal para iterar sobre cada caracter.
 // Métodos de array como map, filter, reduce: Convirtiendo el string en un array primero.
-let saludo = 'Hola, mundo!';
+const saludo = 'Hola, mundo!';
 for (const letra of saludo) {
 	console.log(letra);
 }
@@ -12,7 +12,7 @@ for (const letra of saludo) {
 // for...of: Para iterar sobre los elementos.
 // for: Con un índice para acceder a cada elemento.
 // Métodos de array como map, filter, reduce, forEach: Para realizar operaciones específicas.
-let numeros = [1, 2, 3, 4, 5];
+const numeros = [1, 2, 3, 4, 5];
 numeros.forEach((numero) => console.log(numero));
 
 // Objetos
@@ -20,7 +20,7 @@ numeros.forEach((numero) => console.log(numero));
 // Object.values(): Devuelve un array con los valores.
 // Object.entries(): Devuelve un array de pares clave-valor.
 // for...in: Iterar sobre las propiedades enumerables (pero ten cuidado con las propiedades heredadas).
-let persona = { nombre: 'Juan', edad: 30 };
+const persona = { nombre: 'Juan', edad: 30 };
 for (const propiedad in persona) {
 	console.log(propiedad, persona[propiedad]);
 }
@@ -28,7 +28,7 @@ for (const propiedad in persona) {
 // Array de Objetos
 // for...of: Iterar directamente sobre los objetos.
 // forEach: Aplicar una función a cada objeto
-let personas = [
+const personas = [
 	{ nombre: 'Ana', edad: 25 },
 	{ nombre: 'Pedro', edad: 32 },
 ];
@@ -36,7 +36,7 @@ personas.forEach((persona) => console.log(persona.nombre));
 
 // Objeto con Arrays
 // Anidar bucles: Un bucle para las propiedades del objeto y otro para los elementos del array.
-let cursos = {
+const cursos = {
 	frontend: ['HTML', 'CSS', 'JavaScript'],
 	backend: ['Node.js', 'Python'],
 };
@@ -47,7 +47,7 @@ for (const curso in cursos) {
 }
 
 // Ahora viene cuando me vuela la cabeza y aparece Symbol para hacer for..of en objetos
-let range = {
+const range = {
 	from: 1,
 	to: 5,
 
@@ -59,12 +59,11 @@ let range = {
 	next() {
 		if (this.current <= this.to) {
 			return { done: false, value: this.current++ };
-		} else {
-			return { done: true };
 		}
+		return { done: true };
 	},
 };
 
-for (let num of range) {
+for (const num of range) {
 	console.log(num); // 1, luego 2, 3, 4, 5
 }

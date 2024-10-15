@@ -3,11 +3,17 @@
 // array con el tamaño puesto de múltiplos de ese número (2, 4 => [4, 8])
 
 const obtenerMultiplos = (cantidad, numero) => {
-	let multiplos = [];
+	const multiplos = [];
 	for (let i = 1; i <= cantidad; i++) {
 		multiplos.push(numero * i);
 	}
 	return multiplos;
 };
-// console.log(obtenerMultiplos(10, 3));
-module.exports = { obtenerMultiplos };
+
+// Exporta la función para Jest
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+	module.exports = { obtenerMultiplos };
+} else {
+	// Hacer la función accesible en el navegador
+	window.obtenerMultiplos = obtenerMultiplos;
+}

@@ -12,13 +12,13 @@
 // const data = { a: 1, b: 2 };
 // console.log(without(data, 'b')); // { a: 1 }
 const without = (object, ...args) => {
-	let withoutArgs = {};
-	for (let prop in object) {
-		if (!args.includes(prop)) {
-			withoutArgs[prop] = object[prop];
-		}
-	}
-	return withoutArgs;
+  const withoutArgs = {};
+  for (const prop in object) {
+    if (!args.includes(prop)) {
+      withoutArgs[prop] = object[prop];
+    }
+  }
+  return withoutArgs;
 };
 const data = { a: 1, b: 2 };
 console.log(without(data, 'b')); // { a: 1 }

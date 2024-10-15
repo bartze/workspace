@@ -7,16 +7,16 @@
 // Sample Output: name,sclass,rollno
 
 const student = {
-	name: 'David Rey',
-	sclass: 'VI',
-	rollno: 12,
+  name: 'David Rey',
+  sclass: 'VI',
+  rollno: 12,
 };
-for (let prop in student) {
-	console.log(`${prop}: ${student[prop]}`);
+for (const prop in student) {
+  console.log(`${prop}: ${student[prop]}`);
 }
 
 // 2. Write a JavaScript program to delete the rollno property from the following object.
-//Also print the object before or after deleting the property.
+// Also print the object before or after deleting the property.
 // Sample object:
 // var student = {
 // name : "David Rayy",
@@ -33,30 +33,30 @@ console.log(student);
 student.rollno = 12;
 console.log(student);
 
-const length = Object.keys(student).length;
+const { length } = Object.keys(student);
 console.log(length);
 
 // 4. Write a JavaScript program to display the reading status (i.e. display book name, author name and reading status) of the following books.
 
-let library = [
-	{
-		author: 'Bill Gates',
-		title: 'The Road Ahead',
-		readingStatus: true,
-	},
-	{
-		author: 'Steve Jobs',
-		title: 'Walter Isaacson',
-		readingStatus: true,
-	},
-	{
-		author: 'Suzanne Collins',
-		title: 'Mockingjay: The Final Book of The Hunger Games',
-		readingStatus: false,
-	},
+const library = [
+  {
+    author: 'Bill Gates',
+    title: 'The Road Ahead',
+    readingStatus: true,
+  },
+  {
+    author: 'Steve Jobs',
+    title: 'Walter Isaacson',
+    readingStatus: true,
+  },
+  {
+    author: 'Suzanne Collins',
+    title: 'Mockingjay: The Final Book of The Hunger Games',
+    readingStatus: false,
+  },
 ];
-for (let book of library) {
-	console.log(book.author, book.title, book.readingStatus);
+for (const book of library) {
+  console.log(book.author, book.title, book.readingStatus);
 }
 
 // 5. Write a JavaScript program to get the volume of a cylindrical with four decimal places using object classes.
@@ -64,12 +64,12 @@ for (let book of library) {
 // where r is the radius and h is the height of the cylinder.
 
 const cylinder = {
-	radio: 3,
-	height: 5,
-	volume: function () {
-		const volume = Math.PI * Math.pow(this.radio, 2) * this.height;
-		return volume.toFixed(4);
-	},
+  radio: 3,
+  height: 5,
+  volume() {
+    const volume = Math.PI * this.radio ** 2 * this.height;
+    return volume.toFixed(4);
+  },
 };
 console.log(cylinder.volume());
 
@@ -80,13 +80,13 @@ console.log(cylinder.volume());
 
 const data = [6, 4, 0, 3, -2, 1];
 for (let i = 0; i < data.length; i++) {
-	for (let j = 0; j < data.length - 1; j++) {
-		if (data[j] > data[j + 1]) {
-			let temp = data[j];
-			data[j] = data[j + 1];
-			data[j + 1] = temp;
-		}
-	}
+  for (let j = 0; j < data.length - 1; j++) {
+    if (data[j] > data[j + 1]) {
+      const temp = data[j];
+      data[j] = data[j + 1];
+      data[j + 1] = temp;
+    }
+  }
 }
 console.log(data);
 
@@ -97,9 +97,9 @@ console.log(data);
 const dogData = 'iñaki';
 const subsetDog = [];
 for (let i = 0; i < dogData.length; i++) {
-	for (let j = i; j < dogData.length; j++) {
-		subsetDog.push(dogData.substring(i, j + 1));
-	}
+  for (let j = i; j < dogData.length; j++) {
+    subsetDog.push(dogData.substring(i, j + 1));
+  }
 }
 console.log(subsetDog);
 
@@ -114,17 +114,17 @@ console.log(subsetDog);
 // "14:37:47"
 
 const reloj = () => {
-	let now = new Date(); // Crea una nueva instancia de Date
-	let hours = now.getHours(); // Obtiene las horas
-	let minutes = now.getMinutes(); // Obtiene los minutos
-	let seconds = now.getSeconds(); // Obtiene los segundos
+  const now = new Date(); // Crea una nueva instancia de Date
+  const hours = now.getHours(); // Obtiene las horas
+  const minutes = now.getMinutes(); // Obtiene los minutos
+  const seconds = now.getSeconds(); // Obtiene los segundos
 
-	// Formatea la hora en formato hh:mm:ss
-	let time = `${hours.toString().padStart(2, '0')}:${minutes
-		.toString()
-		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  // Formatea la hora en formato hh:mm:ss
+  const time = `${hours.toString().padStart(2, '0')}:${minutes
+    .toString()
+    .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-	console.log(time);
+  console.log(time);
 };
 
 setInterval(reloj, 1000);

@@ -4,14 +4,14 @@
 // separador de palabras es el espacio: " "
 
 const convertirTitulo = (palabras) => {
-	palabras = palabras.trim();
-	if (palabras === '') {
-		return '';
-	}
-	palabras = palabras
-		.split(' ')
-		.map((palabra) => palabra[0].toUpperCase() + palabra.slice(1).toLowerCase());
-	return palabras.join(' ');
+  palabras = palabras.trim();
+  if (palabras === '') {
+    return '';
+  }
+  palabras = palabras
+    .split(' ')
+    .map((palabra) => palabra[0].toUpperCase() + palabra.slice(1).toLowerCase());
+  return palabras.join(' ');
 };
 
 module.exports = { convertirTitulo };

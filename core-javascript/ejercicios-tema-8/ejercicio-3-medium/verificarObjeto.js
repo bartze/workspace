@@ -13,10 +13,10 @@
 //   console.log(isPlainObject(datos)); // verdadero
 
 const isPlainObject = (element) => {
-	if (typeof element === 'object' && !Array.isArray(element) && element !== null) {
-		return true;
-	}
-	return false;
+  if (typeof element === 'object' && !Array.isArray(element) && element !== null) {
+    return true;
+  }
+  return false;
 };
 // console.log(isPlainObject({ a: 1 }));
 // console.log(isPlainObject([1, 2, 3]));

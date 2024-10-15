@@ -16,17 +16,17 @@
 // console.log(isEqual(data, data3)); // false
 
 const isEqual = (firstObject, secondObject) => {
-	let firstKeys = Object.keys(firstObject);
-	let secondKeys = Object.keys(secondObject);
-	if (firstKeys.length !== secondKeys.length) {
-		return false;
-	}
-	for (let key of firstKeys) {
-		if (firstObject[key] !== secondObject[key]) {
-			return false;
-		}
-	}
-	return true;
+  const firstKeys = Object.keys(firstObject);
+  const secondKeys = Object.keys(secondObject);
+  if (firstKeys.length !== secondKeys.length) {
+    return false;
+  }
+  for (const key of firstKeys) {
+    if (firstObject[key] !== secondObject[key]) {
+      return false;
+    }
+  }
+  return true;
 };
 const data = { a: 1, b: 1 };
 const data2 = { a: 1, b: 1 };

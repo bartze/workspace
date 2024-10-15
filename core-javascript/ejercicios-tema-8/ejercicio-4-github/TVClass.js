@@ -23,41 +23,41 @@
 //  like: "Panasonic at channel 8, volume 75".
 
 class TV {
-	constructor(brand, channel = 1, volume = 50) {
-		this.brand = brand;
-		this.resetTV();
-		this.setChannel(channel);
-		this.volume = volume;
-	}
+  constructor(brand, channel = 1, volume = 50) {
+    this.brand = brand;
+    this.resetTV();
+    this.setChannel(channel);
+    this.volume = volume;
+  }
 
-	volumePlus() {
-		if (this.volume < 100) {
-			this.volume++;
-		}
-	}
+  volumePlus() {
+    if (this.volume < 100) {
+      this.volume++;
+    }
+  }
 
-	volumeMinus() {
-		if (this.volume > 0) {
-			this.volume--;
-		}
-	}
+  volumeMinus() {
+    if (this.volume > 0) {
+      this.volume--;
+    }
+  }
 
-	setChannel(channel) {
-		if (channel > 0 && channel <= 50) {
-			this.channel = channel;
-		} else {
-			console.log(`No existe el canal seleccionado, volvemos al anterior`);
-		}
-	}
+  setChannel(channel) {
+    if (channel > 0 && channel <= 50) {
+      this.channel = channel;
+    } else {
+      console.log('No existe el canal seleccionado, volvemos al anterior');
+    }
+  }
 
-	resetTV() {
-		this.channel = 1;
-		this.volume = 50;
-	}
+  resetTV() {
+    this.channel = 1;
+    this.volume = 50;
+  }
 
-	showStatus() {
-		console.log(`${this.brand} en el canal ${this.channel}, volumen ${this.volume}`);
-	}
+  showStatus() {
+    console.log(`${this.brand} en el canal ${this.channel}, volumen ${this.volume}`);
+  }
 }
 
 const TV1 = new TV('Panasonic', 8, 75);

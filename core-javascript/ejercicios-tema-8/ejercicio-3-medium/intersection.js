@@ -12,13 +12,13 @@
 // console.log(intersection(data, data2)); // { b: 2 }
 
 const intersection = (firstObject, secondObject) => {
-	const result = {};
-	for (let prop in firstObject) {
-		if (firstObject[prop] === secondObject[prop]) {
-			result[prop] = firstObject[prop];
-		}
-	}
-	return result;
+  const result = {};
+  for (const prop in firstObject) {
+    if (firstObject[prop] === secondObject[prop]) {
+      result[prop] = firstObject[prop];
+    }
+  }
+  return result;
 };
 const data = { a: 1, b: 2 };
 const data2 = { c: 1, b: 2 };

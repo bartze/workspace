@@ -3,17 +3,17 @@
 // preguntar de nuevo.
 
 function multiplicarInfinitamente() {
-	while (true) {
-		const num1 = parseFloat(prompt('Ingresa el primer número a multiplicar:'));
-		const num2 = parseFloat(prompt('Ingresa el segundo número a multiplicar:'));
+  while (true) {
+    const num1 = parseFloat(prompt('Ingresa el primer número a multiplicar:'));
+    const num2 = parseFloat(prompt('Ingresa el segundo número a multiplicar:'));
 
-		if (isNaN(num1) || isNaN(num2)) {
-			alert('Por favor, introduce solo números.');
-			continue; // Vuelve al inicio del bucle
-		}
+    if (isNaN(num1) || isNaN(num2)) {
+      alert('Por favor, introduce solo números.');
+      continue; // Vuelve al inicio del bucle
+    }
 
-		const resultado = num1 * num2;
-		alert(`El resultado de ${num1} * ${num2} es: ${resultado}`);
-	}
+    const resultado = num1 * num2;
+    alert(`El resultado de ${num1} * ${num2} es: ${resultado}`);
+  }
 }
 multiplicarInfinitamente();

@@ -12,24 +12,24 @@
 // what should fizzbuzz(0) return?
 // what should happen if the function is passed a string?
 const fizzBuzz = (num) => {
-	if (typeof num !== 'number') {
-		throw new Error('El valor debe ser un número');
-	}
-	if (num === 0) {
-		return '0';
-	}
-	if (num % 3 === 0 && num % 5 === 0) {
-		return 'FizzBuzz';
-	} else if (num % 3 === 0) {
-		return 'Fizz';
-	} else if (num % 5 === 0) {
-		return 'Buzz';
-	}
-	return num.toString();
+  if (typeof num !== 'number') {
+    throw new Error('El valor debe ser un número');
+  }
+  if (num === 0) {
+    return '0';
+  }
+  if (num % 3 === 0 && num % 5 === 0) {
+    return 'FizzBuzz';
+  } if (num % 3 === 0) {
+    return 'Fizz';
+  } if (num % 5 === 0) {
+    return 'Buzz';
+  }
+  return num.toString();
 };
 
 for (let i = 1; i <= 100; i++) {
-	console.log(fizzBuzz(i));
+  console.log(fizzBuzz(i));
 }
 
 module.exports = { fizzBuzz };

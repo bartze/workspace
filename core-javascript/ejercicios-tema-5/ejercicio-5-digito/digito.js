@@ -3,15 +3,15 @@
 // número.
 
 const contarDigito = () => {
-	const numero = document.getElementById('numero').value;
-	const digito = document.getElementById('digito').value;
+  const numero = document.getElementById('numero').value;
+  const digito = document.getElementById('digito').value;
 
-	if (digito) {
-		const contador = numero.split(digito).length - 1;
-		document.getElementById(
-			'resultado',
-		).textContent = `El dígito ${digito} aparece ${contador} veces.`;
-	} else {
-		document.getElementById('resultado').textContent = '';
-	}
+  if (digito) {
+    const contador = numero.split(digito).length - 1;
+    document.getElementById(
+      'resultado',
+    ).textContent = `El dígito ${digito} aparece ${contador} veces.`;
+  } else {
+    document.getElementById('resultado').textContent = '';
+  }
 };

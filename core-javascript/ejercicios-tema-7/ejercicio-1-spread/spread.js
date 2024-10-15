@@ -2,8 +2,8 @@
 // ¿modificar el segundo modifica el primero? ¿modificar el primero
 // modifica el segundo?
 
-let array = [1, 2, 3, 4, 5];
-let newArray = [...array];
+const array = [1, 2, 3, 4, 5];
+const newArray = [...array];
 
 // console.log(`array sin modificar ${array}`);
 // console.log(`newArray sin modificar ${newArray}`);

@@ -11,13 +11,13 @@
 //   console.log(makePairs(datos)); // [['a', 1], ['b', 2]]
 
 const makePairs = (object) => {
-	if (typeof object !== 'object' || object === null) {
-		return object;
-	}
-	if (Array.isArray(object)) {
-		return object.map(makePairs);
-	}
-	return Object.keys(object).map((key) => [key, makePairs(object[key])]);
+  if (typeof object !== 'object' || object === null) {
+    return object;
+  }
+  if (Array.isArray(object)) {
+    return object.map(makePairs);
+  }
+  return Object.keys(object).map((key) => [key, makePairs(object[key])]);
 };
 console.log(makePairs({ a: 1, b: 2 })); // [['a', 1], ['b', 2]]
 module.exports = { makePairs };

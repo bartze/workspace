@@ -15,20 +15,21 @@
 //     pamplona de la 16 y la 4, por ejemplo, ¿Cómo harías para meterle las
 //     direcciones? Recrea el ejemplo
 class Vehicle {
-	constructor(name, max_speed, capacity) {
-		this.name = name;
-		this.max_speed = max_speed;
-		this.capacity = capacity;
-	}
+  constructor(name, max_speed, capacity) {
+    this.name = name;
+    this.max_speed = max_speed;
+    this.capacity = capacity;
+  }
 
-	seatingCapacity() {
-		return `The seating capacity of a ${this.name} is ${this.capacity} passengers`;
-	}
-	showInfo() {
-		console.log(`Name: ${this.name}`);
-		console.log(`Max Speed: ${this.max_speed} km/h`);
-		console.log(`Vehicle Capacity: ${this.capacity} passengers`);
-	}
+  seatingCapacity() {
+    return `The seating capacity of a ${this.name} is ${this.capacity} passengers`;
+  }
+
+  showInfo() {
+    console.log(`Name: ${this.name}`);
+    console.log(`Max Speed: ${this.max_speed} km/h`);
+    console.log(`Vehicle Capacity: ${this.capacity} passengers`);
+  }
 }
 const myVehicle = new Vehicle('Ibiza', 160, 4);
 console.log(myVehicle.seatingCapacity());
@@ -38,18 +39,20 @@ console.log(myFamilyVehicle.seatingCapacity);
 myFamilyVehicle.showInfo();
 
 class Bus extends Vehicle {
-	constructor(name, max_speed, capacity = 50) {
-		super(name, max_speed, capacity);
-		this.itinerary = [];
-	}
-	addStreetStop(address) {
-		this.itinerary.push(address);
-	}
-	showItinerary() {
-		this.itinerary.forEach((address, index) => {
-			console.log(`${index + 1}. ${address}`);
-		});
-	}
+  constructor(name, max_speed, capacity = 50) {
+    super(name, max_speed, capacity);
+    this.itinerary = [];
+  }
+
+  addStreetStop(address) {
+    this.itinerary.push(address);
+  }
+
+  showItinerary() {
+    this.itinerary.forEach((address, index) => {
+      console.log(`${index + 1}. ${address}`);
+    });
+  }
 }
 const bus1 = new Bus('Pamplona Bus 1', 120);
 bus1.addStreetStop('Universidad de Navarra');

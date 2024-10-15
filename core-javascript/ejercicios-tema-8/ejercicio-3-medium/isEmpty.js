@@ -16,17 +16,17 @@
 // console.log(isEmpty(data2)); // true
 
 const isEmpty = (object) => {
-	for (let prop in object) {
-		if (
-			object[prop] !== undefined &&
-			object[prop] !== null &&
-			!Number.isNaN(object[prop]) &&
-			object[prop] !== ''
-		) {
-			return false;
-		}
-	}
-	return true;
+  for (const prop in object) {
+    if (
+      object[prop] !== undefined
+			&& object[prop] !== null
+			&& !Number.isNaN(object[prop])
+			&& object[prop] !== ''
+    ) {
+      return false;
+    }
+  }
+  return true;
 };
 const data = { a: 1, b: undefined };
 const data2 = { a: undefined };

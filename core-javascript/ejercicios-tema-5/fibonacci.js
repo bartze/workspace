@@ -45,14 +45,14 @@
 // fibonacci(15);
 
 function fibonacci(numero) {
-	let [a, b] = [0, 1];
-	console.log(a);
-	if (numero > 1) console.log(b);
-	for (let i = 2; i < numero; i++) {
-		[a, b] = [b, a + b];
-		console.log(b);
-	}
-	return b;
+  let [a, b] = [0, 1];
+  console.log(a);
+  if (numero > 1) console.log(b);
+  for (let i = 2; i < numero; i++) {
+    [a, b] = [b, a + b];
+    console.log(b);
+  }
+  return b;
 }
 
 fibonacci(15);
