@@ -7,3 +7,5 @@ setTimeout(() => {
 	clearInterval(intervalo);
 	console.log('Intervalo detenido');
 }, 10000);
+
+module.exports = { setInterval };
