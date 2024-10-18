@@ -1,0 +1,53 @@
+h1 {
+	text-align: center;
+}
+table {
+	border: 1px solid black;
+	width: 90%;
+	margin: 0 auto;
+}
+/* Como el atributo align esta desaconsejado, usamos css */
+caption {
+	caption-side: top;
+	text-align: left;
+	font-weight: bold;
+}
+th,
+td {
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+}
+td[colspan] {
+	text-align: center;
+}
+th {
+	font-weight: bolder;
+	font-size: 2em;
+	width: 15%;
+}
+td:first-child {
+	background-color: #ccff00;
+	font-size: 1.5em;
+}
+table td:first-child {
+	width: 10%;
+}
+td[colspan='5'] {
+	background-color: yellow;
+	font-size: 1.5em;
+	color: grey;
+}
+.daily {
+	background-color: pink;
+	font-size: 1.5em;
+	font-style: italic;
+}
+.formacion {
+	background-color: lightblue;
+}
+.sprint {
+	background-color: red;
+	font-size: 1.5em;
+	font-style: italic;
+}
