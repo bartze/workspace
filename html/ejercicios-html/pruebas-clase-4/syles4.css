@@ -1,0 +1,27 @@
+ol {
+	list-style-type: lower-roman;
+}
+
+ul li::before {
+	content: '✔️ ';
+}
+ol > li:nth-child(even) {
+	background-color: grey;
+}
+/* pseudo-elemento marker */
+ul > li::marker {
+	content: '✝ ';
+	font-size: 1.1em;
+}
+
+ul > li:last-child::marker {
+	content: '✔️ ';
+	font-size: 1.5em;
+}
+
+/* Para visualizar las tablas es recomendable usar las siguientes propiedades de estilo: */
+Table,
+td,
+th {
+	border: black 1px solid;
+}
