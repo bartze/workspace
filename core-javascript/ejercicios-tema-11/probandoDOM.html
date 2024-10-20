@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Probando DOM</title>
+	</head>
+	<body>
+		<h1>Probando DOM</h1>
+		<script>
+			log('initial readyState:' + document.readyState);
+
+			document.addEventListener('readystatechange', () =>
+				log('readyState:' + document.readyState),
+			);
+			document.addEventListener('DOMContentLoaded', () => log('DOMContentLoaded'));
+
+			window.onload = () => log('window onload');
+		</script>
+		<iframe
+			src="https://www.example.com/"
+			width="1500px"
+			height="500px"
+			onload="log('iframe onload')"
+		></iframe>
+		<img src="https://en.js.cx/clipart/train.gif" id="img" />
+		<script>
+			img.onload = () => log('img onload');
+		</script>
+		<!-- <script src="./probandoDOM.js"></script> -->
+	</body>
+</html>
