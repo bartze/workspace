@@ -11,9 +11,11 @@ const obtenerMultiplos = (cantidad, numero) => {
 };
 
 // Exporta la función para Jest
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-	module.exports = { obtenerMultiplos };
-} else {
-	// Hacer la función accesible en el navegador
-	window.obtenerMultiplos = obtenerMultiplos;
-}
+// if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+// 	module.exports = { obtenerMultiplos };
+// } else {
+// 	// Hacer la función accesible en el navegador
+// 	window.obtenerMultiplos = obtenerMultiplos;
+// }
+
+module.exports = { obtenerMultiplos };
