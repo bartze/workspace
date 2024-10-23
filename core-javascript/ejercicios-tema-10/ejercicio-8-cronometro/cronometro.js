@@ -13,7 +13,15 @@ const actualizarCronometro = () => {
 	document.getElementById('cronometro').textContent = `${minutosTexto}:${segundosTexto}`;
 };
 
-setInterval(actualizarCronometro, 1000);
+// Funciones para acceder y resetear estados internos durante las pruebas
+const obtenerTiempo = () => ({ segundos, minutos });
+const reiniciarCronometro = () => {
+	segundos = 0;
+	minutos = 0;
+};
+
+// setInterval(actualizarCronometro, 1000);
+module.exports = { actualizarCronometro, obtenerTiempo, reiniciarCronometro };
 
 // 9. Sobre el ejercicio anterior, haz que con el click del ratón se pueda parar o continuar el tiempo.
 // (No hace falta controlar el momento en el que se para el tiempo a la hora de volver a empezar)
