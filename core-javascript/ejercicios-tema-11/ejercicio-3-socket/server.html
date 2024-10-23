@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WebSocket Cliente</title>
+	</head>
+	<body>
+		<h1>WebSocket Cliente</h1>
+		<button id="send-message">Enviar Mensaje</button>
+		<div id="messages"></div>
+		<script>
+			const ws = new WebSocket('ws://localhost:8080');
+
+			ws.onopen = () => {
+				console.log('Conectado al servidor WebSocket');
+			};
+
+			ws.onmessage = (event) => {
+				const messagesDiv = document.getElementById('messages');
+				messagesDiv.innerHTML += `<p>${event.data}</p>`;
+			};
+
+			ws.onclose = () => {
+				console.log('Desconectado del servidor WebSocket');
+			};
+
+			document.getElementById('send-message').addEventListener('click', () => {
+				ws.send('¡Hola desde el cliente!');
+			});
+		</script>
+	</body>
+</html>
