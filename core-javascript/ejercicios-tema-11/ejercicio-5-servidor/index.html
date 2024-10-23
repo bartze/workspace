@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cliente HTTP y WebSocket</title>
+	</head>
+	<body>
+		<h1>Cliente HTTP y WebSocket</h1>
+		<button id="send-ws-message">Enviar Mensaje WS</button>
+		<button id="send-http-message">Enviar Mensaje HTTP</button>
+		<div id="messages"></div>
+		<script>
+			// WebSocket
+			const ws = new WebSocket('ws://localhost:8080');
+
+			ws.onopen = () => {
+				console.log('connected');
+			};
+
+			ws.onmessage = (event) => {
+				console.log('Mensaje del servidor WebSocket:', event.data);
+				const messagesDiv = document.getElementById('messages');
+				messagesDiv.innerHTML += `<p>WebSocket: ${event.data}</p>`;
+			};
+
+			ws.onclose = () => {
+				console.log('closed');
+			};
+
+			ws.onerror = (error) => {
+				console.log('Error:', error);
+			};
+
+			document.getElementById('send-ws-message').addEventListener('click', () => {
+				ws.send('¡Hola desde el cliente WebSocket!');
+			});
+
+			// HTTP
+			document.getElementById('send-http-message').addEventListener('click', async () => {
+				try {
+					const response = await fetch('http://localhost:3000');
+					const data = await response.text();
+					const messagesDiv = document.getElementById('messages');
+					messagesDiv.innerHTML += `<p>HTTP: ${data}</p>`;
+				} catch (error) {
+					console.log('Hubo un problema con la solicitud Fetch:', error);
+				}
+			});
+		</script>
+	</body>
+</html>
