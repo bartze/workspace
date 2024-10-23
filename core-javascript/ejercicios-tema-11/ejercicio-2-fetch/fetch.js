@@ -2,6 +2,8 @@
 // diferentes errores (prueba a desconectarte de internet cuando lanzas la
 // aplicación, por ejemplo)
 
+const fetch = require('node-fetch');
+
 async function obtenerDatos() {
 	try {
 		const response = await fetch(`https://google.com`);
@@ -16,4 +18,6 @@ async function obtenerDatos() {
 	}
 }
 
-obtenerDatos();
+// obtenerDatos();
+
+module.exports = { obtenerDatos };
