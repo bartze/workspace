@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Buscar Artículo</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="total-articulos.html">Número Total de Artículos</a></li>
+				<li><a href="lista-articulos.html">Listado de Títulos</a></li>
+				<li><a href="tabla-articulos.html">Tabla de Artículos</a></li>
+				<li><a href="buscar-articulo.html">Buscar Artículo</a></li>
+			</ul>
+		</nav>
+		<h1>Buscar Artículo</h1>
+		<div>
+			<label for="article-number">Número de artículo: </label>
+			<input type="number" id="article-number" min="1" />
+			<button id="fetch-article">Obtener Artículo</button>
+		</div>
+		<div id="single-article"></div>
+		<footer>
+			<p>&copy; 2024 Iñaki. Todos los derechos reservados.</p>
+		</footer>
+		<script src="./script.js"></script>
+	</body>
+</html>
