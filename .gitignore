@@ -91,3 +91,6 @@ bower_components/
 
 # Optional stylelint cache
 .stylelintcache
+
+# src
+.src
