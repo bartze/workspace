@@ -1,0 +1,16 @@
+body {
+	background-color: #141447;
+	color: white;
+	font-family: sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+iframe {
+	margin: 10px;
+	width: 100%;
+	max-width: 560px; /* Para asegurar que todos los iframes tengan el mismo ancho */
+	height: 315px;
+}
