@@ -1,0 +1,15 @@
+body {
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+video {
+	width: 80%;
+	height: auto;
+	border: 10px solid transparent;
+	border-image: linear-gradient(to right, #4285f4, #ea4335, #fbbc05, #34a853) 1;
+}

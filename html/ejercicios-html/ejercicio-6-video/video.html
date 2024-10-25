@@ -3,18 +3,30 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><Video></Video></title>
+		<title>Video</title>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<h1>Video</h1>
 		<video controls loop>
-			<source src="./chrome.mp4" type="video/mp4" />
+			<source src="./src/chrome.mp4" type="video/mp4" />
 			<track
-				src="chrome-subtitles-en.vtt"
-				label="English captions"
+				src="./src/chrome-subtitles-dev.vtt"
+				label="Developers captions"
 				kind="captions"
 				srclang="en"
 				default
+			/>
+			<track
+				src="./src/chrome-subtitles-en.vtt"
+				label="English captions"
+				kind="captions"
+				srclang="en"
+			/>
+			<track
+				src="./src/chrome-subtitles-zh.vtt"
+				label="Chinese captions"
+				kind="captions"
+				srclang="en"
 			/>
 			<p>Este Navegador no soporta el elemento video.</p>
 		</video>
