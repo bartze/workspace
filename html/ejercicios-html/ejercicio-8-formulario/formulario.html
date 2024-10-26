@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Formulario</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<h1>Tazas a la carta</h1>
+		<div class="container">
+			<div class="left">
+				<h2>Registro</h2>
+				<hr />
+				<form id="registroForm">
+					<label for="mail">Correo electrónico:</label>
+					<input type="email" id="mail" name="user_mail" /><br />
+					<label for="pass">Password (5 caracteres min):</label>
+					<input type="password" id="pass" name="password" minlength="5" required /><br />
+					<button type="submit">Enviar</button>
+				</form>
+			</div>
+			<div class="right">
+				<h2>Personaliza tu taza</h2>
+				<hr />
+				<form>
+					<label for="micolor">Color de la taza</label>
+					<input type="color" id="micolor" name="micolor" value="#ff0000" /><br />
+					<label for="rango">Intensidad del color</label>
+					<input type="range" id="rango" name="rango" min="0" max="100" /><br />
+					<input type="checkbox" id="araña" name="araña" checked />
+					<label for="araña" class="emoji">🕷 Araña en el fondo</label><br />
+					<input type="radio" id="emoji1" name="emoji" value="emoji1" checked />
+					<label for="emoji1" class="emoji">😀 Emoji1</label>
+					<input type="radio" id="emoji2" name="emoji" value="emoji2" />
+					<label for="emoji2" class="emoji">😂 Emoji2</label>
+					<input type="radio" id="emoji3" name="emoji" value="emoji3" />
+					<label for="emoji3" class="emoji">😎 Emoji3</label><br />
+					<label for="name">Título (4 a 12 letras):</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						required
+						minlength="4"
+						maxlength="12"
+						size="15"
+					/><br />
+					<label for="msg">Mensaje</label>
+					<textarea id="msg" name="user_message"></textarea><br />
+					<button type="reset" value="reset">Reset</button>
+					<button type="submit">Enviar</button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			document.getElementById('registroForm').addEventListener('submit', function (event) {
+				event.preventDefault(); // Prevenir el envío del formulario
+				const email = document.getElementById('mail').value;
+				const password = document.getElementById('pass').value;
+				localStorage.setItem('user_mail', email);
+				localStorage.setItem('password', password);
+				window.location.href = './check.html'; // Redirigir a la página de check
+			});
+
+			const colorInput = document.getElementById('micolor');
+			const rangeInput = document.getElementById('rango');
+
+			function adjustColorIntensity(color, intensity) {
+				const decimalIntensity = intensity / 100;
+				const r = parseInt(color.substr(1, 2), 16) * decimalIntensity;
+				const g = parseInt(color.substr(3, 2), 16) * decimalIntensity;
+				const b = parseInt(color.substr(5, 2), 16) * decimalIntensity;
+				return `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
+			}
+
+			rangeInput.addEventListener('input', () => {
+				const adjustedColor = adjustColorIntensity(colorInput.value, rangeInput.value);
+				document.body.style.backgroundColor = adjustedColor;
+			});
+		</script>
+	</body>
+</html>
