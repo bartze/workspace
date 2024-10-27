@@ -3,6 +3,7 @@ const {
 	obtenerTiempo,
 	reiniciarCronometro,
 	toggleCronometro,
+	init,
 } = require('../cronometro');
 
 jest.useFakeTimers();
@@ -46,5 +47,23 @@ describe('Cronómetro', () => {
 		toggleCronometro();
 		jest.advanceTimersByTime(5000);
 		expect(document.getElementById('cronometro').textContent).toBe('00:10');
+	});
+	it('debería reiniciar correctamente', () => {
+		toggleCronometro();
+		jest.advanceTimersByTime(10000);
+		reiniciarCronometro();
+		expect(document.getElementById('cronometro').textContent).toBe('00:00');
+		expect(obtenerTiempo()).toEqual({ segundos: 0, minutos: 0 });
+	});
+	it('debería manejar el cronómetro correctamente cuando no está iniciado', () => {
+		reiniciarCronometro();
+		expect(obtenerTiempo()).toEqual({ segundos: 0, minutos: 0 });
+		expect(document.getElementById('cronometro').textContent).toBe('00:00');
+	});
+	it('debería añadir un event listener al botón', () => {
+		const button = document.getElementById('toggle-button');
+		jest.spyOn(button, 'addEventListener');
+		init();
+		expect(button.addEventListener).toHaveBeenCalledWith('click', toggleCronometro);
 	});
 });

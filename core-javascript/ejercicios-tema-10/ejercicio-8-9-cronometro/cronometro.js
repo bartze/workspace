@@ -50,4 +50,10 @@ const reiniciarCronometro = () => {
 	}
 };
 
-module.exports = { actualizarCronometro, obtenerTiempo, reiniciarCronometro, toggleCronometro };
+module.exports = {
+	actualizarCronometro,
+	obtenerTiempo,
+	reiniciarCronometro,
+	toggleCronometro,
+	init,
+};
