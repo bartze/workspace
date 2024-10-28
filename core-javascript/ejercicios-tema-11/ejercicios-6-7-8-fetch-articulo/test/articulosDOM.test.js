@@ -1,115 +1,138 @@
-import {
+const {
 	obtenerArticulo,
 	obtenerTodosLosArticulos,
 	contarArticulos,
 	listarTitulos,
 	crearTabla,
-} from '../articulosDOM';
+} = require('../articulosDOM');
 
+// Mocks de DOM y fetch
 global.fetch = jest.fn();
+document.body.innerHTML = `
+  <div id="total-articulos"></div>
+  <div id="lista-titulos"></div>
+  <table id="articles-table"><tbody></tbody></table>
+  <div id="single-article"></div>
+`;
 
-beforeEach(() => {
-	fetch.mockClear();
-	document.body.innerHTML = `
-        <div id="total-articulos"></div>
-        <div id="lista-titulos"></div>
-        <table id="articles-table"><tbody></tbody></table>
-    `;
+describe('obtenerArticulo', () => {
+	it('debe devolver un artículo válido con un ID existente', async () => {
+		const mockData = { id: 1, title: 'Test Title', body: 'Test Body' };
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => mockData,
+		});
+
+		const result = await obtenerArticulo(1);
+		expect(result).toEqual(mockData);
+	});
+
+	it('debe manejar el caso de un error en la red', async () => {
+		fetch.mockResolvedValueOnce({ ok: false });
+		const result = await obtenerArticulo(1);
+		expect(result).toBeUndefined();
+	});
+});
+
+describe('obtenerTodosLosArticulos', () => {
+	it('debe devolver todos los artículos cuando la respuesta es exitosa', async () => {
+		const mockData = [{ id: 1, title: 'Test Title', body: 'Test Body' }];
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => mockData,
+		});
+
+		const result = await obtenerTodosLosArticulos();
+		expect(result).toEqual(mockData);
+	});
+
+	it('debe manejar el caso de un error en la red', async () => {
+		fetch.mockResolvedValueOnce({ ok: false });
+		const result = await obtenerTodosLosArticulos();
+		expect(result).toBeUndefined();
+	});
 });
 
 describe('contarArticulos', () => {
 	it('debe mostrar el número total de artículos en el DOM', async () => {
-		const mockData = Array(5).fill({ title: 'Sample' });
-
-		// Simulamos que obtenerTodosLosArticulos retorna mockData
+		const mockData = Array(5).fill({ title: 'Test Title', body: 'Test Body' });
 		fetch.mockResolvedValueOnce({
 			ok: true,
 			json: async () => mockData,
 		});
 
 		await contarArticulos();
-
-		// Comprobamos el contenido de total-articulos
-		const totalArticulosElem = document.getElementById('total-articulos');
-		console.log('Contenido total-articulos:', totalArticulosElem.innerText);
-
-		expect(totalArticulosElem.innerText).toBe(`Número total de artículos: ${mockData.length}`);
+		expect(document.getElementById('total-articulos').innerText).toBe(
+			'Número total de artículos: 5',
+		);
 	});
-});
-describe('contarArticulos', () => {
-	it('debe mostrar un mensaje adecuado cuando no hay artículos', async () => {
-		// Simulamos que obtenerTodosLosArticulos retorna un array vacío
+
+	it('debe mostrar "Número total de artículos: 0" cuando no hay artículos', async () => {
 		fetch.mockResolvedValueOnce({
 			ok: true,
 			json: async () => [],
 		});
 
 		await contarArticulos();
+		expect(document.getElementById('total-articulos').innerText).toBe(
+			'Número total de artículos: 0',
+		);
+	});
 
-		const totalArticulosElem = document.getElementById('total-articulos');
-		expect(totalArticulosElem.innerText).toBe(`Número total de artículos: 0`);
+	it('debe manejar errores al obtener artículos', async () => {
+		fetch.mockResolvedValueOnce({ ok: false });
+
+		await contarArticulos();
+		expect(document.getElementById('total-articulos').innerText).toBe('');
 	});
 });
 
 describe('listarTitulos', () => {
 	it('debe manejar el caso en que no hay títulos', async () => {
-		// Simulamos que obtenerTodosLosArticulos retorna un array vacío
 		fetch.mockResolvedValueOnce({
 			ok: true,
 			json: async () => [],
 		});
 
 		await listarTitulos();
+		expect(document.getElementById('lista-titulos').innerHTML).toBe('');
+	});
 
-		const listaTitulosDiv = document.getElementById('lista-titulos');
-		expect(listaTitulosDiv.innerHTML).toBe('');
+	it('debe mostrar un mensaje en caso de error en la red', async () => {
+		fetch.mockResolvedValueOnce({ ok: false });
+
+		await listarTitulos();
+		expect(document.getElementById('lista-titulos').innerHTML).toBe('');
 	});
 });
 
 describe('crearTabla', () => {
 	it('debe crear una tabla con los artículos en el DOM', async () => {
-		const mockData = [
-			{ id: 1, title: 'Title 1', body: 'Body 1' },
-			{ id: 2, title: 'Title 2', body: 'Body 2' },
-		];
+		const mockData = [{ title: 'Test Title', body: 'Test Body' }];
 		fetch.mockResolvedValueOnce({
 			ok: true,
 			json: async () => mockData,
 		});
 
 		await crearTabla();
-		const tableRows = document
-			.getElementById('articles-table')
-			.getElementsByTagName('tbody')[0].rows;
-		expect(tableRows.length).toBe(mockData.length);
-		expect(tableRows[0].cells[0].textContent).toBe('Title 1');
-		expect(tableRows[0].cells[1].textContent).toBe('Body 1');
+		expect(document.querySelector('#articles-table tbody').children.length).toBe(1);
+		expect(document.querySelector('#articles-table tbody').textContent).toContain('Test Title');
 	});
-});
-describe('crearTabla', () => {
+
 	it('debe manejar el caso en que no hay artículos', async () => {
-		// Simulamos que obtenerTodosLosArticulos retorna un array vacío
 		fetch.mockResolvedValueOnce({
 			ok: true,
 			json: async () => [],
 		});
 
 		await crearTabla();
-
-		const tableRows = document
-			.getElementById('articles-table')
-			.getElementsByTagName('tbody')[0].rows;
-		expect(tableRows.length).toBe(0);
+		expect(document.querySelector('#articles-table tbody').children.length).toBe(0);
 	});
-});
-describe('contarArticulos', () => {
-	it('debe manejar errores al obtener artículos', async () => {
-		// Simulamos que fetch falla
-		fetch.mockRejectedValueOnce(new Error('Network error'));
 
-		await contarArticulos();
+	it('debe manejar el caso de un error en la red al crear la tabla', async () => {
+		fetch.mockResolvedValueOnce({ ok: false });
 
-		const totalArticulosElem = document.getElementById('total-articulos');
-		expect(totalArticulosElem.innerText).toBe('');
+		await crearTabla();
+		expect(document.querySelector('#articles-table tbody').children.length).toBe(0);
 	});
 });

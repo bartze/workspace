@@ -1,4 +1,4 @@
-export async function obtenerArticulo(num) {
+async function obtenerArticulo(num) {
 	try {
 		const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${num}`);
 
@@ -11,12 +11,11 @@ export async function obtenerArticulo(num) {
 		const data = await response.json();
 		return data;
 	} catch (error) {
-		console.error('Hubo un problema con la solicitud Fetch:', error);
-		return null;
+		console.log('Hubo un problema con la solicitud Fetch:', error);
 	}
 }
 
-export async function obtenerTodosLosArticulos() {
+async function obtenerTodosLosArticulos() {
 	try {
 		const response = await fetch('https://jsonplaceholder.typicode.com/posts');
 
@@ -26,12 +25,11 @@ export async function obtenerTodosLosArticulos() {
 
 		return await response.json();
 	} catch (error) {
-		console.error('Hubo un problema con la solicitud Fetch:', error);
-		return null;
+		console.log('Hubo un problema con la solicitud Fetch:', error);
 	}
 }
 
-export async function contarArticulos() {
+async function contarArticulos() {
 	try {
 		const data = await obtenerTodosLosArticulos();
 		if (data) {
@@ -39,33 +37,33 @@ export async function contarArticulos() {
 				'total-articulos',
 			).innerText = `Número total de artículos: ${data.length}`;
 		} else {
-			document.getElementById('total-articulos').innerText = ''; // Or some error message
+			document.getElementById('total-articulos').innerText = '';
 		}
 	} catch (error) {
-		document.getElementById('total-articulos').innerText = ''; // Handle the error appropriately
+		document.getElementById('total-articulos').innerText = '';
 	}
 }
 
-export async function listarTitulos() {
+async function listarTitulos() {
 	const data = await obtenerTodosLosArticulos();
 	const listaTitulosDiv = document.getElementById('lista-titulos');
-	listaTitulosDiv.innerHTML = ''; // Clear previous content
+	listaTitulosDiv.innerHTML = '';
 
 	if (data && data.length > 0) {
 		data.forEach((articulo) => {
 			const titleElement = document.createElement('div');
-			titleElement.innerText = articulo.title; // Set the title text
-			listaTitulosDiv.appendChild(titleElement); // Append the title to the div
+			titleElement.innerText = articulo.title;
+			listaTitulosDiv.appendChild(titleElement);
 		});
 	}
 }
 
-export async function crearTabla() {
+async function crearTabla() {
 	const data = await obtenerTodosLosArticulos();
-	if (data) {
-		const tableBody = document
-			.getElementById('articles-table')
-			.getElementsByTagName('tbody')[0];
+	const tableBody = document.getElementById('articles-table').getElementsByTagName('tbody')[0];
+	tableBody.innerHTML = ''; // Limpia la tabla antes de llenarla
+
+	if (data && data.length > 0) {
 		data.forEach((articulo) => {
 			const row = tableBody.insertRow();
 			const cellTitulo = row.insertCell(0);
@@ -76,7 +74,7 @@ export async function crearTabla() {
 	}
 }
 
-export function mostrarArticulo(data) {
+function mostrarArticulo(data) {
 	const singleArticleDiv = document.getElementById('single-article');
 	singleArticleDiv.innerHTML = `<h2>${data.title}</h2><p>${data.body}</p>`;
 }
@@ -99,3 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		crearTabla();
 	}
 });
+module.exports = {
+	obtenerArticulo,
+	obtenerTodosLosArticulos,
+	contarArticulos,
+	listarTitulos,
+	crearTabla,
+};
