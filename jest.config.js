@@ -4,6 +4,7 @@ module.exports = {
 		'^.+\\.jsx?$': 'babel-jest',
 	},
 	transformIgnorePatterns: [
-		'/node_modules/(?!(node-fetch)/)', // Agrega excepciones para módulos específicos
+		'/node_modules/(?!(node-fetch)/)', // Excepciones para módulos específicos
 	],
+	// setupFiles: ['jest-fetch-mock'],
 };

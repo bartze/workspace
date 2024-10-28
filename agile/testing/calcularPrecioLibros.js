@@ -8,21 +8,22 @@
 //                                          nuevo +30
 
 function calcularPrecioLibros(tiendaOnline, VIP, precioLibroNuevo, precioLibroUsado) {
-  let precioFinal = precioLibroNuevo + precioLibroUsado;
-  if (precioLibroUsado > 30 && precioLibroNuevo > 60) {
-    descuento = (precioLibroNuevo + precioLibroUsado) * 0.05;
-    precioFinal -= descuento;
-  } else if (tiendaOnline === true && VIP === true && precioLibroNuevo > 50) {
-    descuento = precioLibroNuevo * 0.10;
-    precioFinal -= descuento;
-  } else if (VIP === false && precioLibroNuevo > 50) {
-    descuento = precioLibroNuevo * 0.10;
-    precioFinal -= descuento;
-  } else if (VIP === true && precioLibroNuevo > 50) {
-    descuento = precioLibroNuevo * 0.15;
-    precioFinal -= descuento;
-  }
-  return precioFinal;
+	let precioFinal = precioLibroNuevo + precioLibroUsado;
+	let descuento = 0;
+	if (precioLibroUsado > 30 && precioLibroNuevo > 60) {
+		descuento = (precioLibroNuevo + precioLibroUsado) * 0.05;
+		precioFinal -= descuento;
+	} else if (tiendaOnline === true && VIP === true && precioLibroNuevo > 50) {
+		descuento = precioLibroNuevo * 0.1;
+		precioFinal -= descuento;
+	} else if (VIP === false && precioLibroNuevo > 50) {
+		descuento = precioLibroNuevo * 0.1;
+		precioFinal -= descuento;
+	} else if (VIP === true && precioLibroNuevo > 50) {
+		descuento = precioLibroNuevo * 0.15;
+		precioFinal -= descuento;
+	}
+	return precioFinal;
 }
 
 module.exports = { calcularPrecioLibros };
