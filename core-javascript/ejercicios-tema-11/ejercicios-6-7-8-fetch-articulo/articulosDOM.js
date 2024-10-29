@@ -97,10 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		crearTabla();
 	}
 });
-module.exports = {
-	obtenerArticulo,
-	obtenerTodosLosArticulos,
-	contarArticulos,
-	listarTitulos,
-	crearTabla,
-};
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = {
+		obtenerArticulo,
+		obtenerTodosLosArticulos,
+		contarArticulos,
+		listarTitulos,
+		crearTabla,
+	};
+}
