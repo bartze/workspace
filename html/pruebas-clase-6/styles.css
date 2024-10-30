@@ -1,0 +1,16 @@
+.my_caja {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-color: #5500ff;
+	transition: ease-in, 2s;
+}
+
+.my_caja:hover {
+	background-color: #ffc55c;
+	width: 200px;
+	height: 200px;
+	transform: rotate(180deg);
+}
