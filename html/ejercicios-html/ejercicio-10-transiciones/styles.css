@@ -1,0 +1,144 @@
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+img {
+	width: 35%;
+	transition: transform 2s, filter 2s, width 2s, height 2s;
+}
+
+.image1 {
+	filter: none;
+}
+
+.image2 {
+	filter: sepia(1) brightness(80%) contrast(120%);
+}
+
+.image3 {
+	filter: hue-rotate(180deg) saturate(150%);
+}
+
+.image4 {
+	filter: blur(3px) grayscale(1);
+}
+
+.image5 {
+	filter: blur(5px);
+}
+
+.image6 {
+	filter: contrast(200%);
+}
+
+.image7 {
+	filter: grayscale(80%);
+}
+
+.image8 {
+	filter: hue-rotate(90deg);
+}
+
+.image9 {
+	filter: brightness(50%);
+}
+
+.image10 {
+	filter: brightness(600%);
+}
+
+.image11 {
+	filter: invert(1);
+}
+
+.image12 {
+	filter: opacity(125%) saturate(250%);
+}
+
+.image1:hover {
+	width: 50%;
+	height: 50%;
+	transform: rotate(45deg);
+	transition-timing-function: ease-in;
+}
+
+.image2:hover {
+	width: 50%;
+	height: 50%;
+	transform: scale(1.5);
+	transition-timing-function: linear;
+}
+
+.image3:hover {
+	width: 50%;
+	height: 50%;
+	transform: translateX(100px);
+	transition-timing-function: ease-out;
+}
+
+.image4:hover {
+	width: 50%;
+	height: 50%;
+	transform: translateY(100px);
+	transition-timing-function: ease-in-out;
+}
+
+.image5:hover {
+	width: 50%;
+	height: 50%;
+	transform: scale(0.5);
+	transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.image6:hover {
+	width: 50%;
+	height: 50%;
+	transform: skew(20deg, 20deg);
+	transition-timing-function: steps(10, end);
+}
+
+.image7:hover {
+	width: 50%;
+	height: 50%;
+	transform: scaleX(1.5);
+	transition-timing-function: ease;
+}
+
+.image8:hover {
+	width: 50%;
+	height: 50%;
+	transform: scaleY(1.5);
+	transition-timing-function: step-start;
+}
+
+.image9:hover {
+	width: 50%;
+	height: 50%;
+	transform: rotate(-45deg);
+	transition-timing-function: step-end;
+}
+
+.image10:hover {
+	width: 50%;
+	height: 50%;
+	transform: translate(-100px, -100px);
+	transition-timing-function: ease-in-out;
+}
+
+.image11:hover {
+	width: 50%;
+	height: 50%;
+	transform: scale(2);
+	transition-timing-function: ease-in;
+}
+
+.image12:hover {
+	width: 50%;
+	height: 50%;
+	transform: rotate(90deg);
+	transition-timing-function: ease-out;
+}
