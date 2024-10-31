@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Terraformación</title>
-		<link rel="stylesheet" href="css/ej3.css" />
-		<link rel="stylesheet" href="css/ej3Nav.css" />
-		<link rel="icon" type="image/png" sizes="16x16" href="favicon/cohete.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="./css/loginStyles.css" />
 	</head>
-
 	<body>
-		<header id="main-header">
-			<nav>
-				<ul>
-					<li><a href="./index.html">Inicio</a></li>
-					<li><a href="./menu_marciano.html">Menú especial</a></li>
-					<li><a href="./seguridad.html">Seguridad en Marte</a></li>
-					<li>
-						<a href="./nostromo.html">Conoce la Nostromo</a>
-					</li>
-					<li><a href="./nosotros.html">Nosotros</a></li>
-				</ul>
-			</nav>
-		</header>
-		<h1 id="main-title">Terraformación</h1>
-		<p class="description">
-			La terraformación es un hipotético proceso orientado a modificar deliberadamente la
-			atmósfera, la temperatura, la topografía o la ecología de un planeta o satélite natural
-			para asemejarlo al entorno de la Tierra y hacerlo adecuado para la vida terrestre.
-		</p>
-		<footer id="main-footer">
-			<p class="copyright">Copyright Albañiles Digitales</p>
-		</footer>
+		<h1>Mars Terraform</h1>
+		<div class="container">
+			<h2>login</h2>
+			<form id="loginForm" action="./welcome.html" method="get">
+				<label for="mail">email</label>
+				<input type="email" id="mail" name="user_mail" /><br />
+				<label for="pass">password</label>
+				<input type="password" id="pass" name="password" required /><br />
+				<button type="submit">submit</button>
+				<a href="./recover.html" class="recover-link">Forgot Password?</a>
+			</form>
+		</div>
 	</body>
 </html>
