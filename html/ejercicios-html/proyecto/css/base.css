@@ -21,3 +21,10 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+#main-title {
+	text-align: center;
+}
+.weyland-yutani {
+	width: 100px;
+	height: auto;
+}
