@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'Nasalization';
+	src: url('../src/nasalization-rg.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Nasalization', sans-serif;
+	color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	background-image: url('../src/fondoMarte.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
