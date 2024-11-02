@@ -1,0 +1,50 @@
+#main-header {
+	background-color: #333;
+	overflow: hidden; /* Para asegurarse de que el contenido no se desborde */
+	display: flex;
+	justify-content: space-between; /* Distribuir espacio entre los elementos */
+	align-items: center;
+	padding: 0 10px; /* Añadir espaciado interno */
+}
+
+#main-header ul {
+	list-style-type: none; /* Eliminar los puntos de la lista */
+	margin: 0;
+	padding: 0;
+	display: flex; /* Asegurarse de que los elementos de la lista estén en línea */
+	align-items: center;
+	width: 100%; /* Asegurar que la lista ocupe el 100% del contenedor */
+}
+
+#main-header ul li {
+	margin: 0 10px; /* Espaciado entre los elementos de la lista */
+	display: flex;
+	align-items: center; /* Centrar los elementos en el eje vertical */
+}
+
+#main-header ul li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px; /* Espaciado interno */
+	text-decoration: none; /* Eliminar subrayado */
+}
+
+#main-header ul li a:hover {
+	background-color: #111;
+}
+
+/* Especificar posición de los logos */
+.logo-left {
+	order: -1; /* Asegurar que el logo del cohete esté a la izquierda */
+}
+
+.logo-right {
+	margin-left: auto; /* Empujar el logo de Weyland a la derecha */
+}
+
+.logo-cohete,
+.logoWeyland {
+	width: 20px; /* Ajustar el tamaño del logo */
+	height: auto;
+}

@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Menú</title>
-		<link rel="stylesheet" href="css/ej3.css" />
-		<link rel="stylesheet" href="css/ej3Nav.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/navStyles.css" />
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/cohete.png" />
 	</head>
 
@@ -12,13 +12,24 @@
 		<header id="main-header">
 			<nav>
 				<ul>
-					<li><a href="./welcome.html">Inicio</a></li>
-					<li><a href="./menu_marciano.html">Menú especial</a></li>
-					<li><a href="./seguridad.html">Seguridad en Marte</a></li>
-					<li>
-						<a href="./nostromo.html">Conoce la Nostromo</a>
+					<li class="logo-left">
+						<a href="./welcome.html"
+							><img src="favicon/cohete.png" alt="Welcome" class="logo-cohete"
+						/></a>
 					</li>
-					<li><a href="./nosotros.html">Nosotros</a></li>
+					<li><a href="./welcome.html">Welcome</a></li>
+					<li><a href="./marsExpress.html">Learn Mars Express</a></li>
+					<li><a href="./menu.html">Menu on board</a></li>
+					<li><a href="./mission.html">Mission in Mars</a></li>
+					<li><a href="./about.html">About us</a></li>
+					<li class="logo-right">
+						<a href="./about.html"
+							><img
+								src="./src/Weyland-Yutani.png"
+								alt="Weyland-Yutani Corp"
+								class="logoWeyland"
+						/></a>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -56,7 +67,10 @@
 			</article>
 		</section>
 		<footer id="main-footer">
-			<p class="copyright">Copyright Albañiles Digitales</p>
+			<a href="./about.html">
+				<img src="./src/Weyland-Yutani.png" alt="Weyland-Yutani Corp" class="logoWeyland" />
+			</a>
+			<p class="copyright">Copyright Weyland-Yutani Corp</p>
 		</footer>
 	</body>
 </html>

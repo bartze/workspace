@@ -17,7 +17,7 @@ html {
 	overflow: hidden;
 	background: url('../src/milky-way-1.jpeg') no-repeat center center fixed;
 	background-size: cover;
-	animation: backgroundTransition 4s infinite alternate;
+	animation: backgroundTransition 5s infinite alternate;
 	flex-direction: column;
 }
 
@@ -43,9 +43,11 @@ form {
 	align-items: center;
 	width: 100%;
 }
+
 label {
 	color: #ffffff;
 }
+
 input,
 button {
 	margin: 10px 0;
@@ -54,17 +56,21 @@ button {
 	border-radius: 5px;
 	border: none;
 	font-size: 1em;
+	font-family: 'Nasalization', sans-serif;
 }
+
 input {
 	background-color: #333333;
 	color: #ffffff;
 }
+
 button {
 	background-color: #ff5722;
 	color: #ffffff;
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
+
 button:hover {
 	background-color: #e64a19;
 }
@@ -80,7 +86,9 @@ button:hover {
 	text-decoration: none;
 	cursor: pointer;
 	transition: background-color 0.3s;
+	font-family: 'Nasalization', sans-serif;
 }
+
 .recover-link:hover {
 	background-color: #0056b3;
 }
