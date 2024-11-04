@@ -1,26 +1,3 @@
-.animation {
-	animation-duration: 3s;
-	animation-name: launch;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-}
-
-@keyframes launch {
-	from {
-		margin-left: 100%;
-		width: 300%;
-	}
-	75% {
-		font-size: 300%;
-		margin-left: 25%;
-		width: 150%;
-	}
-	to {
-		margin-left: 0%;
-		width: 100%;
-	}
-}
-
 @font-face {
 	font-family: 'Nasalization';
 	src: url('../src/nasalization-rg.otf') format('opentype');
@@ -28,99 +5,55 @@
 	font-style: normal;
 }
 
-body,
-html {
+body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	width: 100%;
 	font-family: 'Nasalization', sans-serif;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	background: url('../src/marsExpress.jpeg') no-repeat center center fixed;
-	background-size: cover;
-	animation: backgroundTransition 10s infinite alternate;
 	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background: url('../src/milky-way-1.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	animation: backgroundTransition 5s infinite alternate;
 }
 
 h1,
-h2 {
+h2,
+p {
 	color: #ffffff;
 	text-align: center;
-}
-
-.container {
-	background-color: rgba(0, 0, 0, 0.7);
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-}
-
-label {
-	color: #ffffff;
-}
-
-input,
-button {
-	margin: 10px 0;
-	width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	font-size: 1em;
-	font-family: 'Nasalization', sans-serif;
-}
-
-input {
-	background-color: #333333;
-	color: #ffffff;
-}
-
-button {
-	background-color: #ff5722;
-	color: #ffffff;
-	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
-button:hover {
-	background-color: #e64a19;
-}
-
-.recover-link {
-	margin: 10px 0;
-	width: 100%;
-	padding: 10px;
-	border-radius: 5px;
-	background-color: #007bff;
-	color: #ffffff;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	transition: background-color 0.3s;
-	font-family: 'Nasalization', sans-serif;
-}
-
-.recover-link:hover {
-	background-color: #0056b3;
 }
 
 @keyframes backgroundTransition {
 	0% {
-		background-image: url('../src/marsExpress.jpeg');
+		background-image: url('../src/milky-way-1.jpeg');
 	}
 	100% {
-		background-image: url('../src/launch.jpg');
+		background-image: url('../src/milky-way-2.jpg');
 	}
+}
+
+.animation {
+	animation-duration: 3s;
+	animation-name: zoomIn;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes zoomIn {
+	from {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+img {
+	animation: zoomIn 3s ease-in-out;
 }
