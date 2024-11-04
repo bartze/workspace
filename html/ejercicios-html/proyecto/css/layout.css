@@ -44,7 +44,6 @@
 
 /* Footer */
 #main-footer {
-	margin-top: auto;
 	background-color: #333;
 	color: whitesmoke;
 	padding: 10px 0;
@@ -52,6 +51,9 @@
 	justify-content: center;
 	align-items: center;
 	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 #main-footer a {

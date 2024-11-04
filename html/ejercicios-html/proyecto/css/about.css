@@ -1,24 +1,111 @@
-.split-container {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	height: 100%;
+@font-face {
+	font-family: 'Nasalization';
+	src: url('../src/nasalization-rg.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.left-section,
-.right-section {
-	width: 45%;
+body,
+html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'Nasalization', sans-serif;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	overflow: hidden;
+	background: url('../src/milky-way-1.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	animation: backgroundTransition 5s infinite alternate;
+	flex-direction: column;
 }
 
-.description {
+h1,
+h2 {
+	color: #ffffff;
 	text-align: center;
-	margin-bottom: 20px;
 }
-.weyland-yutani {
-	width: 100px;
-	height: auto;
+
+.container {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	max-width: 1200px;
+	padding: 20px;
+}
+
+p,
+label {
+	color: white;
+}
+
+.left,
+.right {
+	flex: 1;
+	margin: 20px;
+	padding: 20px;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+label,
+input,
+textarea,
+button {
+	margin: 10px 0;
+}
+
+input,
+textarea,
+button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: 1em;
+}
+
+button {
+	background-color: #ff6347;
+	color: white;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #ff4500;
+}
+
+.iframe-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
+}
+
+@keyframes backgroundTransition {
+	0% {
+		background-image: url('../src/milky-way-1.jpeg');
+	}
+	100% {
+		background-image: url('../src/milky-way-2.jpg');
+	}
 }

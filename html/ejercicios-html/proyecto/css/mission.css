@@ -1,0 +1,90 @@
+@font-face {
+	font-family: 'Nasalization';
+	src: url('../src/nasalization-rg.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Nasalization', sans-serif;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background: url('../src/milky-way-1.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	animation: backgroundTransition 5s infinite alternate;
+}
+
+h1,
+h2,
+p {
+	color: #ffffff;
+	text-align: center;
+}
+.terraform {
+	width: 90%;
+	padding: 10px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-areas:
+		'crops crops crops'
+		'life energy com'
+		'lab rec rec'
+		'quarters quarters quarters';
+	grid-gap: 10px;
+	width: 90%;
+	padding: 10px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.crops {
+	grid-area: crops;
+}
+
+.life {
+	grid-area: life;
+}
+
+.energy {
+	grid-area: energy;
+}
+
+.com {
+	grid-area: com;
+}
+
+.lab {
+	grid-area: lab;
+}
+
+.rec {
+	grid-area: rec;
+}
+
+.quarters {
+	grid-area: quarters;
+}
+
+.item {
+	background-color: #222;
+	padding: 20px;
+}
+
+@keyframes backgroundTransition {
+	0% {
+		background-image: url('../src/milky-way-1.jpeg');
+	}
+	100% {
+		background-image: url('../src/milky-way-2.jpg');
+	}
+}
