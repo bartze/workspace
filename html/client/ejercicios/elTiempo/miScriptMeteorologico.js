@@ -63,8 +63,11 @@ function muestraUbicacion(ubicacion) {
 }
 
 function muestraTemperatura(temp) {
+	// Convertir la temperatura a Celsius
+	let tempCelsius = temp - 273.15;
+	tempCelsius = tempCelsius.toFixed(1);
 	let elementoTemperatura = document.getElementById('temp');
-	elementoTemperatura.innerHTML = temp;
+	elementoTemperatura.innerHTML = tempCelsius;
 }
 
 function muestraHumedad(humedad) {
