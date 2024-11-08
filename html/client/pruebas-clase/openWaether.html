@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>El Tiempo</title>
+		<meta charset="UTF-8" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		/>
+	</head>
+
+	<body>
+		<nav class="navbar bg-secondary bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="">
+					<img
+						src="https://store-images.s-microsoft.com/image/apps.46538.9007199266506777.7e7fab83-59d7-4967-aacc-3f48737566c8.7a511058-40d2-4d74-9f08-342f28bca800"
+						alt="Logo"
+						width="30"
+						height="24"
+						class="d-inline-block align-text-top"
+					/>
+					EL TIEMPO. Previsión próximos 10 días
+					<span id="localidad" class="text-end"></span>
+				</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row" id="card"></div>
+		</div>
+		<script>
+			const localidad = document.querySelector('#localidad');
+			const hora = document.querySelector('#hora');
+			const temperatura = document.querySelector('#temperatura');
+			const actualmente = document.querySelector('#actualmente');
+			const icono = document.querySelector('#icono');
+			const humedad = document.querySelector('#humedad');
+			const wind = document.querySelector('#wind');
+			const max = document.querySelector('#max');
+			const min = document.querySelector('#min');
+
+			const getTiempoFromAPI = async (data) => {
+				const appId = 'f73db31a2bd0c0a0ca8dc5b8a11e73de';
+				const latitud = data.coords.latitude;
+				const longitud = data.coords.longitude;
+				// const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&units=metric&lang=es&appid=${appId}`;
+				const urlVariosDias = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitud}&lon=${longitud}&units=metric&lang=es&cnt=10&appid=${appId}`;
+				console.log(urlVariosDias);
+				try {
+					const respuesta = await fetch(urlVariosDias);
+					const datosTiempo = await respuesta.json();
+					mostrarHTMLAPI(datosTiempo);
+				} catch (error) {
+					console.log(error);
+					localidad.textContent = 'Error de acceso al servicio del tiempo';
+				}
+			};
+
+			const mostrarHTMLAPI = (datosTiempo) => {
+				console.log(datosTiempo);
+				const card = document.querySelector('#card');
+				const { city, list } = datosTiempo;
+
+				localidad.textContent = city.name;
+
+				list.forEach((dia) => {
+					// humedad.textContent = list[0].main.humidity + '%';
+					// wind.textContent = list[0].wind.speed + ' m/s';
+
+					// max.textContent = Math.round(list[0].main.temp_max) + ' ºC';
+					// min.textContent = Math.round(list[0].main.temp_min) + ' ºC';
+					const tarjeta = document.createElement('div');
+					tarjeta.classList.add('card');
+					tarjeta.style.width = '8rem';
+
+					const horaDia = document.createElement('p');
+					horaDia.textContent = new Date(dia.dt * 1000).toLocaleString();
+
+					tarjeta.appendChild(horaDia);
+
+					const imagen = `http://openweathermap.org/img/w/${dia.weather[0].icon}.png`;
+					const imagenTarjeta = document.createElement('img');
+					imagenTarjeta.classList.add('card-img-top');
+					imagenTarjeta.src = imagen;
+					imagenTarjeta.alt = `Imagen de ${dia.weather[0].description}`;
+					tarjeta.appendChild(imagenTarjeta);
+
+					const temperaturaDia = document.createElement('p');
+					temperaturaDia.textContent = `${Math.round(dia.main.temp)} ºC`;
+
+					const actualmenteDia = document.createElement('h5');
+					actualmenteDia.textContent = dia.weather[0].description;
+
+					const contenidoTarjeta = document.createElement('div');
+					contenidoTarjeta.classList.add('card-body');
+
+					contenidoTarjeta.append(temperaturaDia, actualmenteDia);
+					tarjeta.appendChild(contenidoTarjeta);
+					card.appendChild(tarjeta);
+				});
+			};
+
+			document.addEventListener('DOMContentLoaded', () => {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(getTiempoFromAPI);
+				} else {
+					localidad.textContent = 'Tu navegador no permite geolocalizar';
+				}
+			});
+		</script>
+	</body>
+</html>

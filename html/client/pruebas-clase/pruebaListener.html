@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Listener</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+	</head>
+
+	<body>
+		<script>
+			// Creamos cabecera
+			const cabecera = document.createElement('h1');
+			cabecera.textContent = 'THE BAD BATCH';
+			cabecera.classList.add('display-1');
+			document.body.appendChild(cabecera);
+
+			// Creamos un Div clase Container
+			const divContainer = document.createElement('div');
+			divContainer.classList.add('container');
+			document.body.appendChild(divContainer);
+
+			// Creamos Fila
+			const fila = document.createElement('div');
+			fila.classList.add('row');
+			divContainer.appendChild(fila);
+
+			// Creamos primera columna
+			const primeraColumna = document.createElement('div');
+			primeraColumna.classList.add('col-8');
+			fila.appendChild(primeraColumna);
+
+			// Creamos párrafo
+			const parrafo = document.createElement('p');
+			parrafo.textContent =
+				'Star Wars: The Bad Batch es una serie de animación que ejerce como secuela y spin-off de Star Wars: The Clone Wars. Se centra en el grupo conocido como Fuerza Clon 99, una banda de soldados clon mejorados genéticamente. Fue anunciada el 13 de julio de 2020 y se estrenó en Disney+ el 4 de mayo de 2021. La primera temporada cuenta con dieciséis episodios, y su banda sonora está compuesta por Kevin Kiner, quien anteriormente trabajó en Star Wars: The Clone Wars y Star Wars Rebels. Presentados por primera vez en Star Wars: The Clone Wars, la «Fuerza Clon 99», también conocidos como el «Bad Batch», son un grupo de soldados clones de élite defectuosos con mutaciones genéticas convenientes integrados por: su líder y sargento clon, experto cazador y rastreador Hunter, el soldado clon experto en electrónica y cerebro del equipo Tech, el soldado clon de gran tamaño y con super fuerza Wrecker, el soldado clon y experto francotirador del grupo Crosshair y su última inclusión el soldado clon regular de la Legión 501 y ahora mitad cyborg Echo, los cuales emprenden misiones mercenarias durante toda la guerra de los clones.Sin embargo tras la ejecución de la siniestra Orden 66 y el alzamiento del Imperio Galáctico durante los acontecimientos del Episodio III, el grupo queda en la mira del Imperio por desobedecer la Orden 66, pasando a ser ahora clones fugitivos y traidores buscados.Además de ello, también conocen a una misteriosa niña llamada Omega, que resulta ser el primer clon femenino inalterado de Jango Fett y quien admira a este grupo de clones de elite y sueña con unirse a ellos en sus aventuras. Al mismo tiempo, la serie muestra el proceso que encabeza el almirante Wilhuff Tarkin de eliminar gradualmente el uso de soldados clones dentro de las filas del Imperio Galáctico y pasar a utilizar reclutas humanos(los futuros stormtroppers).';
+			// parrafo.classList.add('lead');
+			primeraColumna.appendChild(parrafo);
+
+			// Creamos segunda columna
+			const segundaColumna = document.createElement('div');
+			segundaColumna.classList.add('col-4');
+			fila.appendChild(segundaColumna);
+
+			// Creamos imagen
+
+			const imagenResponsive = document.createElement('img');
+			imagenResponsive.classList.add('img-fluid');
+			imagenResponsive.style.maxHeight = '450px';
+			imagenResponsive.src =
+				'https://www.orientaserie.it/wp-content/uploads/2022/09/MV5BNDA5YzQzYmItZTE4NC00NTNkLTljZGItNDQ0YjI3MzdhZjlhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg';
+			imagenResponsive.alt = 'Imagen de La Remesa Mala';
+			segundaColumna.appendChild(imagenResponsive);
+
+			// Creamos link en un botón
+
+			const parrafoClase = document.createElement('p');
+			parrafoClase.classList.add('d-grid');
+			parrafoClase.classList.add('gap-2');
+			document.body.appendChild(parrafoClase);
+
+			const botonLink = document.createElement('a');
+			botonLink.classList.add('btn');
+			botonLink.classList.add('btn-primary');
+			botonLink.classList.add('btn-info');
+			botonLink.textContent = 'Página Oficial';
+			botonLink.role = 'button';
+			botonLink.target = '_blank';
+			botonLink.href = 'https://www.starwars.com/series/star-wars-the-bad-batch';
+			parrafoClase.appendChild(botonLink);
+
+			const parrafo2Clase = document.createElement('p');
+			parrafo2Clase.classList.add('d-grid');
+			parrafo2Clase.classList.add('gap-2');
+			document.body.appendChild(parrafo2Clase);
+
+			const botonFlip = document.createElement('a');
+			botonFlip.classList.add('btn');
+			botonFlip.classList.add('btn-primary');
+			botonFlip.classList.add('btn-warning');
+			botonFlip.textContent = 'Flip';
+			botonFlip.role = 'button';
+			parrafo2Clase.appendChild(botonFlip);
+
+			// Eventos con el boton Flip
+			botonFlip.addEventListener('click', () => {
+				primeraColumna.remove();
+				segundaColumna.remove();
+
+				fila.appendChild(segundaColumna);
+				fila.appendChild(primeraColumna);
+			});
+
+			const parrafo3Clase = document.createElement('p');
+			parrafo3Clase.classList.add('d-grid');
+			parrafo3Clase.classList.add('gap-2');
+			document.body.appendChild(parrafo3Clase);
+
+			const botonColor = document.createElement('a');
+			botonColor.classList.add('btn');
+			botonColor.classList.add('btn-primary');
+			botonColor.textContent = 'Change Color';
+			botonColor.role = 'button';
+			parrafo3Clase.appendChild(botonColor);
+
+			// Eventos con el boton Color
+			botonColor.addEventListener('click', () => {
+				document.body.style.color = 'blue';
+			});
+
+			// Eventos con la imagen
+			imagenResponsive.addEventListener('mouseenter', () => {
+				imagenResponsive.classList.add('animate__animated');
+				imagenResponsive.classList.add('animate__heartBeat');
+			});
+			imagenResponsive.addEventListener('mouseleave', () => {
+				imagenResponsive.classList.remove('animate__animated');
+				imagenResponsive.classList.remove('animate__heartBeat');
+			});
+		</script>
+	</body>
+</html>
