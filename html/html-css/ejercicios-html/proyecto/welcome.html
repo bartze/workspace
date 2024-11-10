@@ -2,12 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Welcome</title>
 		<!-- <link rel="stylesheet" href="css/base.css" /> -->
 		<link rel="stylesheet" href="css/layout.css" />
 		<link rel="stylesheet" href="css/welcome.css" />
 		<!-- <link rel="stylesheet" href="css/loginStyles.css" /> -->
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon/cohete.png" />
+		<script defer src="./script.js"></script>
 	</head>
 	<body>
 		<header id="main-header">
@@ -33,11 +35,18 @@
 						</a>
 					</li>
 				</ul>
+				<div class="menu-toggle" id="menu-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
 			</nav>
 		</header>
-		<h1 id="main-title">Welcome to The Mars Express</h1>
-		<p>Fasten seat belt, 3...2...1...Launch!</p>
-		<img class="animation" src="./src/launch.jpg" />
+		<main>
+			<h1 id="main-title">Welcome to The Mars Express</h1>
+			<p>Fasten seat belt, 3...2...1...Launch!</p>
+			<img class="animation" src="./src/launch.jpg" />
+		</main>
 		<footer id="main-footer">
 			<a href="./about.html">
 				<img src="./src/Weyland-Yutani.png" alt="Weyland-Yutani Corp" class="logoWeyland" />

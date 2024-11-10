@@ -8,23 +8,25 @@ Bienvenido al emocionante viaje de Mars Express, el transbordador espacial que l
 
 ### Login Page
 
-La aventura comienza en la página de inicio de sesión, que simula el proceso de embarque. Aquí, los usuarios ingresan sus credenciales para acceder al transbordador.
+La aventura comienza en la página de inicio de sesión, que simula el proceso de embarque. Aquí, los usuarios ingresan sus credenciales para acceder al transbordador. También permite navegar a otra página para recuperar contraseña y acceder al transbordador.
 
 **Características Técnicas:**
 
 -   **Formulario de Inicio de Sesión:** El formulario incluye campos de correo electrónico y contraseña.
--   **Animaciones y Estilos:** CSS se utiliza para animar elementos y proporcionar una experiencia visual atractiva.
+-   **Formulario de Recuperar Contraseña:** El formulario incluye campos con Nombre, Apellido, correo electrónico y preguntas de seguridad como Día de nacimiento y Area de trabajo en Marte.
+-   **Transformaciones y Estilos:** CSS se utiliza para transformar imagenes, animar elementos y proporcionar una experiencia visual atractiva.
 
 ## Inside the Mars Express
 
 ### Mars Express Layout
 
-Dentro del transbordador, los usuarios pueden explorar diferentes secciones del Mars Express, como la cabina de mando, la bahía de carga y los camarotes de la tripulación.
+Dentro del transbordador, donde la página de bienvenida es el despegue, los usuarios pueden explorar diferentes secciones del Mars Express, como la cabina de mando, la bahía de carga y los camarotes de la tripulación.
 
 **Características Técnicas:**
 
 -   **Flexbox Layout:** Utilizamos Flexbox para diseñar una disposición vertical que refleja la estructura del transbordador.
 -   **Descripciones Informativas:** Cada sección tiene una breve descripción que explica su función.
+-   **Animación y Estilos:** Css animation se usa para animar la secuencia de despegue.
 
 ## The Journey
 
@@ -34,7 +36,7 @@ Durante el viaje, los usuarios pueden ver el menú de comida que se ofrecerá a 
 
 **Características Técnicas:**
 
--   **Tablas de CSS:** Las tablas se utilizan para mostrar el menú de manera clara y estructurada.
+-   **Details de CSS:** Se utiliza para crear una sección colapsable que puede ser expandida o contraída por el usuario.
 
 ## Mission on Mars
 
@@ -60,4 +62,5 @@ La página de contacto proporciona información sobre la empresa ficticia Weylan
 
 ## Conclusion
 
-Este proyecto no solo proporciona una experiencia web interactiva y educativa, sino que también demuestra habilidades avanzadas en HTML, CSS y animaciones. ¡Gracias por unirte a nosotros en este viaje épico al futuro de la exploración espacial!
+Este proyecto proporciona una experiencia web interactiva y educativa.
+¡Gracias por unirte a nosotros en este viaje épico al futuro de la exploración espacial!
