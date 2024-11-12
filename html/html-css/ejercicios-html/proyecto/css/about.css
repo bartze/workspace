@@ -108,3 +108,28 @@ button:hover {
 		background-image: url('../src/milky-way-2.jpg');
 	}
 }
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.left,
+	.right {
+		width: 90%;
+		margin: 10px 0;
+	}
+
+	.iframe-container iframe {
+		width: 100%;
+	}
+
+	h1,
+	h2,
+	p {
+		font-size: 1.2em;
+		padding: 0 20px;
+	}
+}
