@@ -1,0 +1,15 @@
+{
+  "name": "anfora-api",
+  "version": "1.0.0",
+  "description": "HTTP API to manage items from the ANFORA database",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["API", "database"],
+  "author": "Iñaki",
+  "license": "ISC"
+}

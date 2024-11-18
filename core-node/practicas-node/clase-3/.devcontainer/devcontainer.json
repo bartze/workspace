@@ -1,0 +1,15 @@
+{
+	"name": "Node.js Development Container",
+	"image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": ["dbaeumer.vscode-eslint"]
+		}
+	},
+	"postCreateCommand": "npm install",
+	"forwardPorts": [3000],
+	"remoteUser": "vscode"
+}
