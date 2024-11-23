@@ -3,7 +3,7 @@ import { dirname, join, extname } from 'path';
 import fs from 'fs/promises';
 
 // Obtener la ruta del archivo actual y el directorio
-const __filename = fileURLToPath(import.meta.url);
+const __filename = fileURLToPath(import.meta.url); //Hacer console.log y ver que hay dentro de la url
 const __dirname = dirname(__filename);
 
 async function findSalesFiles(folderName) {
