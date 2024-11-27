@@ -126,6 +126,28 @@ router.DELETE['/api/users/:id'] = (req, res) => {
 	}
 };
 
+router.OPTIONS['/api/users'] = (req, res) => {
+	res.setHeader('Allow', 'OPTIONS, GET, POST');
+	res.setHeader('Content-Type', 'application/json');
+	res.end();
+};
+
+router.OPTIONS['/api/users/:id'] = (req, res) => {
+	res.setHeader('Allow', 'OPTIONS, GET, PUT, DELETE');
+	res.setHeader('Content-Type', 'application/json');
+	res.end();
+};
+
+const matchRoute = (method, path) => {
+	for (const pattern in router[method]) {
+		const regex = new RegExp(`^${pattern.replace(/:\w+/g, '\\w+')}$`);
+		if (regex.test(path)) {
+			return pattern;
+		}
+	}
+	return null;
+};
+
 const server = https.createServer(options, async (req, res) => {
 	setCORSHeaders(res);
 
@@ -133,10 +155,10 @@ const server = https.createServer(options, async (req, res) => {
 	const path = parsedUrl.pathname;
 	const method = req.method.toUpperCase();
 
-	const handler = router[method][path];
-	if (handler) {
-		req.params = extractURLParams(path, path);
-		await handler(req, res);
+	const routePattern = matchRoute(method, path);
+	if (routePattern) {
+		req.params = extractURLParams(path, routePattern);
+		await router[method][routePattern](req, res);
 	} else {
 		// Si no es una ruta de la API, servir como archivo estático
 		serveStaticFile(req, res, path === '/' ? 'index.html' : path.substr(1));
