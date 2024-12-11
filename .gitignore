@@ -91,3 +91,7 @@ bower_components/
 # Optional stylelint cache
 .stylelintcache
 
+# Ignore pgadmin and postgres data directories 
+databases/clase1/compose-postgres/pgadmin/ 
+databases/clase1/compose-postgres/postgres/
+
