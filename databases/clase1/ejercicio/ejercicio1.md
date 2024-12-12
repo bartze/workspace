@@ -89,7 +89,7 @@ Vamos a representar esto en un diagrama ER:
 
 ### Visualización
 
-![Diagrama Entidad-Relación](TiendaDeportes.jpg)
+![Diagrama Entidad-Relación](tiendaDeportes.jpg)
 
 Aquí tienes una visualización simplificada del esquema ER:
 
