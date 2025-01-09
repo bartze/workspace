@@ -4,6 +4,7 @@ services:
   postgres:
     container_name: postgres_container
     image: postgres
+    user: "${UID}:${GID}"  # Añadir esta línea
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
@@ -25,7 +26,6 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
        - ./pgadmin:/var/lib/pgadmin
-
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
