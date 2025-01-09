@@ -7,6 +7,9 @@ const app = express();
 // Declaro el puerto de escucha
 const port = process.env.PORT || 3000;
 
+// Configuración del middleware para servir archivos estáticos
+app.use(express.static('public'));
+
 // Registro el motor de plantillas mustache
 app.engine('html', mustacheExpress());
 
@@ -18,9 +21,10 @@ app.set('views', __dirname + '/views');
 // La función callback recibe una petición y una respuesta como argumentos
 app.get('/', (req, res) => {
 	// Se define la cabecera HTTP con el tipo de contenido
-	res.setHeader('Content-Type', 'text/plain');
+	// res.setHeader('Content-Type', 'text/plain');
 	// Se responde la solicitud con el mensaje 'Hello World!'
-	res.status(200).send('Hello World!');
+	// res.status(200).send('Hello World!');
+	res.render('home'); // Renderiza la nueva vista 'home.html'
 });
 
 // Defino la ruta que se llamará cuando se reciba una petición HTTP GET en la dirección '/user/:name'
