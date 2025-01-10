@@ -1,21 +1,21 @@
 {
-	"name": "class1",
+	"name": "class2",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node --watch index.js"
+		"start": "node --watch app.js"
 	},
 	"keywords": [
 		"app",
 		"express",
-		"mustache",
-		"partials"
+		"middleware"
 	],
 	"author": "Iñaki Barceló",
 	"license": "ISC",
-	"description": "My first express app",
+	"description": "My second express app",
 	"dependencies": {
+		"cookie-parser": "^1.4.7",
 		"express": "^4.21.2"
 	}
 }
