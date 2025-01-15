@@ -100,8 +100,8 @@ Para probar las rutas, puedes usar tu navegador o herramientas como curl.
 Ejemplos con curl:
 
 ```
-curl http://localhost:3000/books
-curl http://localhost:3000/books/123
+curl http://localhost:3000/book
+curl http://localhost:3000/book/123
 curl -X POST http://localhost:3000/books -H "Content-Type: application/json" -d '{"title": "El señor de los anillos"}'
 curl http://localhost:3000/students/50
 curl http://localhost:3000/students/100 #Provoca un error
