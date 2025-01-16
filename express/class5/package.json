@@ -7,7 +7,7 @@
 		"start": "node app.js",
 		"start-dev": "nodemon app.js",
 		"start-services": "docker-compose -f docker-compose.yml up -d --build --force-recreate && exit 0",
-		"stop-services": "docker-compose -f docker-compose.yml stop",
+		"stop-services": "docker-compose -f docker-compose.yml down --volumes",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
