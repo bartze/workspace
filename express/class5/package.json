@@ -1,26 +1,27 @@
 {
 	"name": "base",
 	"version": "1.0.0",
-	"description": "My base project",
+	"description": "My base project with sequelize",
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js",
 		"start-dev": "nodemon app.js",
-		"start-services": "docker-compose -f docker/dev/docker-compose.services.yml up -d --build --force-recreate && exit 0",
-		"stop-services": "docker-compose -f docker/dev/docker-compose.services.yml stop",
+		"start-services": "docker-compose -f docker-compose.yml up -d --build --force-recreate && exit 0",
+		"stop-services": "docker-compose -f docker-compose.yml stop",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
 		"app",
 		"express"
 	],
-	"author": "flopez@veridas.com",
+	"author": "Iñaki Barceló",
 	"license": "ISC",
 	"dependencies": {
 		"express": "^4.18.2",
 		"express-validator": "^6.15.0",
-		"knex": "^2.5.1",
-		"pg": "^8.13.1"
+		"pg": "^8.13.1",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.37.5"
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.9"

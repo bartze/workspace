@@ -1,0 +1,16 @@
+### Obtener todos los estudiantes
+GET http://localhost:3000/students
+
+### Obtener un estudiante por id
+GET http://localhost:3000/students/1
+
+### Crear un estudiante
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Jane",
+    "last_name": "Doe",
+    "date_of_birth": "2001-02-03",
+    "email": "jane@example.com"
+}
