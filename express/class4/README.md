@@ -34,7 +34,7 @@ Este proyecto es una aplicación de Express que utiliza Knex como query builder 
 3.  **Configura Knex:**
 
     ```
-    npx knex init
+    knex init
     ```
 
 4.  ** Editar knexfile.js: Configura los detalles de tu base de datos:**
@@ -65,13 +65,13 @@ Este proyecto es una aplicación de Express que utiliza Knex como query builder 
 2. **Realiza las migraciones:**
 
     ```
-    npx knex migrate:latest
+    knex migrate:latest
     ```
 
 3. **Aplica los seeds:**
 
     ```
-    npx knex seed:run
+    knex seed:run
     ```
 
 4. **Inicia la aplicación:**
