@@ -6,4 +6,10 @@ module.exports = {
 	insert(data) {
 		return db.students.create(data);
 	},
+	getById(id) {
+		return db.students.findByPk(id);
+	},
+	findByEmail(email) {
+		return db.students.findOne({ where: { email } });
+	},
 };

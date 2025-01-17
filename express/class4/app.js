@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
 	// Se define la cabecera HTTP con el tipo de contenido
 	res.set('Content-Type', 'text/plain');
 	// Se responde, en el cuerpo de la respuesta con el mensaje "Hello World!!"
-	res.status(200).send('Hello World!!');
+	res.status(200).send('Hello Knex!!');
 });
 // Creo el servidor en el puerto ${port}
 app.listen(port, () => {

@@ -1,0 +1,41 @@
+### Obtener todos los estudiantes
+GET http://localhost:3000/students
+
+### Obtener un estudiante por id
+GET http://localhost:3000/students/3
+
+### Crear un estudiante con datos válidos
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Jane",
+    "last_name": "Doe",
+    "date_of_birth": "03-02-2001",
+    "email": "jane@example.com",
+    "active": true
+}
+
+### Crear un estudiante con email inválido
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "David",
+    "last_name": "Smith",
+    "date_of_birth": "12-06-1999",
+    "email": "david.smith",
+    "active": true
+}
+
+### Crear un estudiante con fecha de nacimiento inválida
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Laura",
+    "last_name": "Jones",
+    "date_of_birth": "12-06-99",
+    "email": "laura.jones@example.com",
+    "active": true
+}

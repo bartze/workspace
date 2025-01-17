@@ -1,22 +1,16 @@
-// Se carga el módulo de Express
 const express = require('express');
-// Importamos body y validationResult
 const { body, validationResult } = require('express-validator');
-// Se cargan los módulos de la aplicación
 const students = require('./repositories/students');
-// Creo la aplicación Express
+
 const app = express();
-// Declaro el puerto de escucha
 const port = 3000;
 
-// Se define el middleware para el manejo de JSON
 app.use(express.json());
-// Se definen las rutas de la aplicación
+
 app.get('/students', (req, res) => {
 	students.getAll().then((results) => res.json(results));
 });
 
-// NUEVA RUTA PARA OBTENER UN ESTUDIANTE POR ID
 app.get('/students/:id', (req, res) => {
 	const studentId = parseInt(req.params.id); // Convertimos el id a número entero
 
@@ -40,8 +34,33 @@ app.post(
 	[
 		body('name').notEmpty().withMessage('Name is required'),
 		body('last_name').notEmpty().withMessage('Last name is required'),
-		body('date_of_birth').isISO8601().withMessage('Invalid date format (YYYY-MM-DD)'), // Validación de fecha
-		body('email').isEmail().withMessage('Invalid email format'),
+		body('date_of_birth')
+			.trim()
+			.custom((value) => {
+				const [day, month, year] = value.split('-');
+				if (
+					day &&
+					month &&
+					year &&
+					day.length === 2 &&
+					month.length === 2 &&
+					year.length === 4
+				) {
+					return true;
+				}
+				throw new Error('Invalid date format (DD-MM-YYYY)');
+			}), // Validación de fecha sin express validator
+		body('email')
+			.trim()
+			.isEmail()
+			.withMessage('Invalid email format')
+			.custom((value) => {
+				return students.findByEmail(value).then((student) => {
+					if (student) {
+						return Promise.reject('A user already exists with this email');
+					}
+				});
+			}), // Validación de email con express validator y comprobación si existe
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -49,7 +68,6 @@ app.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		// Log the data we are trying to insert
 		console.log('Data to be inserted:', req.body);
 
 		try {
@@ -62,17 +80,11 @@ app.post(
 	},
 );
 
-// Defino la ruta que se llamará cuando se reciba una petición HTTP GET
-// en la dirección '/'
-// La función callback recibe una petición y una respuesta como argumentos
 app.get('/', (req, res) => {
-	// Se define la cabecera HTTP con el tipo de contenido
 	res.set('Content-Type', 'text/plain');
-	// Se responde, en el cuerpo de la respuesta con el mensaje "Hello World!!"
-	res.status(200).send('Hello World!!');
+	res.status(200).send('Hello Sequelize!!');
 });
-// Creo el servidor en el puerto ${port}
+
 app.listen(port, () => {
-	// Se escribe la URL para el acceso al servidor
 	console.log(`Example server listening on http://localhost:${port}`);
 });
