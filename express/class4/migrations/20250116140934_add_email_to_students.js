@@ -13,9 +13,11 @@ exports.up = function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {
-	return knex.schema.alterTable('students', (table) => {
-		// DEVOLVER la promesa
-		table.dropColumn('email');
-	});
+exports.down = async function (knex) {
+	const exists = await knex.schema.hasColumn('students', 'email');
+	if (exists) {
+		await knex.schema.alterTable('students', (table) => {
+			table.dropColumn('email');
+		});
+	}
 };

@@ -14,3 +14,14 @@ Content-Type: application/json
     "date_of_birth": "2001-02-03",
     "email": "jane@example.com"
 }
+
+### Crear otro estudiante
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Marta",
+    "last_name": "Txuri",
+    "date_of_birth": "2010-04-05",
+    "email": "marta@correo.es"
+}
