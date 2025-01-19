@@ -1,0 +1,27 @@
+### Obtener todos los usuarios
+GET http://localhost:3000/api/users
+
+### Obtener un usuario por id
+GET http://localhost:3000/api/users/3
+
+### Crear un usuario
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "type": "admin"
+}
+
+### Crear un estudiante con email inválido
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "name": "David",
+  "last_name": "Smith",
+  "date_of_birth": "12-06-1999",
+  "email": "david.smith",
+  "active": true
+}

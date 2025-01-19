@@ -1,0 +1,30 @@
+{
+	"name": "proyecto_final",
+	"version": "1.0.0",
+	"description": "Proyecto final con Express y Sequelize",
+	"main": "index.js",
+	"scripts": {
+		"start": "node --watch index.js",
+		"start-dev": "node --watch index.js",
+		"start-services": "docker-compose -f docker-compose.yml up -d --build --force-recreate && exit 0",
+		"stop-services": "docker-compose -f docker-compose.yml down --volumes",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"app",
+		"express",
+		"sequelize"
+	],
+	"author": "Iñaki Barceló",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"cookie-parser": "^1.4.6",
+		"express": "^4.18.2",
+		"express-validator": "^6.15.0",
+		"jsonwebtoken": "^9.0.2",
+		"pg": "^8.13.1",
+		"pg-hstore": "^2.3.4",
+		"sequelize": "^6.37.5"
+	}
+}
