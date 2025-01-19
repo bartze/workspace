@@ -1,4 +1,3 @@
-// repositories/users.js
 const { User } = require('../models');
 
 module.exports = {
@@ -17,8 +16,10 @@ module.exports = {
 	delete(id) {
 		return User.destroy({ where: { id } });
 	},
-	canDelete(id) {
-		// Implement check if user can be deleted
-		return true; // Placeholder
+	canDelete: async (id) => {
+		const user = await User.findByPk(id, {
+			include: Teacher,
+		});
+		return !user.teacher; // Solo puede ser borrado si no tiene un profesor asociado
 	},
 };

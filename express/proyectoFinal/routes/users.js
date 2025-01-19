@@ -2,7 +2,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const { User } = require('../models');
+// const { User } = require('../models');
 const users = require('../repositories/users');
 const router = express.Router();
 
@@ -20,7 +20,17 @@ router.get('/:id', async (req, res) => {
 router.post(
 	'/',
 	[
-		body('email').isEmail(),
+		body('email')
+			.trim()
+			.isEmail()
+			.withMessage('Invalid email format')
+			.custom((value) => {
+				return students.findByEmail(value).then((student) => {
+					if (student) {
+						return Promise.reject('A user already exists with this email');
+					}
+				});
+			}), // Validación de email con express validator y comprobación si existe
 		body('password').notEmpty(),
 		body('type').notEmpty().withMessage('Type is required'),
 	],

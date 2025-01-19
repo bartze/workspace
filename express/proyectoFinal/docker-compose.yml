@@ -15,8 +15,6 @@ services:
       POSTGRES_DB: express-db-seq
     ports:
       - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
     networks: 
       - express-net
   pgadmin:
@@ -35,5 +33,4 @@ services:
       - express-net
 
 volumes:
-  pgdata:
   pgadmin_data:

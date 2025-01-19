@@ -1,4 +1,3 @@
-// repositories/students.js
 const { Student } = require('../models');
 
 module.exports = {

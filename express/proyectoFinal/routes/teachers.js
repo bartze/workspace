@@ -1,29 +1,44 @@
 // CRUD para teachers
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
-const { Teacher } = require('../models');
+// const bcrypt = require('bcrypt');
+// const { Teacher } = require('../models');
 const teachers = require('../repositories/teachers');
 const router = express.Router();
 
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
 	const allTeachers = await teachers.getAll();
 	res.json(allTeachers);
 });
 
-app.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
 	const teacher = await teachers.findById(req.params.id);
 	if (teacher) res.json(teacher);
 	else res.status(404).send("Teacher doesn't exist");
 });
 
-app.post(
+router.post(
 	'/',
 	[
 		body('dni').notEmpty(),
 		body('name').notEmpty(),
 		body('last_name').notEmpty(),
-		body('date_of_birth').isDate().withMessage('Invalid date format (YYYY-MM-DD)'),
+		body('date_of_birth')
+			.trim()
+			.custom((value) => {
+				const [day, month, year] = value.split('-');
+				if (
+					day &&
+					month &&
+					year &&
+					day.length === 2 &&
+					month.length === 2 &&
+					year.length === 4
+				) {
+					return true;
+				}
+				throw new Error('Invalid date format (DD-MM-YYYY)');
+			}), // Validación de fecha sin express validator
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -35,12 +50,12 @@ app.post(
 	},
 );
 
-app.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
 	const updatedTeacher = await teachers.update(req.params.id, req.body);
 	res.json(updatedTeacher);
 });
 
-app.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
 	if (await teachers.canDelete(req.params.id)) {
 		await teachers.delete(req.params.id);
 		res.sendStatus(204);

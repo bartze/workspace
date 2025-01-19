@@ -1,4 +1,3 @@
-// repositories/teachers.js
 const { Teacher } = require('../models');
 
 module.exports = {
@@ -17,8 +16,8 @@ module.exports = {
 	delete(id) {
 		return Teacher.destroy({ where: { id } });
 	},
-	canDelete(id) {
-		// Implement check if teacher can be deleted
-		return true; // Placeholder
+	canDelete: async (id) => {
+		const teacher = await Teacher.findByPk(id, { include: Student });
+		return teacher.students.length === 0; // Solo puede ser borrado si no tiene estudiantes asociados
 	},
 };

@@ -1,17 +1,42 @@
-### Obtener todos los usuarios
-GET http://localhost:3000/api/users
+### Obtener todos los estudiantes
+GET http://localhost:3000/api/students
 
-### Obtener un usuario por id
-GET http://localhost:3000/api/users/3
+### Obtener un estudiante por id
+GET http://localhost:3000/api/students/1
 
-### Crear un usuario
+### Obtener un usuario que no existe
+GET http://localhost:3000/api/users/999
+
+### Crear un usuario con contraseña encriptada
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
-  "password": "password123",
+  "email": "secureuser@example.com",
+  "password": "securepassword",
   "type": "admin"
+}
+
+### Crear un usuario con email duplicado
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "email": "duplicate@example.com",
+  "password": "password123",
+  "type": "user"
+}
+
+### Crear un estudiante
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "dni": "11223344D",
+  "name": "Jesús",
+  "last_name": "Areso",
+  "date_of_birth": "1980-05-10",
+  "teacher_id": 1
 }
 
 ### Crear un estudiante con email inválido
@@ -19,9 +44,54 @@ POST http://localhost:3000/api/students
 Content-Type: application/json
 
 {
-  "name": "David",
-  "last_name": "Smith",
-  "date_of_birth": "12-06-1999",
-  "email": "david.smith",
-  "active": true
+  "dni": "99887766C",
+  "name": "Invalid",
+  "last_name": "User",
+  "date_of_birth": "2000-10-10",
+  "email": "invalid.email",
+  "teacher_id": 1
 }
+
+### Intentar borrar un usuario con un profesor asociado
+DELETE http://localhost:3000/api/users/3
+
+### Crear un profesor sin estudiantes
+POST http://localhost:3000/api/teachers
+Content-Type: application/json
+
+{
+  "dni": "12345678A",
+  "name": "Luis",
+  "last_name": "García",
+  "date_of_birth": "1980-05-10",
+  "user_id": 3
+}
+
+### Crear un profesor sin nombre
+POST http://localhost:3000/api/teachers
+Content-Type: application/json
+
+{
+  "dni": "22334455F",
+  "last_name": "Martinez",
+  "date_of_birth": "1975-03-15",
+  "user_id": 2
+}
+
+### Intentar borrar un profesor sin estudiantes asociados
+DELETE http://localhost:3000/api/teachers/<ID DEL PROFESOR RECIÉN CREADO>
+
+### Crear un usuario sin profesor asociado
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "email": "example@example.com",
+  "password": "password1234",
+  "type": "user"
+}
+
+### Intentar borrar un usuario sin profesor asociado
+DELETE http://localhost:3000/api/users/<ID DEL USUARIO RECIÉN CREADO>
+
+
