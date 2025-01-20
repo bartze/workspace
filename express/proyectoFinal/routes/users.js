@@ -25,8 +25,8 @@ router.post(
 			.isEmail()
 			.withMessage('Invalid email format')
 			.custom((value) => {
-				return students.findByEmail(value).then((student) => {
-					if (student) {
+				return users.findByEmail(value).then((user) => {
+					if (user) {
 						return Promise.reject('A user already exists with this email');
 					}
 				});

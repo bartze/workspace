@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Teacher } = require('../models');
 
 module.exports = {
 	getAll() {
@@ -6,6 +6,9 @@ module.exports = {
 	},
 	findById(id) {
 		return User.findByPk(id);
+	},
+	findByEmail(email) {
+		return User.findOne({ where: { email } });
 	},
 	insert(user) {
 		return User.create(user);
@@ -20,6 +23,6 @@ module.exports = {
 		const user = await User.findByPk(id, {
 			include: Teacher,
 		});
-		return !user.teacher; // Solo puede ser borrado si no tiene un profesor asociado
+		return !user.Teacher; // Solo puede ser borrado si no tiene un profesor asociado
 	},
 };

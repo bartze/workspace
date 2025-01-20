@@ -38,14 +38,6 @@ router.post(
 				}
 				throw new Error('Invalid date format (DD-MM-YYYY)');
 			}), // Validación de fecha sin express validator
-		body('email')
-			.isEmail()
-			.withMessage('Invalid email format')
-			.custom((value) => {
-				return students.findByEmail(value).then((student) => {
-					if (student) return Promise.reject('A user already exists with this email');
-				});
-			}),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);

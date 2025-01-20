@@ -35,25 +35,12 @@ Content-Type: application/json
   "dni": "11223344D",
   "name": "Jesús",
   "last_name": "Areso",
-  "date_of_birth": "1980-05-10",
-  "teacher_id": 1
-}
-
-### Crear un estudiante con email inválido
-POST http://localhost:3000/api/students
-Content-Type: application/json
-
-{
-  "dni": "99887766C",
-  "name": "Invalid",
-  "last_name": "User",
-  "date_of_birth": "2000-10-10",
-  "email": "invalid.email",
+  "date_of_birth": "10-05-2001",
   "teacher_id": 1
 }
 
 ### Intentar borrar un usuario con un profesor asociado
-DELETE http://localhost:3000/api/users/3
+DELETE http://localhost:3000/api/users/5
 
 ### Crear un profesor sin estudiantes
 POST http://localhost:3000/api/teachers
@@ -63,7 +50,7 @@ Content-Type: application/json
   "dni": "12345678A",
   "name": "Luis",
   "last_name": "García",
-  "date_of_birth": "1980-05-10",
+  "date_of_birth": "10-05-1980",
   "user_id": 3
 }
 
@@ -74,7 +61,7 @@ Content-Type: application/json
 {
   "dni": "22334455F",
   "last_name": "Martinez",
-  "date_of_birth": "1975-03-15",
+  "date_of_birth": "15-03-1975",
   "user_id": 2
 }
 
