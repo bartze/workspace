@@ -21,7 +21,10 @@ module.exports = {
 	},
 	canDelete: async (id) => {
 		const user = await User.findByPk(id, {
-			include: Teacher,
+			include: {
+				model: Teacher,
+				as: 'teacher',
+			},
 		});
 		return !user.Teacher; // Solo puede ser borrado si no tiene un profesor asociado
 	},

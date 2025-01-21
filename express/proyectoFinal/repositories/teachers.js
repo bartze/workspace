@@ -17,7 +17,12 @@ module.exports = {
 		return Teacher.destroy({ where: { id } });
 	},
 	canDelete: async (id) => {
-		const teacher = await Teacher.findByPk(id, { include: Student });
+		const teacher = await Teacher.findByPk(id, {
+			include: {
+				model: Student,
+				as: 'students',
+			},
+		});
 		return teacher.students.length === 0; // Solo puede ser borrado si no tiene estudiantes asociados
 	},
 };

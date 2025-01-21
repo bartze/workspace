@@ -11,18 +11,26 @@ module.exports = {
 			},
 			dni: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			name: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			last_name: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			date_of_birth: {
 				type: Sequelize.DATE,
+				allowNull: false,
 			},
 			teacher_id: {
 				type: Sequelize.INTEGER,
+				references: {
+					model: 'teachers',
+					key: 'id',
+				},
 			},
 			createdAt: {
 				allowNull: false,
@@ -35,6 +43,6 @@ module.exports = {
 		});
 	},
 	async down(queryInterface, Sequelize) {
-		await queryInterface.dropTable('Students');
+		await queryInterface.dropTable('students');
 	},
 };

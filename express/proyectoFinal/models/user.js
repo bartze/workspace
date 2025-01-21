@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 			sequelize,
 			modelName: 'User',
 			tableName: 'users',
-			freezeTableName: true, // Esto se asegura que el nombre de la tabla permanezca 'user'
+			freezeTableName: true,
 		},
 	);
 	return User;

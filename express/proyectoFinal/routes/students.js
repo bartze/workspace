@@ -44,6 +44,12 @@ router.post(
 		if (!errors.isEmpty()) {
 			return res.status(400).json({ errors: errors.array() });
 		}
+
+		// Convertir la fecha al formato ISO antes de insertar en la base de datos
+		const [day, month, year] = req.body.date_of_birth.split('-');
+		const isoDate = `${year}-${month}-${day}`;
+		req.body.date_of_birth = isoDate;
+
 		const newStudent = await students.insert(req.body);
 		res.json(newStudent);
 	},

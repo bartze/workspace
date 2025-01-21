@@ -4,8 +4,8 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
 	class Teacher extends Model {
 		static associate(models) {
-			Teacher.belongsTo(models.User, { foreignKey: 'user_id' });
-			Teacher.hasMany(models.Student, { foreignKey: 'teacher_id' });
+			Teacher.belongsTo(models.User, { foreignKey: 'user_id' }); // Asocia Teacher con User
+			Teacher.hasMany(models.Student, { foreignKey: 'teacher_id' }); // Usa `students` como alias único
 		}
 	}
 	Teacher.init(
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 			sequelize,
 			modelName: 'Teacher',
 			tableName: 'teachers',
-			freezeTableName: true, // Esto se asegura que el nombre de la tabla permanezca 'teacher'
+			freezeTableName: true,
 		},
 	);
 	return Teacher;

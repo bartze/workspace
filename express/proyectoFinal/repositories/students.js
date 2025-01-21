@@ -20,7 +20,6 @@ module.exports = {
 		return Student.destroy({ where: { id } });
 	},
 	canDelete(id) {
-		// Implement check if student can be deleted
-		return true; // Placeholder
+		return true; // No hay restricciones especifícas para borrar estudiantes
 	},
 };
