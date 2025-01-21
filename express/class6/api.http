@@ -1,0 +1,19 @@
+### Obtener el json con el token
+GET http://localhost:3000/jwt/set
+
+### Obtener la autorización
+GET http://localhost:3000/jwt
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWUiOiJQZXBlIiwibGFzdE5hbWUiOiJQZXJleiIsImFnZSI6MjV9LCJpYXQiOjE3Mzc0NTc5MzksImV4cCI6MTczNzQ1OTczOX0.in4h9Gf2E_G4rawQy5yBysvsDfJwWT9sOITO3gxED_Q
+
+### Generar un token JWT
+POST http://localhost:3000/api/token
+Content-Type: application/json
+
+{
+  "username": "foo",
+  "password": "bar"
+}
+
+### Obtener el token y usarlo para una solicitud protegida 
+GET http://localhost:3000/api/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZvbyIsImlhdCI6MTczNzQ2MDg0NiwiZXhwIjoxNzM3NDYxMTQ2fQ.SXSdNlGuOY9S1q5y_CL5IC1LM0YiBpt693smp1zgHrY
