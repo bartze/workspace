@@ -35,12 +35,12 @@ Content-Type: application/json
   "dni": "11223344D",
   "name": "Jesús",
   "last_name": "Areso",
-  "date_of_birth": "2001-05-10",
+  "date_of_birth": "10-05-2001",
   "teacher_id": 1
 }
 
 ### Intentar borrar un usuario con un profesor asociado
-DELETE http://localhost:3000/api/users/3
+DELETE http://localhost:3000/api/users/1
 
 ### Crear un profesor sin estudiantes
 POST http://localhost:3000/api/teachers
@@ -50,7 +50,7 @@ Content-Type: application/json
   "dni": "12345678A",
   "name": "Luis",
   "last_name": "García",
-  "date_of_birth": "1980-05-10",
+  "date_of_birth": "10-05-1980",
   "user_id": 3
 }
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 }
 
 ### Intentar borrar un profesor sin estudiantes asociados
-DELETE http://localhost:3000/api/teachers/<ID DEL PROFESOR RECIÉN CREADO>
+DELETE http://localhost:3000/api/teachers/3
 
 ### Crear un usuario sin profesor asociado
 POST http://localhost:3000/api/users
@@ -79,10 +79,10 @@ Content-Type: application/json
 }
 
 ### Intentar borrar un usuario sin profesor asociado
-DELETE http://localhost:3000/api/users/<ID DEL USUARIO RECIÉN CREADO> 
+DELETE http://localhost:3000/api/users/4
 
 ### Obtener un usuario con su profesor asociado
-GET http://localhost:3000/api/users/2 //Ejemplo con el id del usuario
+GET http://localhost:3000/api/users/2
 
 ### Crear un usuario con profesor asociado
 POST http://localhost:3000/api/users

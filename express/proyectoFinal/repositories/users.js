@@ -16,16 +16,24 @@ module.exports = {
 	update(id, updatedData) {
 		return User.update(updatedData, { where: { id } });
 	},
-	delete(id) {
-		return User.destroy({ where: { id } });
-	},
-	canDelete: async (id) => {
-		const user = await User.findByPk(id, {
-			include: {
-				model: Teacher,
-				as: 'teacher',
-			},
-		});
-		return !user.Teacher; // Solo puede ser borrado si no tiene un profesor asociado
+	async deleteUser(userId) {
+		try {
+			const user = await User.findByPk(userId);
+			if (!user) {
+				return { success: false, message: 'User not found' };
+			}
+
+			await user.destroy();
+			return { success: true, message: 'User deleted successfully' };
+		} catch (error) {
+			if (error.name === 'SequelizeForeignKeyConstraintError') {
+				return {
+					success: false,
+					message: 'Cannot delete user with associated teacher',
+				};
+			}
+			console.error('Error deleting user:', error);
+			return { success: false, message: 'Error deleting user' };
+		}
 	},
 };

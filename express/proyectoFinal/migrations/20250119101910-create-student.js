@@ -27,10 +27,13 @@ module.exports = {
 			},
 			teacher_id: {
 				type: Sequelize.INTEGER,
+				allowNull: false,
 				references: {
 					model: 'teachers',
 					key: 'id',
 				},
+				onDelete: 'RESTRICT', // Evita borrar un profesor si tiene estudiantes asociados
+				onUpdate: 'CASCADE',
 			},
 			createdAt: {
 				allowNull: false,

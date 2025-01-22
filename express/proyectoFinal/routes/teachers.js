@@ -62,11 +62,23 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-	if (await teachers.canDelete(req.params.id)) {
-		await teachers.delete(req.params.id);
-		res.sendStatus(204);
-	} else {
-		res.status(400).send('Teacher cannot be deleted because they have associated students');
+	try {
+		const canDelete = await teachers.canDelete(req.params.id);
+		if (canDelete) {
+			const deleted = await teachers.delete(req.params.id);
+			if (deleted) {
+				res.sendStatus(204);
+			} else {
+				res.status(404).json({ message: "Teacher doesn't exist" });
+			}
+		} else {
+			res.status(400).json({
+				message: 'Teacher cannot be deleted because they have associated students',
+			});
+		}
+	} catch (error) {
+		console.error('Error deleting teacher:', error);
+		res.status(500).json({ message: 'Internal Server Error' });
 	}
 });
 

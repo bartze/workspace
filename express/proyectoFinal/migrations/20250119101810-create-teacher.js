@@ -27,10 +27,13 @@ module.exports = {
 			},
 			user_id: {
 				type: Sequelize.INTEGER,
-				refences: {
-					model: 'Users',
+				allowNull: false,
+				references: {
+					model: 'users', // Asegúrate de que coincide con el nombre de tu tabla de usuarios
 					key: 'id',
 				},
+				onDelete: 'RESTRICT', // Evita borrar un usuario si tiene un profesor asociado
+				onUpdate: 'CASCADE',
 			},
 			createdAt: {
 				allowNull: false,

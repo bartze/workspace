@@ -38,12 +38,6 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+sequelize.sync();
 
 module.exports = db;
-
-// Sincronizar las asociaciones
-const { User, Teacher, Student } = db;
-User.associate({ Teacher });
-Teacher.associate({ User, Student });
-Student.associate({ Teacher });
-sequelize.sync();

@@ -7,7 +7,7 @@
 		"start": "node --watch index.js",
 		"start-dev": "node --watch index.js",
 		"start-services": "docker-compose -f docker/dev/docker-compose.services.yml up -d --build --force-recreate && exit 0",
-		"stop-services": "docker-compose -f docker/dev/docker-compose.services.yml down --volumes",
+		"stop-services": "docker-compose -f docker/dev/docker-compose.services.yml down",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
