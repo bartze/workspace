@@ -22,4 +22,10 @@ module.exports = {
 	canDelete(id) {
 		return true; // No hay restricciones especifícas para borrar estudiantes
 	},
+	findByTeacherIdOrderedByDOB(teacherId) {
+		return Student.findAll({
+			where: { teacher_id: teacherId },
+			order: [['date_of_birth', 'ASC']],
+		});
+	},
 };

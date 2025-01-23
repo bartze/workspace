@@ -93,3 +93,9 @@ Content-Type: application/json
   "password": "associatedpassword",
   "type": "user"
 }
+
+### Objetener todos sus estudiantes ordenados por fecha de nacimiento de un profesor
+GET http://localhost:3000/api/teachers/1/students
+
+
+

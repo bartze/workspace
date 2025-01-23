@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Usuarios</title>
+	</head>
+	<body>
+		{{> header}}
+		<h2>Listado de Usuarios</h2>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Tipo</th>
+				<th>Activo</th>
+			</tr>
+			{{#users}}
+			<tr>
+				<td>{{id}}</td>
+				<td>{{email}}</td>
+				<td>{{type}}</td>
+				<td>{{active}}</td>
+			</tr>
+			{{/users}}
+		</table>
+		<form action="/logout" method="POST">
+			<button type="submit">Logout</button>
+		</form>
+		{{> footer}}
+	</body>
+</html>

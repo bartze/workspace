@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+	</head>
+	<body>
+		{{> header}}
+		<h2>Bienvenido {{user.name}} {{user.last_name}}</h2>
+		<p>DNI: {{user.dni}}</p>
+		<p>Fecha de Nacimiento: {{user.date_of_birth}}</p>
+		<form action="/logout" method="POST">
+			<button type="submit">Logout</button>
+		</form>
+		{{> footer}}
+	</body>
+</html>

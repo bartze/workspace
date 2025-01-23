@@ -1,9 +1,9 @@
 // CRUD para teachers
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-// const bcrypt = require('bcrypt');
-// const { Teacher } = require('../models');
 const teachers = require('../repositories/teachers');
+const students = require('../repositories/students');
+const users = require('../repositories/users');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -78,6 +78,33 @@ router.delete('/:id', async (req, res) => {
 		}
 	} catch (error) {
 		console.error('Error deleting teacher:', error);
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
+});
+
+// Obtener los estudiantes de un profesor por fecha de nacimiento
+router.get('/:teacher_id/students', async (req, res) => {
+	try {
+		const teacherId = req.params.teacher_id;
+
+		// Verificar si el profesor existe
+		const teacher = await teachers.findById(teacherId);
+		if (!teacher) {
+			return res.status(404).json({ message: "Teacher doesn't exist" });
+		}
+
+		// Verificar si el usuario asociado al profesor está activo
+		const user = await users.findById(teacher.user_id);
+		if (!user || !user.active) {
+			return res.status(401).json({ message: 'Associated user is not active' });
+		}
+
+		// Obtener los estudiantes del profesor, ordenados por fecha de nacimiento
+		const studentsList = await students.findByTeacherIdOrderedByDOB(teacherId);
+
+		res.json(studentsList);
+	} catch (error) {
+		console.error('Error fetching students for teacher:', error);
 		res.status(500).json({ message: 'Internal Server Error' });
 	}
 });

@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 			Teacher.belongsTo(models.User, {
 				foreignKey: 'user_id',
 				as: 'user',
+				onDelete: 'RESTRICT',
 			});
 			// Asociación con Student
 			Teacher.hasMany(models.Student, {

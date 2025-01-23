@@ -50,4 +50,8 @@ module.exports = {
 			throw error;
 		}
 	},
+	// Encontrar un profesor por ID de usuario
+	findByUserId(userId) {
+		return Teacher.findOne({ where: { user_id: userId } });
+	},
 };
