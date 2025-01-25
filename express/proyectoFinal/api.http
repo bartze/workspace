@@ -32,11 +32,11 @@ POST http://localhost:3000/api/students
 Content-Type: application/json
 
 {
-  "dni": "11223344D",
-  "name": "Jesús",
-  "last_name": "Areso",
-  "date_of_birth": "10-05-2001",
-  "teacher_id": 1
+  "dni": "11223355E",
+  "name": "Jon",
+  "last_name": "Moncayola",
+  "date_of_birth": "20-07-2000",
+  "teacher_id": 2
 }
 
 ### Intentar borrar un usuario con un profesor asociado

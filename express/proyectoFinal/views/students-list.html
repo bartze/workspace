@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Estudiantes del Profesor</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+	</head>
+	<body>
+		{{> header}}
+		<main>
+			<h1>Estudiantes del Profesor {{teacherName}}</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>DNI</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Fecha de Nacimiento</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#students}}
+					<tr>
+						<td>{{dni}}</td>
+						<td>{{name}}</td>
+						<td>{{last_name}}</td>
+						<td>{{date_of_birth}}</td>
+					</tr>
+					{{/students}}
+				</tbody>
+			</table>
+		</main>
+		{{> footer}}
+	</body>
+</html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt'); // Asegúrate de importar bcrypt
+const bcrypt = require('bcrypt');
 const usersRepo = require('../repositories/users');
 const teachersRepo = require('../repositories/teachers');
 const { body, validationResult } = require('express-validator');
@@ -13,9 +13,17 @@ function isAuthenticated(req, res, next) {
 	res.redirect('/login');
 }
 
+// Middleware para proteger rutas solo para usuarios de tipo admin
+function isAdmin(req, res, next) {
+	if (req.session.isLoggedIn && req.session.user.type === 'admin') {
+		return next();
+	}
+	res.status(401).redirect('/unauthorized');
+}
+
 // Endpoint GET /login
 router.get('/login', (req, res) => {
-	res.render('login'); // Renderiza la vista login.mustache
+	res.render('login');
 });
 
 // Endpoint POST /login
@@ -28,36 +36,42 @@ router.post(
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			// Renderizar la vista de login con los errores
+			console.log('Errores de validación:', errors.array());
 			return res.status(400).render('login', { errors: errors.array() });
 		}
 
 		const { username, password } = req.body;
+		console.log('Intento de login para:', username);
 
 		try {
 			const user = await usersRepo.findByEmail(username);
+			console.log('Usuario encontrado:', user ? 'Sí' : 'No');
+
 			if (user) {
+				console.log('Comparando contraseñas...');
 				const match = await bcrypt.compare(password, user.password);
+				console.log('¿Contraseña coincide?', match);
+
 				if (match) {
-					// Configurar variables de sesión
+					console.log('Login exitoso, configurando sesión');
 					req.session.isLoggedIn = true;
 					req.session.user = {
 						id: user.id,
 						email: user.email,
 						type: user.type,
-						// Otros datos que necesites, sin incluir la contraseña
 					};
-					// Redirigir a /home
 					return res.redirect('/home');
 				} else {
-					return res.status(401).render('login', { error: 'Contraseña incorrecta' });
+					console.log('Contraseña incorrecta');
+					return res.status(401).render('error-login');
 				}
 			} else {
-				return res.status(401).render('login', { error: 'Usuario no encontrado' });
+				console.log('Usuario no encontrado');
+				return res.status(401).render('error-login');
 			}
 		} catch (error) {
 			console.error('Error en el proceso de login:', error);
-			res.status(500).render('login', { error: 'Error interno del servidor' });
+			res.status(500).render('error-login');
 		}
 	},
 );
@@ -85,16 +99,13 @@ router.get('/home', isAuthenticated, async (req, res) => {
 });
 
 // Acceso protegido solo para usuarios de tipo admin
-router.get('/users', isAuthenticated, async (req, res) => {
-	if (req.session.user.type !== 'admin') {
-		return res.status(401).send('Acceso no autorizado');
-	}
+router.get('/users', isAuthenticated, isAdmin, async (req, res) => {
 	try {
 		const users = await usersRepo.getAll();
 		res.render('users', { users });
 	} catch (error) {
 		console.error('Error en /users:', error);
-		res.status(500).send('Error interno del servidor');
+		res.status(500).render('error', { message: 'Error interno del servidor' });
 	}
 });
 
@@ -109,4 +120,8 @@ router.post('/logout', (req, res) => {
 	});
 });
 
-module.exports = router;
+module.exports = {
+	router: router,
+	isAuthenticated: isAuthenticated,
+	isAdmin: isAdmin,
+};

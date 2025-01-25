@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Confirmación</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+	</head>
+	<body>
+		{{> header}}
+		<main>
+			<h1>Confirmación</h1>
+			<p>{{message}}</p>
+			<form action="{{actionUrl}}" method="POST">
+				<input type="hidden" name="_method" value="{{method}}" />
+				<p>¿Estás seguro de que quieres {{action}}?</p>
+				<button type="submit">Sí, confirmar</button>
+			</form>
+			<a href="{{cancelUrl}}">Cancelar</a>
+		</main>
+		{{> footer}}
+	</body>
+</html>

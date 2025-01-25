@@ -1,8 +1,6 @@
 // CRUD para students
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-// const bcrypt = require('bcrypt');
-// const { Student } = require('../models');
 const students = require('../repositories/students');
 const router = express.Router();
 

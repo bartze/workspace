@@ -5,6 +5,9 @@ const session = require('express-session');
 const app = express();
 const port = 3000;
 
+// Ruta para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Configurar el motor de plantillas Mustache
 app.engine('html', mustacheExpress(path.join(__dirname, 'views', 'partials'), '.html'));
 app.set('view engine', 'html');
@@ -28,18 +31,32 @@ app.use(
 const usersRouter = require('./routes/users');
 const studentsRouter = require('./routes/students');
 const teachersRouter = require('./routes/teachers');
-const loginRouter = require('./routes/login');
+const { router: loginRouter } = require('./routes/login');
 const apiRouter = require('./routes/api');
+const viewsRouter = require('./routes/views');
 
 app.use('/api/users', usersRouter);
 app.use('/api/students', studentsRouter);
 app.use('/api/teachers', teachersRouter);
 app.use('/', loginRouter);
 app.use('/', apiRouter);
+app.use('/', viewsRouter);
 
 app.get('/', (req, res) => {
-	res.set('Content-Type', 'text/plain');
-	res.status(200).send('Hello Express Final Project!!');
+	res.redirect('/login');
+});
+
+// Manejo de errores 401
+app.get('/unauthorized', (req, res) => {
+	res.status(401).render('error-401');
+});
+
+// Manejo de errores
+app.use((err, req, res, next) => {
+	if (err.status === 401) {
+		return res.redirect('/unauthorized');
+	}
+	next(err);
 });
 
 app.listen(port, () => {

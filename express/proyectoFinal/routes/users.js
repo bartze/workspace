@@ -61,7 +61,8 @@ router.post(
 				...req.body,
 				password: hashedPassword,
 			});
-			res.status(201).json(newUser);
+			// res.status(201).json(newUser);
+			res.redirect('/users');
 		} catch (error) {
 			res.status(500).send('Error creating user');
 		}

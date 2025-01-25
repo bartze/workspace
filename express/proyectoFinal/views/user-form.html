@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{formTitle}}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    {{> header}}
+    <main>
+        <h1>{{formTitle}}</h1>
+        <form action="{{formAction}}" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{user.email}}" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" {{^user}}required{{/user}}>
+            
+            <label for="type">Tipo:</label>
+            <select id="type" name="type" required>
+                <option value="admin" {{#user.isAdmin}}selected{{/user.isAdmin}}>Admin</option>
+                <option value="user" {{^user.isAdmin}}selected{{/user.isAdmin}}>Usuario</option>
+            </select>
+            
+            <label for="active">
+                <input type="checkbox" id="active" name="active" {{#user.active}}checked{{/user.active}}>
+                Activo
+            </label>
+            
+            <button type="submit">{{submitButtonText}}</button>
+        </form>
+    </main>
+    {{> footer}}
+</body>
+</html>

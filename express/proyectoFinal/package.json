@@ -4,7 +4,7 @@
 	"description": "Proyecto final usando Express, Sequelize, JWT, Mustache para plantillas, cookies, sesiones, autenticación y PostgreSQL, desplegado en Docker",
 	"main": "index.js",
 	"scripts": {
-		"start": "node --watch index.js",
+		"start": "node index.js",
 		"start-dev": "node --watch index.js",
 		"start-services": "docker-compose -f docker/dev/docker-compose.services.yml up -d --build --force-recreate && exit 0",
 		"stop-services": "docker-compose -f docker/dev/docker-compose.services.yml down",
