@@ -97,6 +97,3 @@ Content-Type: application/json
 
 ### Objetener todos sus estudiantes ordenados por fecha de nacimiento de un profesor
 GET http://localhost:3000/api/teachers/1/students
-
-
-
