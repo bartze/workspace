@@ -82,4 +82,19 @@ router.get('/confirm/:action/:id', isAuthenticated, (req, res) => {
 	});
 });
 
+// Ruta para crear/editar estudiante
+router.get('/student/:id?', isAuthenticated, async (req, res) => {
+	const studentId = req.params.id;
+	let student = studentId ? await Student.findByPk(studentId) : null;
+	const teacherId = req.session.user.teacherId; // Asegúrate de guardar el teacherId en la sesión al iniciar sesión
+
+	res.render('student-form', {
+		formTitle: student ? 'Editar Estudiante' : 'Crear Estudiante',
+		formAction: student ? `/api/students/${studentId}` : '/api/students',
+		submitButtonText: student ? 'Actualizar' : 'Crear',
+		student,
+		teacherId,
+	});
+});
+
 module.exports = router;

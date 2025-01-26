@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{formTitle}}</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+	</head>
+	<body>
+		{{> header}}
+		<main>
+			<h1>{{formTitle}}</h1>
+			<form action="{{formAction}}" method="POST">
+				<label for="dni">DNI:</label>
+				<input type="text" id="dni" name="dni" value="{{student.dni}}" required />
+
+				<label for="name">Nombre:</label>
+				<input type="text" id="name" name="name" value="{{student.name}}" required />
+
+				<label for="last_name">Apellido:</label>
+				<input
+					type="text"
+					id="last_name"
+					name="last_name"
+					value="{{student.last_name}}"
+					required
+				/>
+
+				<label for="date_of_birth">Fecha de Nacimiento (DD-MM-YYYY):</label>
+				<input
+					type="text"
+					id="date_of_birth"
+					name="date_of_birth"
+					value="{{student.date_of_birth}}"
+					placeholder="DD-MM-YYYY"
+					required
+				/>
+				<button type="submit">{{submitButtonText}}</button>
+			</form>
+		</main>
+		{{> footer}}
+	</body>
+</html>

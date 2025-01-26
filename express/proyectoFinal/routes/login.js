@@ -13,6 +13,14 @@ function isAuthenticated(req, res, next) {
 	res.redirect('/login');
 }
 
+// Middleware para proteger rutas solo para usuarios de tipo profesor
+function isAuthenticatedTeacher(req, res, next) {
+	if (req.session.isLoggedIn && req.session.user.teacherId) {
+		return next();
+	}
+	res.redirect('/login');
+}
+
 // Middleware para proteger rutas solo para usuarios de tipo admin
 function isAdmin(req, res, next) {
 	if (req.session.isLoggedIn && req.session.user.type === 'admin') {
@@ -54,12 +62,15 @@ router.post(
 
 				if (match) {
 					console.log('Login exitoso, configurando sesión');
+					const teacher = await teachersRepo.findByUserId(user.id);
 					req.session.isLoggedIn = true;
 					req.session.user = {
 						id: user.id,
 						email: user.email,
 						type: user.type,
+						teacherId: teacher ? teacher.id : null,
 					};
+					console.log('Sesión configurada:', req.session.user);
 					return res.redirect('/home');
 				} else {
 					console.log('Contraseña incorrecta');
@@ -87,6 +98,7 @@ router.get('/home', isAuthenticated, async (req, res) => {
 			// Obtener datos del profesor asociado
 			const teacher = await teachersRepo.findByUserId(req.session.user.id);
 			if (teacher) {
+				req.session.user.teacherId = teacher.id;
 				res.render('home', { user: teacher });
 			} else {
 				res.status(404).send('Profesor no encontrado');
@@ -123,5 +135,6 @@ router.post('/logout', (req, res) => {
 module.exports = {
 	router: router,
 	isAuthenticated: isAuthenticated,
+	isAuthenticatedTeacher: isAuthenticatedTeacher,
 	isAdmin: isAdmin,
 };

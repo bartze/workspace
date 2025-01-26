@@ -2,6 +2,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const students = require('../repositories/students');
+const { isAuthenticatedTeacher } = require('./login');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -17,9 +18,11 @@ router.get('/:id', async (req, res) => {
 
 router.post(
 	'/',
+	isAuthenticatedTeacher,
 	[
-		body('name').notEmpty().withMessage('Name is required'),
-		body('last_name').notEmpty().withMessage('Last name is required'),
+		body('dni').notEmpty().withMessage('DNI es requerido'),
+		body('name').notEmpty().withMessage('Nombre es requerido'),
+		body('last_name').notEmpty().withMessage('Apellido es requerido'),
 		body('date_of_birth')
 			.trim()
 			.custom((value) => {
@@ -34,25 +37,38 @@ router.post(
 				) {
 					return true;
 				}
-				throw new Error('Invalid date format (DD-MM-YYYY)');
-			}), // Validación de fecha sin express validator
+				throw new Error('Formato de fecha inválido (DD-MM-YYYY)');
+			}),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			return res.status(400).json({ errors: errors.array() });
+			return res.status(400).render('student-form', {
+				errors: errors.array(),
+				student: req.body,
+				formTitle: 'Crear Estudiante',
+				formAction: '/api/students',
+				submitButtonText: 'Crear',
+			});
 		}
 
-		// Convertir la fecha al formato ISO antes de insertar en la base de datos
-		const [day, month, year] = req.body.date_of_birth.split('-');
-		const isoDate = `${year}-${month}-${day}`;
-		req.body.date_of_birth = isoDate;
+		try {
+			// Convertir la fecha al formato ISO antes de insertar en la base de datos
+			const [day, month, year] = req.body.date_of_birth.split('-');
+			const isoDate = `${year}-${month}-${day}`;
 
-		const newStudent = await students.insert(req.body);
-		res.json(newStudent);
+			const newStudent = await students.insert({
+				...req.body,
+				date_of_birth: isoDate,
+				teacher_id: req.session.user.teacherId,
+			});
+			res.redirect('/teacher/students');
+		} catch (error) {
+			console.error('Error creating student:', error);
+			res.status(500).render('error', { message: 'Error al crear estudiante' });
+		}
 	},
 );
-
 router.put('/:id', async (req, res) => {
 	const updatedStudent = await students.update(req.params.id, req.body);
 	res.json(updatedStudent);
