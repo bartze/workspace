@@ -2,7 +2,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const students = require('../repositories/students');
-const { isAuthenticatedTeacher } = require('./login');
+const { isAuthenticatedTeacher } = require('../middlewares/auth');
 const router = express.Router();
 
 router.get('/', async (req, res) => {

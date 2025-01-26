@@ -61,7 +61,7 @@ Content-Type: application/json
 {
   "dni": "22334455F",
   "last_name": "Martinez",
-  "date_of_birth": "1975-03-15",
+  "date_of_birth": "15-03-1975",
   "user_id": 2
 }
 
@@ -91,7 +91,8 @@ Content-Type: application/json
 {
   "email": "associateduser@example.com",
   "password": "associatedpassword",
-  "type": "user"
+  "type": "user",
+  "teacher_id": 1
 }
 
 ### Objetener todos sus estudiantes ordenados por fecha de nacimiento de un profesor

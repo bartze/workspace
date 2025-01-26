@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { User, Teacher, Student } = require('../models');
-const { isAuthenticated, isAdmin } = require('./login');
-
-// Ruta para el error 401
-router.get('/unauthorized', (req, res) => {
-	res.status(401).render('error-401');
-});
+const { isAuthenticated, isAdmin } = require('../middlewares/auth');
 
 // Ruta para crear/editar usuario
 router.get('/user/:id?', isAdmin, async (req, res) => {

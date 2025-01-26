@@ -24,6 +24,8 @@ Este proyecto es el resultado final del curso de Express y Sequelize, que implem
 
 -   Dependencias
 
+-   Extra
+
 ## Descripción
 
 Este proyecto es una aplicación Node.js que utiliza Express como framework web y Sequelize como ORM para interactuar con una base de datos PostgreSQL. La aplicación implementa autenticación de usuarios, gestión de profesores y estudiantes, y sirve vistas dinámicas utilizando Mustache como motor de plantillas.
@@ -56,9 +58,9 @@ Este proyecto es una aplicación Node.js que utiliza Express como framework web 
 
 ## Requisitos Previos
 
--   Node.js versión 20 o superior.
+-   Node.js.
 
--   npm versión 10 o superior.
+-   npm.
 
 -   Docker y Docker Compose (opcional, si deseas ejecutar la base de datos y pgAdmin en contenedores).
 
@@ -180,16 +182,25 @@ proyectoFinal/
 │ ├── login.js
 │ └── api.js
 ├── views/
-│ ├── login.mustache
-│ ├── home.mustache
-│ ├── users.mustache
+│ ├── login.html
+│ ├── home.html
+│ ├── users.html
+│ ├── error-401.html
+│ ├── error.html
+│ ├── student-form.html
+│ ├── students-list.html
+│ ├── user-form.html
 │ └── partials/
-│ ├── header.mustache
-│ └── footer.mustache
+│ ├── header.html
+│ └── footer.html
+├── middlewares/
+│ └── auth.js
 ├── docker/
 │ └── dev/
 │ └── docker-compose.services.yml
-└── .env
+└── public/
+└── css/
+└── styles.css
 
 ## API Endpoints
 
@@ -266,6 +277,46 @@ proyectoFinal/
 -   pg y pg-hstore - Conectores para PostgreSQL.
 
 -   express-validator - Validación de datos.
+
+## EXTRA
+
+### Formularios HTML y Vistas Adicionales
+
+Además de los requisitos del profesor, se han implementado las siguientes funcionalidades adicionales con vistas HTML y formularios:
+
+-   Formulario para Crear Usuario:
+
+    -   Vista: user-form.html
+
+    -   Ruta: /user/:id? (GET) - Renderiza el formulario para crear o editar un usuario.
+
+-   Formulario para Crear Estudiante:
+
+    -   Vista: student-form.html
+
+    -   Ruta: /student/:id? (GET) - Renderiza el formulario para crear o editar un estudiante.
+
+-   Lista de Estudiantes por Profesor:
+
+    -   Vista: students-list.html
+
+    -   Ruta: /teacher/students (GET) - Renderiza la lista de estudiantes de un profesor ordenados por fecha de nacimiento.
+
+-   Error 401 y Error Genérico:
+
+    -   Vistas: error-401.html, error.html
+
+    -   Uso: Muestra mensajes de error personalizados para errores de autorización y otros errores.
+
+### Scripts para Generar y Validar Tokens JWT
+
+-   Generar Token JWT:
+
+    -   Ruta: /api/token (POST) - Genera un token JWT utilizando username y password.
+
+-   Ruta Protegida con JWT:
+
+    -   Ruta: /api/protected (GET) - Requiere un token JWT válido para acceder.
 
 ## Licencia
 

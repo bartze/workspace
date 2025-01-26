@@ -2,6 +2,7 @@ const express = require('express');
 const mustacheExpress = require('mustache-express');
 const path = require('path');
 const session = require('express-session');
+const { isAuthenticated, isAuthenticatedTeacher, isAdmin } = require('./middlewares/auth');
 const app = express();
 const port = 3000;
 

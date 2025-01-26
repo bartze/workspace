@@ -4,6 +4,7 @@ const { body, validationResult } = require('express-validator');
 const teachers = require('../repositories/teachers');
 const students = require('../repositories/students');
 const users = require('../repositories/users');
+//const { isAuthenticated, isAuthenticatedTeacher, isAdmin } = require('../middlewares/auth');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
