@@ -1,0 +1,13 @@
+.progress {
+	position: fixed; /* Hace que el elemento permanezca fijo en la pantalla */
+	top: 10px; /* Ajusta la distancia desde la parte superior */
+	left: 10px; /* Ajusta la distancia desde la parte izquierda */
+	background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente para visibilidad */
+	color: white; /* Texto blanco */
+	padding: 10px; /* Espaciado interno */
+	border-radius: 5px; /* Bordes redondeados */
+	z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+h1 {
+	text-align: center;
+}
