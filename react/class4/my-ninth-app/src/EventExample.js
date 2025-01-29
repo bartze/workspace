@@ -30,6 +30,7 @@ class EventExample extends Component {
 				<button onClick={this.campoPublico}>Manejador de campo público</button>
 				<button onClick={this.metodoClase}>Manejador de método de clase</button>
 				<button onClick={(e) => this.deleteRow(id, e)}>Eliminar con función flecha</button>
+				<button onClick={this.deleteRow.bind(this, id)}>Eliminar con bind</button>
 			</div>
 		);
 	}

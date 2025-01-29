@@ -2,12 +2,11 @@ import React from 'react';
 import Greeting from './UserGreeting';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import Warning from './Warning';
 
 class LoginControl extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleLoginClick = this.handleLoginClick.bind(this);
-		this.handleLogoutClick = this.handleLogoutClick.bind(this);
 		this.state = { isLoggedIn: false };
 	}
 
@@ -20,19 +19,17 @@ class LoginControl extends React.Component {
 	};
 
 	render() {
-		const isLoggedIn = this.state.isLoggedIn;
-		let button;
-
-		if (isLoggedIn) {
-			button = <LogoutButton onClick={this.handleLogoutClick} />;
-		} else {
-			button = <LoginButton onClick={this.handleLoginClick} />;
-		}
+		const { isLoggedIn } = this.state;
 
 		return (
 			<div>
+				<Warning isLoggedIn={isLoggedIn} />
 				<Greeting isLoggedIn={isLoggedIn} />
-				{button}
+				{isLoggedIn ? (
+					<LogoutButton onClick={this.handleLogoutClick} />
+				) : (
+					<LoginButton onClick={this.handleLoginClick} />
+				)}
 			</div>
 		);
 	}
