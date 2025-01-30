@@ -6,7 +6,7 @@ Los componentes no controlados son una alternativa a los componentes controlados
 
 Para crear un componente no controlado:
 
-1. Se usa una referencia (ref) para obtener los valores del formulario directamente del DOM12.
+1. Se usa una referencia (ref) para obtener los valores del formulario directamente del DOM.
 2. En lugar de escribir un controlador de eventos para cada actualización de estado, se accede a los valores cuando se necesitan, generalmente en el envío del formulario.
 
 ## Ejemplo
