@@ -1,44 +1,27 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { Form } from 'react-router-dom';
 
-class Form extends Component {
-	initialState = {
-		name: '',
-		job: '',
-	};
-	state = this.initialState;
-	handleChange = (event) => {
-		const { name, value } = event.target;
-		this.setState({
-			[name]: value,
-		});
-	};
-	submitForm = () => {
-		this.props.handleSubmit(this.state);
-		this.setState(this.initialState);
-	};
-	render() {
-		const { name, job } = this.state;
-		return (
-			<form className="form">
-				<label htmlFor="name">Nombre</label>
-				<input
-					type="text"
-					name="name"
-					id="name"
-					value={name}
-					onChange={this.handleChange}
-				/>
-				<label htmlFor="job">Trabajo</label>
-				<input type="text" name="job" id="job" value={job} onChange={this.handleChange} />
-				<input type="button" value="Enviar" onClick={this.submitForm} />
-			</form>
-		);
-	}
-}
+const UserForm = () => {
+  const [formData, setFormData] = useState({ name: '', job: '' });
 
-Form.propTypes = {
-	handleSubmit: PropTypes.func,
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const { name, job } = formData;
+  return (
+    <Form method="post" id="user-form">
+      <label htmlFor="name">Name: </label>
+      <input type="text" name="name" value={name} onChange={handleChange} />
+      <label htmlFor="job">Job: </label>
+      <input type="text" name="job" value={job} onChange={handleChange} />
+      <input type="submit" value="Submit" />
+    </Form>
+  );
 };
 
-export default Form;
+export default UserForm;
