@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "express-db-ibarcelo",
+    "host": "localhost",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "test": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "express-db-test",
+    "host": "express-db",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "1234",
+    "database": "express-db-prod",
+    "host": "express-db",
+    "dialect": "postgres"
+  }
+}

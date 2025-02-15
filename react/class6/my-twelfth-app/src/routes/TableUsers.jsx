@@ -68,8 +68,8 @@ const TableUsers = () => {
   const title = 'My Twelfth Functional App';
   return (
     <div className="container">
-      <Table peopleData={people} removePeople={removePeople} title={title} />
       <UserForm />
+      <Table peopleData={people} removePeople={removePeople} title={title} />
     </div>
   );
 };

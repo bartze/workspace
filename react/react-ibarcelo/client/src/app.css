@@ -1,0 +1,304 @@
+/* --- Estilos Generales  --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f0f0f0; /* Fondo general GRIS CLARO - modificado */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* Estilo para centrar el login */
+.login-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centrar completamente */
+}
+
+/* Estilo general para otras páginas */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- Estilos del Layout (Sidebar GRIS OSCURO, Main Content Gris Claro) --- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333; /* Fondo del sidebar a GRIS OSCURO - modificado */
+  border-right: 1px solid #555; /* Borde derecho más oscuro para contrastar con fondo oscuro */
+  padding: 10px;
+  overflow-y: auto;
+  color: #eee; /* Texto en el sidebar más claro para contrastar con fondo oscuro */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #f0f0f0; /* Fondo del contenido principal GRIS CLARO - igual que el body */
+}
+
+.menu form {
+  margin-bottom: 20px;
+}
+
+.menu input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #777; /* Borde del input en sidebar más oscuro */
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: 1rem;
+  background-color: #444; /* Fondo del input en sidebar más oscuro */
+  color: #eee; /* Texto del input en sidebar más claro */
+}
+
+.menu input[type="text"]::placeholder {
+  color: #ccc; /* Placeholder más claro para input oscuro */
+}
+
+.menu input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 4px;
+}
+
+.menu li:last-child {
+  margin-bottom: 0;
+  margin-top: 10px;
+  border-top: 1px solid #555; /* Separador más oscuro en sidebar oscuro */
+  padding-top: 10px;
+}
+
+.menu a,
+.menu button {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  color: #eee; /* Color de texto de links/botones en sidebar - claro */
+  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu a:hover,
+.menu button:hover {
+  background-color: #555; /* Hover más oscuro en sidebar oscuro */
+}
+
+.menu a.active,
+.menu button.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+/* --- Estilos para Títulos (h1) en el contenido principal (sin cambios) --- */
+h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+/* --- Nuevos Estilos Reutilizables para Contenido Principal (Tarjetas, Formularios, etc.) --- */
+
+/* Estilo para contenedores tipo "tarjeta" -  puedes usar esta clase en listados, formularios, etc. */
+.card-container {
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px; /* Padding interno para el contenido de la tarjeta */
+  margin-bottom: 20px; /* Margen inferior para separar tarjetas si hay varias */
+}
+
+/* Estilos para encabezados dentro de las tarjetas (ej: títulos de formulario, títulos de lista) */
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Separador debajo del encabezado */
+  padding-bottom: 10px;
+}
+
+/* Estilos para listas dentro de las tarjetas (ej: listado de usuarios) */
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-list-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Separador entre items de lista */
+}
+
+.card-list-item:last-child {
+  border-bottom: none; /* Quitar el borde del último item de la lista */
+}
+
+/* Estilos para formularios dentro de las tarjetas */
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre elementos del formulario */
+}
+
+.card-form label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Espacio debajo de las etiquetas de formulario */
+  display: block; /* Para que las etiquetas ocupen una línea entera */
+}
+
+.card-form input[type="text"],
+.card-form input[type="email"],
+.card-form input[type="password"],
+.card-form textarea,
+.card-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: none; /* Quitar sombra por defecto si la hubiera */
+  font-size: 1rem;
+  font-family: inherit; /* Heredar la fuente del body para consistencia */
+}
+
+.card-form input[type="text"]:focus,
+.card-form input[type="email"]:focus,
+.card-form input[type="password"]:focus,
+.card-form textarea:focus,
+.card-form select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.card-form button[type="submit"],
+.card-form button {
+  /* Estilo para botones de formulario y botones generales dentro de tarjetas */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff; /* Azul para botones principales */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card-form button[type="submit"]:hover,
+.card-form button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+.card-form button[type="button"] {
+  /* Estilo para botones "secundarios" o "button" sin type="submit" */
+  background-color: #e0e0e0; /* Gris claro para botones secundarios */
+  color: #333; /* Texto más oscuro para botones secundarios */
+}
+
+.card-form button[type="button"]:hover {
+  background-color: #ccc; /* Gris un poco más oscuro al pasar el ratón */
+}
+
+/* Estilo para la barra de búsqueda */
+.search-input {
+  width: 100%;
+  padding: 0.75rem; /* Igual que los inputs */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff; /* Azul al enfocar */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para inputs y selects */
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff; /* Azul al enfocar */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo específico para selects */
+.form-input select {
+  background-color: #fff; /* Fondo blanco para selects */
+}
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+}
+
+.not-found h2 {
+  font-size: 2em;
+  color: #333;
+}
+
+.not-found p {
+  margin: 20px 0;
+}
+
+.not-found a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.not-found a:hover {
+  background-color: #0056b3;
+}

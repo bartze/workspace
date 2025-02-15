@@ -1,0 +1,63 @@
+/* Contenedor principal de la tarjeta */
+.card-content {
+  display: flex;
+  align-items: center; /* Centrar verticalmente el contenido */
+  gap: 20px; /* Espacio entre la imagen y el texto */
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen del avatar */
+.card-content img {
+  border-radius: 50%;
+}
+
+/* Contenedor del texto */
+.card-text {
+  flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+/* Texto dentro de la tarjeta */
+.card-text p {
+  margin: 5px 0;
+}
+
+/* Contenedor de los botones */
+.card-buttons {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+/* Botón base */
+.button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Botón de editar (azul) */
+.edit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Botón de borrar (rojo) */
+.delete-button {
+  background-color: white;
+  color: red;
+  border: 2px solid red;
+}
+
+.delete-button:hover {
+  background-color: red;
+  color: white;
+}
