@@ -54,5 +54,3 @@ Las funciones Lambda son increíblemente versátiles y se pueden usar para una a
   - **Beneficio:** Creas chatbots interactivos y escalables sin necesidad de servidores dedicados.
 
 **En resumen, las funciones Lambda son una herramienta poderosa y flexible para ejecutar código en la nube de manera eficiente y económica.** Su naturaleza serverless y orientada a eventos las hace ideales para una amplia variedad de casos de uso, desde tareas sencillas de automatización hasta complejas arquitecturas de microservicios y procesamiento de datos en tiempo real.
-
-Espero que esta explicación te sea útil para entender mejor el propósito de las funciones Lambda. ¡Si tienes más preguntas, no dudes en consultarme!
