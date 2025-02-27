@@ -1,0 +1,9 @@
+Documentos
+file1.txt
+file2.txt
+file3.txt
+lista_archivos.txt
+Proyecto
+ProyectosAntiguos
+registro.log
+src

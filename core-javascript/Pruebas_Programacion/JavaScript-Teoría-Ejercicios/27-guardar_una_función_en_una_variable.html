@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<title>27. Expresiones de Funciones en JavaScript</title>
+	</head>
+
+	<body>
+		<h1>Capítulo 27</h1>
+		<h2>Expresiones de Funciones en JavaScript</h2>
+		<section>
+			<h3>Input ChatGPT</h3>
+			<p>
+				¿Qué son las expresiones de funciones en JavaScript y cómo se
+				pueden asignar a variables?
+			</p>
+		</section>
+		<section>
+			<h3>Para qué sirve</h3>
+			<p>
+				Las expresiones de funciones en JavaScript permiten asignar una
+				función a una variable, lo cual brinda flexibilidad en la forma
+				de definir y utilizar funciones. Esta característica es útil
+				para crear funciones anónimas, asignar funciones como argumentos
+				a otras funciones, y organizar mejor el código. Por ejemplo, se
+				puede crear una función que actúe como invocadora de otras
+				funciones, lo que es particularmente útil en patrones de diseño
+				como callbacks y programación funcional.
+			</p>
+		</section>
+		<script>
+			console.log('27. Expresiones de Funciones en JavaScript');
+
+			/**
+			 * Ejercicio 1: Asigna una función simple a una variable y luego invócala.
+			 */
+			// Define una función flecha y asígnala a una variable
+			const saludar = () => {
+				console.log('¡Hola, mundo!');
+			};
+
+			// Invoca la función usando la variable
+			saludar(); // Output: ¡Hola, mundo!
+
+			/**
+			 * Ejercicio 2: Crea una función que sume dos números y asígnala a una variable.
+			 * Usa esa variable para calcular un resultado.
+			 */
+			// Define una función flecha que sume dos números y asígnala a una variable
+			const sumar = (a, b) => a + b;
+
+			// Usa la variable para calcular un resultado
+			const resultado = sumar(5, 3);
+
+			console.log(resultado); // Output: 8
+
+			/**
+			 * Ejercicio 3: Escribe una función anónima que se autoejecute y muestre
+			 * un mensaje en la consola.
+			 */
+			 (function() {
+  				console.log("¡Mensaje desde una función anónima autoejecutada!");
+				})();
+
+			/**
+			 * Ejercicio 4: Crea una función que reciba otra función como argumento
+			 * y luego la invoque.
+			 */
+			// Define una función que reciba otra función como argumento
+				const invocarFuncion = (func) => {
+  					func(); // Invoca la función pasada como argumento
+				};
+
+				// Define una función simple
+				const saludito = () => {
+  					console.log("¡Hola desde la función pasada como argumento!");
+					};
+
+				// Usa la función invocarFuncion para llamar a la función saludar
+				invocarFuncion(saludito); // Output: ¡Hola desde la función pasada como argumento!
+
+			/**
+			 * Ejercicio 5: Crea e invoca una función que retorne un valor a una variable
+			 * y utiliza esa variable para mostrar el valor retornado.
+			 */
+				// Define una función que retorne un valor
+			const obtenerSaludo = () => {
+  			return "¡Hola, este es el valor retornado!";
+			};
+
+			// Invoca la función y almacena el valor retornado en una variable
+			const mensaje = obtenerSaludo();
+
+			// Usa la variable para mostrar el valor retornado
+			console.log(mensaje); // Output: ¡Hola, este es el valor retornado!
+
+			/**
+			 * Ejercicio 6: Crea una función que reciba dos argumentos: una función y un valor.
+			 * La función debe aplicar la función recibida al valor y retornar el resultado.
+			 */
+			// Define la función que aplicará otra función a un valor y retornará el resultado
+const aplicarFuncion = (func, valor) => {
+  return func(valor);
+};
+
+// Define una función simple que será pasada como argumento
+const doblar = (numero) => {
+  return numero * 2;
+};
+
+// Usa la función 'aplicarFuncion' pasando 'doblar' como la función y 5 como el valor
+const resultadito = aplicarFuncion(doblar, 5);
+
+console.log(resultadito); // Output: 10
+
+		</script>
+	</body>
+</html>

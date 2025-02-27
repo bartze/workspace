@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectar URL Diferente</title>
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <button onclick="processFile()">Procesar Fichero</button>
+    <p id="result"></p>
+
+    <script>
+        function processFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const data = event.target.result;
+                const urls = data.split('\n').map(url => url.trim()).filter(url => url.length > 0);
+
+                const lengthCounts = {};
+                urls.forEach(url => {
+                    const length = url.length;
+                    if (lengthCounts[length]) {
+                        lengthCounts[length]++;
+                    } else {
+                        lengthCounts[length] = 1;
+                    }
+                });
+
+                const differentLength = Object.keys(lengthCounts).find(length => lengthCounts[length] === 1);
+                const differentUrl = urls.find(url => url.length === parseInt(differentLength));
+
+                const resultElement = document.getElementById('result');
+                if (differentUrl) {
+                    resultElement.textContent = `La URL diferente por longitud es: ${differentUrl}`;
+                } else {
+                    resultElement.textContent = 'No se encontró ninguna URL diferente por longitud.';
+                }
+            };
+
+            reader.readAsText(file);
+        }
+    </script>
+</body>
+</html>

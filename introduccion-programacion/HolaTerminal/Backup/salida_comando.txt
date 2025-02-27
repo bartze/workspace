@@ -1,0 +1,12 @@
+total 28
+drwxrwxr-x 2 curso curso 4096 sep  7 09:56 Documentos
+-rw-rw-r-- 1 curso curso    0 sep  7 09:45 file1.txt
+-rw-rw-r-- 1 curso curso    0 sep  7 09:45 file2.txt
+-rw-rw-r-- 1 curso curso    0 sep  7 09:45 file3.txt
+-rw-rw-r-- 1 curso curso  104 sep  8 12:28 lista_archivos.txt
+-rw-rw-r-- 1 curso curso   16 sep  8 12:30 mensaje.txt
+drwxrwxr-x 3 curso curso 4096 sep  7 10:04 Proyecto
+drwxrwxr-x 3 curso curso 4096 sep  7 09:50 ProyectosAntiguos
+-rw-rw-r-- 1 curso curso  135 sep  7 10:18 registro.log
+-rw-rw-r-- 1 curso curso    0 sep  8 12:37 salida_comando.txt
+drwxrwxr-x 2 curso curso 4096 sep  7 09:50 src

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      26. Pasar argumentos a una función y retornar un resultado en JavaScript
+    </title>
+  </head>
+
+  <body>
+    <h1>Capítulo 26</h1>
+    <h2>Pasar argumentos a una función y retornar un resultado</h2>
+
+    <section>
+      <h3>Input ChatGPT</h3>
+      <p>
+        ¿Cómo se crean funciones en JavaScript que toman argumentos y retornan
+        un resultado?
+      </p>
+    </section>
+
+    <section>
+      <h3>Para qué sirve</h3>
+      <p>
+        Crear funciones que toman argumentos y retornan resultados es esencial
+        en JavaScript. Estas funciones pueden manipular datos, realizar cálculos
+        y generar salidas en formatos variados, incluyendo 'template literals',
+        lo que las hace herramientas versátiles en la programación.
+      </p>
+    </section>
+
+    <script>
+      console.log(
+        "26. Pasar argumentos a una función y retornar un resultado en JavaScript"
+      );
+
+      // Ejercicio 1: Crea una función 'sumar' que tome dos números como argumentos y
+      // retorne su suma.
+      const sumar = (num1, num2) => {
+        return num1 + num2;
+      };
+      console.log(sumar(2, 3));
+
+      // Ejercicio 2: Diseña una función 'longitudTexto' que reciba una cadena de texto
+      // como argumento y retorne la longitud de dicha cadena.
+      const longitudTexto = (string) => {
+        return string.length;
+      };
+      console.log(longitudTexto("This is the way"));
+
+      // Ejercicio 3: Elabora una función 'nombreCompleto' que tome nombre y apellidos como
+      // argumentos y los una retornando un único texto.
+      const nombreCompleto = (nombre, apellido) => {
+        return nombre + " " + apellido;
+      };
+      console.log(nombreCompleto("Iñaki", "Barceló"));
+
+      // Ejercicio 4: Crea una función 'calcularAreaRectangulo' que tome la base y la altura
+      // de un rectángulo como argumentos y retorne su área.
+      const calcularAreaRectangulo = (base, altura) => {
+        let area = base * altura;
+        return `El Área de un rectángulo con base: ${base} y altura: ${altura}, es: ${area}`;
+      };
+      console.log(calcularAreaRectangulo(6, 3));
+
+      // Ejercicio 5: Desarrolla una función 'crearSaludo' que tome un nombre como argumento
+      // y retorne un saludo personalizado usando un template literal.
+      const crearSaludo = (name) => {
+        return `Dan Farrik! ${name}`;
+      };
+      console.log(crearSaludo("Mando"));
+
+      // Ejercicio 6: Diseña una función 'convertirCelsiusAFahrenheit' que tome una
+      // temperatura en Celsius y la convierta a Fahrenheit.
+      const convertirCelsiusAFahrenheit = (celsius) => {
+        const fahrenheit = (celsius * 9) / 5 + 32;
+        return `${celsius} grados Celsius, son ${fahrenheit} grados Fahrenheit`;
+      };
+      console.log(convertirCelsiusAFahrenheit(25));
+
+      // Ejercicio 7: Crea una función 'esPar' que tome un número como argumento y
+      // retorne si es par o no.
+      const esPar = (number) => {
+        if (number % 2 === 0) {
+          return "Es par";
+        } else return "Es impar";
+      };
+      console.log(esPar(7));
+      console.log(esPar(12));
+
+      // Ejercicio 8: Elabora una función 'encontrarMaximo' que tome dos números como
+      // argumentos y retorne el mayor.
+      const encontrarMaximo = (num1, num2) => {
+        if (num1 > num2) {
+          return num1;
+        } else return num2;
+      };
+      console.log(encontrarMaximo(1, 2));
+      console.log(encontrarMaximo(5, 3));
+
+      // Ejercicio 9: Desarrolla una función 'calcularPromedio' que tome tres números como
+      // argumentos y retorne su promedio.
+      const calcularPromedio = (num1, num2, num3) => {
+        return (num1 + num2 + num3) / 3;
+      };
+      console.log(calcularPromedio(1, 2, 3));
+
+      // Ejercicio 10: Crea una función 'generarDireccion' que tome calle, número, código postal y
+      // ciudad como argumentos y los combine en una dirección completa usando un template literal.
+      const generarDireccion = (calle, numero, cp, ciudad) => {
+        return `Dirección completa: C/${calle}, Número: ${numero}, Código Postal: ${cp}, ${ciudad}`;
+      };
+      console.log(generarDireccion("Iturrama", 45, 31007, "Pamplona"));
+
+      // Ejercicio 12: Elabora una función 'calcularDescuento' que tome un precio y un
+      // porcentaje de descuento como argumentos y retorne el precio final después del descuento.
+      const calcularDescuento = (precio, descuentoPorcentaje) => {
+        if (
+          precio <= 0 ||
+          descuentoPorcentaje < 0 ||
+          descuentoPorcentaje > 100
+        ) {
+          return "Valores inválidos";
+        }
+
+        const descuento = (descuentoPorcentaje / 100) * precio;
+        const precioFinal = precio - descuento;
+        return precioFinal.toFixed(2);
+      };
+      console.log(calcularDescuento(100, 21)); // Imprimirá 79
+
+      // Ejercicio 14: Crea una función 'calcularDistancia' que tome las coordenadas de dos
+      // puntos (x1, y1, x2, y2) como argumentos y retorne la distancia entre ellos.
+      const calcularDistancia = (x1, y1, x2, y2) => {
+        // Calculamos las diferencias de las coordenadas
+        const diferenciaX = x2 - x1;
+        const diferenciaY = y2 - y1;
+
+        // Elevamos las diferencias al cuadrado y las sumamos
+        const sumaCuadrados =
+          diferenciaX * diferenciaX + diferenciaY * diferenciaY;
+
+        // Calculamos la raíz cuadrada de la suma
+        const distancia = Math.sqrt(sumaCuadrados);
+        return distancia;
+      };
+      console.log(calcularDistancia(4, 7, 5, 9));
+
+      // Ejercicio 15: Diseña una función 'formatearFecha' que tome día, mes y año como
+      // argumentos y retorne la fecha en formato "dd/mm/aaaa" usando un template literal.
+      const formatearFecha = (dia, mes, anio) => {
+        return `${dia.toString().padStart(2, "0")}/${mes
+          .toString()
+          .padStart(2, "0")}/${anio}`;
+      };
+      console.log(formatearFecha(14, 10, 2024));
+
+      // Ejercicio 16: Crea una función 'esMayorDeEdad' que tome como argumento una edad y
+      // retorne "Mayor de edad" si la edad es 18 o más, o "Menor de edad" si es menor.
+      const esMayorDeEdad = (edad) => {
+        if (edad>=18) {
+          return 'Mayor de edad'
+        } else return 'Menor de edad'
+      }
+      console.log(esMayorDeEdad(18));
+      
+      // Ejercicio 17: Diseña una función 'calificarEstudiante' que tome una puntuación numérica
+      // como argumento y retorne "Aprobado" si la puntuación es 5 o más, o "Suspenso" si es menor.
+
+      // Ejercicio 18: Elabora una función 'determinarEstacion' que tome un mes del año como argumento
+      // (en formato numérico) y retorne la estación del año correspondiente en el hemisferio norte.
+
+      // Ejercicio 19: Desarrolla una función 'calcularEnvio' que tome el total de una compra como
+      // argumento y retorne "Envío gratis" si el total es 50 dólares o más, o "Envío estándar" si es menor.
+
+      // Ejercicio 20: Crea una función 'evaluarTemperatura' que tome como argumentos la temperatura actual y
+      // la temperatura deseada. Si la temperatura actual es mayor que la deseada, retorne "Enfriar". Si es menor,
+      // retorne "Calentar". Si son iguales, retorne "Temperatura ideal".
+    </script>
+  </body>
+</html>
